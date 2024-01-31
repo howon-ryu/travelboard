@@ -21,8 +21,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class apicontroller {
 
     @GetMapping("/home") // HTTP GET 요청에 대한 처리를 위한 매핑
-    public String saveForm() {
+    public String home() {
         return "home"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
+    }
+
+    @GetMapping("/boardList") // HTTP GET 요청에 대한 처리를 위한 매핑
+    public String boardList() {
+        return "boardList"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
     }
 
 

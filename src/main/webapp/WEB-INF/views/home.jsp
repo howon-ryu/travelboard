@@ -10,7 +10,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-	<title>#2_HOME</title>
+	<title>#HOME</title>
 	<link rel="stylesheet" href="${path}/assets/css/lib/jquery-ui.min.css">
 	<link rel="stylesheet" href="${path}/assets/css/lib/swiper-bundle.min.css">
 	<link rel="stylesheet" href="${path}/assets/css/setting.css">
@@ -39,7 +39,9 @@
 			<!-- 타이틀 -->
 			<h1 class="logo">
 				<a href="home.html">
-					<img src="{{ url_for('publish', path='/assets/assets_howon/image/logo_remove_title_svg.svg') }}" alt="FastAPI" style="width:150%">
+				<link href="${path}/assets/assets_howon/css/main.css" rel="stylesheet"/>
+				    <img src="${path}/assets/assets_howon/image/logo_remove_title_svg.svg" alt="title" style="width:150%">
+
 					<!-- <img src="../assets/assets_howon/image/logo_remove_title_svg.svg" alt="CHIPSTER"
 					style="width:150%"
 
@@ -71,26 +73,26 @@
 			<div class="quick_wrap">
 				<ul>
 					<li>
-						<a href="3_list_01.html">
-							<img src="../assets/image/common/icon_quick_01.png" alt="내가 가진 팩">
+						<a href="boardList">
+							<img src="${path}/assets/image/common/icon_quick_01.png" alt="내가 가진 여행지">
 							<span>내가 만든 여행지</span>
 						</a>
 					</li>
 					<li>
 						<a href="2_mylocal.html">
-							<img src="../assets/image/common/icon_quick_02.svg" alt="내 주변 찾기">
+							<img src="${path}/assets/image/common/icon_quick_02.svg" alt="내 주변 찾기">
 							<span>내 주변 찾기</span>
 						</a>
 					</li>
 					<li>
 						<a href="2_search_01.html">
-							<img src="../assets/image/common/icon_srch_bk.svg" alt="이름으로 찾기">
+							<img src="${path}/assets/image/common/icon_srch_bk.svg" alt="이름으로 찾기">
 							<span>이름으로 찾기</span>
 						</a>
 					</li>
 					<li>
 						<a href="5_studio_01.html">
-							<img src="../assets/image/common/icon_quick_04.svg" alt="내가 만들기">
+							<img src="${path}/assets/image/common/icon_quick_04.svg" alt="내가 만들기">
 							<span>내가 만들기</span>
 						</a>
 					</li>
@@ -106,10 +108,10 @@
 			</div>
 			<!--// QuickMenu -->
 
-			<!-- 새로나온팩 -->
+			<!-- 새로나온여행지 -->
 			<!-- style 수정 필요!!! 240131 -->
 			<div class="pack_slide_wrap" style = "height:210px">
-				<h2 class="tit_15">새로 나온 팩</h2>
+				<h2 class="tit_15">새로 나온 여행지</h2>
 
 				<!-- 슬라이드 -->
 				<div class="swiper">
@@ -119,7 +121,7 @@
 								<!-- 이미지영역 -->
 								<div class="img_area">
 									<figure class="img">
-										<img src="../assets/image/temp/pack_01.png" >
+										<img src="${path}/assets/image/temp/pack_01.png" >
 									</figure>
 								</div>
 								<!--// 이미지영역 -->
@@ -159,7 +161,7 @@
 								<!-- 이미지영역 -->
 								<div class="img_area">
 									<figure class="img">
-										<img src="../assets/image/temp/pack_03.png" >
+										<img src="${path}/assets/image/temp/pack_03.png" >
 									</figure>
 								</div>
 								<!--// 이미지영역 -->
@@ -179,7 +181,7 @@
 								<!-- 이미지영역 -->
 								<div class="img_area">
 									<figure class="img">
-										<img src="../assets/image/temp/pack_04.png" >
+										<img src="${path}/assets/image/temp/pack_04.png" >
 									</figure>
 								</div>
 								<!--// 이미지영역 -->
@@ -199,7 +201,7 @@
 								<!-- 이미지영역 -->
 								<div class="img_area">
 									<figure class="img">
-										<img src="../assets/image/temp/pack_04.png" >
+										<img src="${path}/assets/image/temp/pack_04.png" >
 									</figure>
 								</div>
 								<!--// 이미지영역 -->
@@ -219,7 +221,7 @@
 								<!-- 이미지영역 -->
 								<div class="img_area">
 									<figure class="img">
-										<img src="../assets/image/temp/pack_03.png" >
+										<img src="${path}/assets/image/temp/pack_03.png" >
 									</figure>
 								</div>
 								<!--// 이미지영역 -->
@@ -239,7 +241,7 @@
 								<!-- 이미지영역 -->
 								<div class="img_area">
 									<figure class="img">
-										<img src="../assets/image/temp/pack_04.png" >
+										<img src="${path}/assets/image/temp/pack_04.png" >
 									</figure>
 								</div>
 								<!--// 이미지영역 -->
@@ -259,7 +261,7 @@
 								<!-- 이미지영역 -->
 								<div class="img_area">
 									<figure class="img">
-										<img src="../assets/image/temp/pack_03.png" >
+										<img src="${path}/assets/image/temp/pack_03.png" >
 									</figure>
 								</div>
 								<!--// 이미지영역 -->
@@ -278,11 +280,11 @@
 				</div>
 				<!--// 슬라이드 -->
 			</div>
-			<!--// 새로나온팩 -->
+			<!--// 새로나온여행지 -->
 
-			<!-- 인기팩 -->
+			<!-- 인기여행지 -->
 			<div class="pack_popular">
-				<h2 class="tit_15">인기 팩</h2>
+				<h2 class="tit_15">인기 여행지</h2>
 
 				<!-- 목록:리스트형 -->
 				<ul class="pack_li">
@@ -408,7 +410,7 @@
 				</div>
 				<!--// 더보기 -->
 			</div>
-			<!--// 인기팩 -->
+			<!--// 인기여행지 -->
 		</div>
 	</div>
 	<!--// #CONTENTS -->
