@@ -11,7 +11,8 @@ $(document).ready(function(){
 	$('.btm_pop').length && bmtPopup(); //바닥팝업
 	$('.full_pop').length && fullPopup(); //전체팝업
 	$('.user_cnt').length && userCnt(); //참여수제한 체크영역
-	console.log("!!!@@!",$('.btm_pop'))
+
+	console.log("document init")
 	if($('.user_wrap input[id="form_chk"]').is(":checked") == false){
 		$('.user_cnt').addClass('inactv');
 		$('.user_cnt input[id="user_inpt"]').attr("disabled",true).attr('placeholder','무제한');

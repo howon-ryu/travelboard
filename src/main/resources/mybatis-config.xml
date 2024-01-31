@@ -3,6 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.project.travelboard.dto.BoardDTO" alias="board"></typeAlias>
+        <typeAlias type="com.project.travelboard.dto.TravelBoardDTO" alias="travelboard"></typeAlias>
+        <typeAlias type="com.project.travelboard.dto.SpotDTO" alias="spot"></typeAlias>
     </typeAliases>
 </configuration>

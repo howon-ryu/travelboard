@@ -439,4 +439,11 @@
 </div>
 <!--// #WRAP -->
 </body>
+
+<script type="text/javascript" src="${path}/assets/js/home_init.js"></script>
+
+
+
+
+
 </html>
