@@ -11,4 +11,14 @@
     <select id="spotFindAll" resultType="spot">
         select * from travel_spot order by id desc
     </select>
+
+
+    <insert id = "joinUser" parameterType="joinUser">
+        insert into user(login_id, login_password, nickname)
+        values(#{id}, #{password}, #{nickname})
+
+
+    </insert>
+
+
 </mapper>

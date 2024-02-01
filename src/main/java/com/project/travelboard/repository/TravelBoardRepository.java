@@ -1,5 +1,6 @@
 package com.project.travelboard.repository;
 
+import com.project.travelboard.dto.JoinUserDTO;
 import com.project.travelboard.dto.SpotDTO;
 import com.project.travelboard.dto.TravelBoardDTO;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,11 @@ public class TravelBoardRepository {
 
     public List<SpotDTO> spotFindAll() {
         return sql.selectList("TravelBoard.spotFindAll");
+
+    }
+
+    public void joinUser(JoinUserDTO joinuserDTO) {
+        sql.insert("TravelBoard.joinUser",joinuserDTO);
 
     }
 }

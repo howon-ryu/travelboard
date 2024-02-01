@@ -56,7 +56,7 @@
 			<!-- 버튼 -->
 			<div class="btn_area">
 				<div class="btn_head btn_my">
-					<a href="6_mypage_01.html">
+					<a href="mypage">
 						<span class="blind">마이페이지</span>
 					</a>
 				</div>
@@ -419,7 +419,7 @@
 	<aside class="tab_bar main">
 		<div class="cotn">
 			<div class="tab_btn home on"><!-- 활성화시 class="on" 추가 -->
-				<a href="1_home.html">
+				<a href="home">
 					<span class="blind">홈</span>
 				</a>
 			</div>

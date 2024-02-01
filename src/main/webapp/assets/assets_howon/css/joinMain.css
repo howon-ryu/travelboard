@@ -1,0 +1,679 @@
+@charset "utf-8";
+:root {
+  --main-color01: #00cc66;
+  --main-color02: #612af5;
+  --main-color01_1: #009966;
+}
+/* 로그인진입전 첫화면 cu10_a.html*/
+.sg_app{
+  display: none;
+}
+.mb_exp .sg_app{
+  display: none;
+}
+#cu10_a .sg_app_inblok{
+  display: none;
+
+}
+#cu10_a .chst_app_inblok{
+  display: inline-block;
+
+}
+#cu10_a {
+  height: 100%;
+  position: relative;
+  background-image: url(../images/cu10_b_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: bottom right;
+  animation: mymove 60s infinite;
+}
+.cu10_a_wrap{
+  position:relative;
+  z-index: 2;
+}
+#cu10_a video{
+  position: fixed; right: 0; bottom: 0;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto; z-index: 1;
+  background: url(polina.jpg) no-repeat;
+  background-size: cover;
+}
+#cu10_a .mb_title {
+  margin-bottom: 25px;
+}
+#cu10_a .mb_title h3 {
+  line-height: 1.5rem;
+}
+@keyframes mymove {
+  50% {
+    background-position: top left;
+    background-size: 130%;
+  }
+}
+/* 칩스터 세팅용 임시 css */
+#cr10 {
+    background-image: url(../images/ct10_bg.jpg);
+}
+#cl10,#cs10{
+    background-image: url(../images/ct10_bg02.jpg);
+    /* background: linear-gradient(#cecece, #f3f3f3); */
+}
+.info_btn a.ct10_my_btn {
+    background-image: url(../images/ct10_info_btn.png);
+}
+.ct10_menu li.ct10_m03::after,
+.ct10_menu .ct10_m04,
+.chip_slide-slider.soundgram,
+.ct10_menu.soundgram,
+.cb10_bt_wrap .cb10_m02{
+    display: none;
+}
+.ct10_menu .ct10_m01,
+.ct10_menu .ct10_m02,
+.chip_slide-slider.chipster,
+.ct10_menu .ct10_m03, .ct10_menu .ct10_m02::after{
+    display: block;
+}
+.ct10_menu .ct10_m01 a.on,
+.ct10_menu .ct10_m01 a {
+    background-image: url(../images/ct10_hv_btn_off.png);
+}
+.ct10_menu .ct10_m03 a.on,
+.ct10_menu .ct10_m03 a {
+    background-image: url(../images/ct10_nfc_btn_on.png);
+}
+.ct10_menu .ct10_m02 a,
+.ct10_menu .ct10_m02 a.on {
+    background-image: url(../images/ct10_main_btn_on.png);
+}
+.cb10_menu li a, .ct10_menu li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    opacity: 0.4;
+}
+/* cb10 하단메뉴 */
+#cm11 .cb10_bt_wrap,
+#bi11 .cb10_bt_wrap,
+#ho11 .cb10_bt_wrap {
+    position: absolute;
+    bottom: -1px;
+    width: 100%;
+    z-index: 100;
+}
+#cm11 .cb10_menu,
+#bi11 .cb10_menu,
+#ho11 .cb10_menu{
+  display: flex;
+  width: 100%;
+height: 60px;
+justify-content: space-between;
+padding: 10px 15px;
+box-sizing: border-box;
+}
+.cb10_menu .cb10_m01 a {
+    background-image: url(../images/cb10_chip_btn.png);
+}
+.cb10_menu .cb10_m02 a {
+    background-image: url(../images/cb10_rank_btn.png);
+}
+.cb10_menu .cb10_m03 a {
+    background-image: url(../images/cb10_binder_btn.png);
+}
+.ct10_menu li::after {
+    background-color:rgba(0, 0, 0, 0.1);
+    width:2px;
+}
+.ct10_title img {
+    width: 165px;
+}
+.slick-counter,
+.slick-counter .current {
+    color: #000;
+  }
+  .chip_slide-wrap
+  .chip_slide-slider
+  .slider-item
+  > .chip_slide-desc-list
+  > .chip_slide-desc {
+  color: #49ff9a;
+  }
+  .cb10_menu {
+    /* 하단메뉴 아직은 필요 없어 가려둠 */
+    display: none;
+    background-image: url(../images/cb10_bg.jpg);
+    background-size: cover;
+}
+.cb10_menu .cb10_m01 a {
+    background-image: url(../images/cb10_home_btn.png);
+}
+.con_option {
+    display: none;
+}
+/* 슬라이드 위치 잡기 */
+.chip_slide-wrap .chip_slide-slider .slick-slide .slider-item .img-box > img {
+    transform-origin: 50% 40%;
+    transform: scale(0.82);
+  }
+.chip_slide-wrap .chip_slide-slider .slick-center .slider-item .img-box > img {
+      transform: scale(1);
+  }
+.chip_slide-wrap .chip_slide-slider {
+    padding: 30px 0 0;
+  }
+.chip_slide-wrap .chip_slide-slider .slick-list {
+    height: 565px !important;
+}
+.chip_slide-wrap .chip_slide-slider .slider-item {
+    padding: 30px 0 0;
+}
+.chip_slide-wrap .chip_slide-slider .slider-item > .chip_slide-desc-list {
+    margin-top: -90px;
+    padding:0;
+}
+.chip_slide-wrap {
+    top: 55%;
+}
+.chip_get_li {
+    width: 31%;
+    height: 186px;
+    overflow: hidden;
+    border-radius: 14px;
+}
+/* 카드목록 전체 높이조절 */
+.chip_get_scr, .chip_get_wrap {
+    height: 120%;
+}
+.chip_recent_scr, .chip_get_scr {
+    margin: 20px auto;
+  }
+/* SG웹앱과 다른부분 수정 */
+.ct10_user{
+  display: none;
+}
+/* =================================
+        bi11 포토카드 바인더
+==================================== */
+.bi11_content {
+  width: calc(100% - 30px);
+  padding: 15px;
+}
+.bi11_content .detail_top {
+  padding-bottom: 20px;
+}
+.bi11_content .detail_top .detail {
+  display: flex;
+  justify-content: space-between;
+}
+.bi11_content .detail_top .detail .a {
+  font-size: 0.8rem;
+  color: #353535;
+}
+.bi11_content .detail_top .detail .a strong {
+  font-size: 0.85rem;
+}
+.bi11_content .detail_top .detail .a small,
+.bi11_content .detail_top .detail .b {
+  font-size: 0.75rem;
+}
+.bi11_content .detail_top .graph {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  margin: 10px 0;
+}
+.bi11_content .detail_top .graph .bar {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background-color: var(--main-color01);
+  text-align: right;
+}
+.bi11_content .detail_top .graph .num {
+  display: flex;
+  justify-content: space-between;
+}
+.bi11_content .detail_top .graph .num b {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 5px;
+}
+.bi11_content .detail_top .graph .bar i {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--main-color01_1);
+  font-style: normal;
+  margin-top: 5px;
+  background-color: #f0f0f0;
+}
+.bi11_content .detail_top .graph.allca .num .b {
+  color: var(--main-color02);
+  font-weight: 600;
+}
+.bi11_content .detail_top .graph.allca .bar {
+  width: 100% !important;
+  text-align: center;
+  background-color: var(--main-color02);
+}
+.bi11_content .detail_top .graph.allca .bar i {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  color: transparent;
+  display: inline-block;
+  width: 30px;
+  height: 16.52px;
+  background-size: cover;
+  vertical-align: middle;
+  background-image: url(../images/rk10_allca_on.png);
+}
+.bi11_content .binder_li_wrap {
+  margin-bottom: 200px;
+}
+.bi11_content .binder_li_wrap ul {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+.bi11_content .binder_li_wrap .card {
+  position: relative;
+  width: 32%;
+}
+.bi11_content .binder_li_wrap .card img {
+  box-sizing: border-box;
+  width: 100%;
+  /* 221115 높이 맞추기 위해 추가 */
+  height: 18vh;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.bi11_content .binder_li_wrap .card.more i {
+  display: inline-block;
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  font-size: 0.8rem;
+  color: #fff;
+  font-style: normal;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  background-color: var(--main-color01);
+  border-radius: 50%;
+}
+/* =================================
+        bi11_detail 바인더 팝업
+==================================== */
+#bi11_detail{
+  position:relative;
+  width: 100%;
+  height: 100%;
+}
+#bi11_detail .close_btn {
+  position:absolute;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-image: url(../images/cu01_btn_close.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+  margin: 22px 12px 12px;
+}
+#bi11_detail .content{
+  position:relative;
+  min-height: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  webkit-overflow-scrolling: touch;
+}
+#bi11_detail .content_wrap{
+ height: 100%;
+ overflow-y: scroll;
+ background-color: #fff;
+}
+#bi11_detail .content_bg{
+  position: sticky;
+  top: -40%;
+  min-height: 60%;
+  background-repeat: no-repeat;
+  background-size:115%;
+  background-position: top;
+  background-attachment: fixed;
+  border-left: 15px solid #fff;
+  border-right: 15px solid #fff;
+}
+#bi11_detail .content_tit{
+  position: sticky;
+  left: 0;
+  top: 200px;
+  width: 100%;
+  background-color: #fff;
+}
+#bi11_detail .card_detail{
+  padding: 16px 15px;
+}
+#bi11_detail .card_tit{
+  position:relative;
+}
+#bi11_detail .card_tit .card_img{
+  display: inline-block;
+  position: absolute;
+  top:-30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width:60px;
+  height: 60px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#bi11_detail .card_tit h2{
+  font-weight: 600;
+  padding: 14px 15px;
+}
+#bi11_detail .card_detail{
+  background-color: #ebebeb;
+  box-shadow: inset 1px 13px 9px 0px rgb(70 70 70 / 5%);
+  padding-bottom:150px;
+}
+#bi11_detail .card_detail p{
+  color:#353535;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+#bi11_detail .card_detail i{
+  display: block;
+  font-size: 0.8rem;
+  color:#888;
+}
+#bi11_detail .card_bt{
+  padding: 20px 15px;
+}
+
+/* =============================
+        회원관련페이
+================================ */
+.container_popup .si_toolbar {
+    background-color: #fff;
+}
+.container_popup .si_toolbar h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+#cu10_g .si_toolbar .close_btn{
+  background-image: url(../images/cu01_btn_close.png);
+}
+#cu10_g .si_toolbar img.white{
+  display: none;
+}
+.cu10 .btn_boraone, .cu10 .btn_bora {
+    background: var(--main-color01);
+}
+.btn_changepass {
+    background-color: var(--main-color01);
+}
+.cu10 .nick .input_style {
+    border-bottom: 1px solid var(--main-color01);
+}
+#cu10_g .si_logo_area{
+  position:relative;
+}
+#cu10_g .si_logo_area::after{
+  position:absolute;
+  top:40px;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width:193px;
+  height: 22px;
+  background: url(../images/in10_img_logo02.png) no-repeat;
+  background-size: cover;
+}
+#cu10_g .si_logo_area img{
+  display: none;
+}
+#cu10_g .mb_setting_link i {
+    color: var(--main-color01);
+  }
+#cu10_g .inner_snsbtn_area{
+  display: none;
+}
+.mb_profile li.wallet{
+  display: none;
+}
+.cu10 #join, .cu10 .btn_bora {
+    border: thin solid var(--main-color01);
+}
+.cu10 .alert, .cu10 .mb_title h4 strong, .cu10 .mb_content p strong {
+    color: var(--main-color01);
+}
+.cu10 #join {
+    color: var(--main-color01);
+  }
+.container_popup .cu10 #join i {
+  background-image: url(../images/cu10_ic_join.png);
+}
+#cu10_h .mb_title, #cu10_c .mb_title, #cu10_f .mb_title, #cu10_b .mb_title {
+    background-image: url(../images/bi11_chipsters_slider01.png);
+}
+/* ========================================
+            칩스터  MAP cm11
+=========================================== */
+#cm11 {
+  position: relative;
+  height: 100%;
+}
+#cm11::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(transparent, rgb(0, 0, 0, 0.4));
+}
+#cm11 .si_toolbar h2 img {
+  height: 30px;
+}
+.cm11_map_bg {
+  position: absolute;
+  /* top: 0; */
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../images/cm11_map_bg.jpg) no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+.cm11_map_bg i {
+  position: absolute;
+  display: block;
+  width: 35px;
+  height: 52px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.cm11_map_bg .mark_green {
+  background-image: url(../images/cm11_map_mark01.png);
+}
+.cm11_map_bg .mark_purple {
+  background-image: url(../images/cm11_map_mark02.png);
+}
+.cm11_photocard .top_slide_tit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cm11_photocard .top_slide_tit img {
+  width: 55px;
+  height: 55px;
+  border: var(--main-color01_1) solid 3px;
+  border-radius: 50%;
+}
+.cm11_photocard .top_slide_tit .c,
+.cm11_photocard .top_slide_tit .a {
+  flex-grow: 1;
+  min-width: 40%;
+}
+.cm11_photocard .top_slide_tit .c {
+  padding-left: 10px;
+}
+.cm11_photocard .top_slide_tit select {
+  position: relative;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 0.45rem 0rem;
+  background: url(../images/cm11_select_arrow.png) no-repeat 92% 50%/13px auto;
+}
+#cm11 .content {
+  position: relative;
+}
+.cm11_top_btn {
+  position: absolute;
+  left: 0;
+  /* top: 44px; */
+  display: inline-block;
+}
+.cm11_top_btn button {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background-image: url(../images/cm11_btn_top.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* margin: 12px 0 0 15px; */
+  margin: 17px 0 0 5px;
+}
+.cb10_menu.cm11_bt {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  background: none;
+}
+.cb10_menu.cm11_bt a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-image: url(../images/cm11_btn_marker.png);
+  background-repeat: no-repeat;
+}
+/* ========================================
+          칩스터  패키지 홈 ho11
+=========================================== */
+#ho11,
+.ho11_map_bg {
+  position: relative;
+  width:100%;
+  height: 100%;
+}
+.cover_cd_home {
+    background: transparent url(../images/ho11_back_btn.png);
+    position: absolute;
+    right: 0;
+    margin: 22px 12px 12px;
+    z-index: 1;
+}
+.cover_cd_home, .cd_home i {
+    display: inline-block;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+#ho11 .cover_img1 {
+  position: absolute;
+  top: 0;
+  background-image: url(../images/ho11_cover_img01.png);
+  background-color: #90b9a9;
+  /* background-size: contain; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-position-y: 60%; */
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+}
+#ho11 .cover_img2,
+#ho11 .cover_img3 {
+  position: absolute;
+  right: 22px;
+}
+#ho11 .cover_img2 {
+  top: 20%;
+  text-align: right;
+}
+#ho11 .cover_img3 {
+  bottom: 20%;
+}
+#ho11 .cover_img2 img {
+  width: 35%;
+}
+#ho11 .cover_img3 img {
+  width: 28px;
+}
+.ho11_bt .cb10_menu {
+  position: relative;
+}
+.ho11_bt .cb10_menu .ho11_m02::before,
+.ho11_bt .cb10_menu::before {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.ho11_bt .cb10_menu::before {
+  top: -32px;
+  width: 132px;
+  height: 33.3333px;
+  background-image: url(../images/ho11_bt_btn02_home_bg.png);
+  z-index: -1;
+}
+.ho11_bt .cb10_menu .ho11_m02::before {
+  top: -22px;
+  width: 81.6666px;
+  height: 78px;
+  background-image: url(../images/ho11_bt_btn02_home.png);
+}
+.cb10_menu .ho11_m01 a {
+  background-image: url(../images/ho11_bt_btn01.png);
+}
+.cb10_menu .ho11_m01.on a {
+  background-image: url(../images/ho11_bt_btn01_on.png);
+}
+.cb10_menu .ho11_m02 a {
+  background-image: url(../images/ho11_bt_btn02.png);
+}
+.ho11_bt .cb10_menu .ho11_m02 a {
+  position: relative;
+  opacity: 0;
+}
+.cb10_menu .ho11_m02.on a {
+  background-image: url(../images/ho11_bt_btn02_on.png);
+}
+.cb10_menu .ho11_m03 a {
+  background-image: url(../images/ho11_bt_btn03.png);
+}
+.cb10_menu .ho11_m03.on a {
+  background-image: url(../images/ho11_bt_btn03_on.png);
+}

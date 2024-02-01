@@ -1,5 +1,6 @@
 package com.project.travelboard.service;
 
+import com.project.travelboard.dto.JoinUserDTO;
 import com.project.travelboard.dto.SpotDTO;
 import com.project.travelboard.dto.TravelBoardDTO;
 import com.project.travelboard.repository.TravelBoardRepository;
@@ -18,5 +19,13 @@ public class TravelBoardService {
 //    }
     public List<SpotDTO> spotFindAll() {
         return travelBoardRepository.spotFindAll();
+    }
+
+    public void joinUser(JoinUserDTO joinuserDTO) {
+
+        travelBoardRepository.joinUser(joinuserDTO);
+
+
+
     }
 }
