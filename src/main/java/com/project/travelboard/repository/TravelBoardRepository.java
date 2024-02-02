@@ -1,8 +1,8 @@
 package com.project.travelboard.repository;
 
 import com.project.travelboard.dto.JoinUserDTO;
+import com.project.travelboard.dto.LoginUserDTO;
 import com.project.travelboard.dto.SpotDTO;
-import com.project.travelboard.dto.TravelBoardDTO;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -29,4 +29,10 @@ public class TravelBoardRepository {
         sql.insert("TravelBoard.joinUser",joinuserDTO);
 
     }
+    public LoginUserDTO loginUser(LoginUserDTO loginuserDTO) {
+        return sql.selectOne("TravelBoard.loginUser", loginuserDTO);
+    }
+
+
+
 }

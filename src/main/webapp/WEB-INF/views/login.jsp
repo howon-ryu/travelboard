@@ -37,7 +37,7 @@
     <h2 class="sg_app">회원 로그인</h2>
     <h2 class="chst_app">여행지 문 열기</h2>
     <h4 class="sg_app">사운드그램 계정으로 로그인해 주세요.</h4>
-    <h4 class="chst_app">칩칩이 포탈문 열기 암호를 대시오~</h4>
+    <!--<h4 class="chst_app">칩칩이 포탈문 열기 암호를 대시오~</h4>-->
   </div>
   <div class="mb_content">
     <div class="mb_form">
@@ -611,6 +611,50 @@
 
     });
 
+
+    $(".btn_bora").on("click", function(){
+            console.log("btn click")
+            const id = $("#loginid").val()
+            const password = $("#loginpassword").val()
+
+
+            let dataValue = {
+                "id" : id,
+                "password" : password
+
+            }
+            console.log(dataValue)
+
+             $.ajax({
+                  type : "POST",
+
+                  url : "http://localhost:8080/travelboard/loginUser",
+                  data : JSON.stringify(dataValue),
+                  contentType:"application/json",
+                  dataType: "json",
+                  success: function(data) {
+                        console.log("data",data)
+                        alert("로그인이 완료되었습니다.")
+                        location.href = "home";
+
+
+                    },
+
+
+                  error: function(xhr, textStatus, errorThrown) {
+                  alert("로그인에 실패하였습니다.")
+                    console.log("XHR status: " + xhr.status);
+                        console.log("Text status: " + textStatus);
+                        console.log("Error thrown: " + errorThrown);
+                        console.log("Response text: " + xhr.responseText);
+                  }
+                });
+
+
+
+         });
+
+/*
     $(".btn_bora").on("click", function(){
         console.log("btn click")
         const id = $("#id").val()
@@ -653,7 +697,7 @@
 
      });
 
-
+*/
 
 
 </script>

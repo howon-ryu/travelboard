@@ -9,6 +9,7 @@ package com.project.travelboard.controller;
 
 import com.project.travelboard.dto.HelloDTO;
 import com.project.travelboard.dto.JoinUserDTO;
+import com.project.travelboard.dto.LoginUserDTO;
 import com.project.travelboard.dto.SpotDTO;
 import com.project.travelboard.service.TravelBoardService;
 import lombok.RequiredArgsConstructor;
@@ -86,6 +87,21 @@ public class apicontroller {
         travelBoardService.joinUser(joinuserDTO);
 
         return ResponseEntity.ok().body("{\"result\": \"" + tempInput + "\"}");
+    }
+
+
+    @PostMapping("/loginUser")
+//    @RequestBody
+    public ResponseEntity loginUser(@RequestBody() LoginUserDTO loginuserDTO){
+        String tempId = loginuserDTO.getId();
+        System.out.println("id"+ tempId);
+        int loginResult = travelBoardService.loginUser(loginuserDTO);
+
+        if (loginResult == 1) {
+            return ResponseEntity.ok().body("{\"result\": \"success\"}");
+        } else {
+            return ResponseEntity.ok().body("{\"result\": \"failure\"}");
+        }
     }
 
 

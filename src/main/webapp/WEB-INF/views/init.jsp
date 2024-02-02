@@ -54,7 +54,7 @@
   <!-- 221031 배경 비디오로 넣기 test  end-->
   <div class="cu10_a_wrap">
     <div class="mb_title sg_app">
-      <h2>****<span>의</span> TravelBoard</h2>
+      <h2>TravelBoard</h2>
       <h3>여행을 즐기는 새로운 방법</h3>
     </div>
     <div class="mb_title chst_app">
@@ -62,7 +62,7 @@
       <h3>나에게만 보이는 여행지의 숨겨진 카드,<br> 보물카드를 찾으러 가볼까요?</h3>
     </div>
     <div class="mb_exp">
-      <img id="chst_icon" src="../images/cu10_img_cc.png" alt="">
+      <img id="chst_icon" src="${path}/assets/image/login/ktds_ci.png" alt="">
       <!-- 221031  class 수정 완료 했습니다. 운아 -->
       <!--
         <p class="sg_app_inblok">3초면 칩디스크를 경험할 수 있어요!</p>
@@ -72,17 +72,17 @@
     <div class="mb_content">
       <ul class="mb_sns">
         <li id="li-kakao" onclick="javascript:_Snslogin('kakao');">
-          <a id="kakao" href="#" class="btn_login">
+          <a id="kakao" href="#" class="btn_login not_hover">
             <img src="${path}/assets/image/login/cu10_ic_kakao.png" alt=""><span class="kakao">카카오로 로그인</span>
           </a>
         </li>
         <li id="li-apple" style="display: none;">
-          <a id="apple" href="javascript:_Snslogin('apple');" class="btn_login">
+          <a id="apple" href="javascript:_Snslogin('apple');" class="btn_login not_hover">
             <img src="${path}/assets/image/login/cu10_ic_apple.png" alt=""><span class="apple">Apple로 로그인</span>
           </a>
         </li>
         <li id="naverIdLogin" onclick="javascript:_Snslogin('naver');">
-          <a id="naverIdLogin_loginButton" href="#" class="btn_login">
+          <a id="naverIdLogin_loginButton" href="#" class="btn_login not_hover">
             <img src="${path}/assets/image/login/cu10_ic_naver.png" alt=""><span class="naver">네이버로 로그인</span>
           </a>
         </li>

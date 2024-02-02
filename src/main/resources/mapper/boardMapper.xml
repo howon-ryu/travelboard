@@ -20,5 +20,12 @@
 
     </insert>
 
+    <select id =  "loginUser" parameterType="loginUser" resultType="loginUser">
+        select * from user where login_id =#{id} and login_password = #{password}
+
+    </select>
+
+
+
 
 </mapper>

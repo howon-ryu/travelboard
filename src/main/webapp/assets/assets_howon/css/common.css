@@ -1388,3 +1388,7 @@ input::-webkit-input-placeholder {
     padding: 46px 12px 5px;
 }
 }
+
+.not_hover{
+    pointer-events: none;
+}
