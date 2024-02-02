@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -69,8 +70,8 @@
 							<p class="label">ID</p>
 							<div class="cotn">
 								<div class="pw_group">
-									<p class="txt">hjtest0403</p>
-									<a href="6_mypage_02.html" class="btn_pw">비밀번호 변경</a>
+									<p class="txt"  id = "login_id">hjtest0403</p>
+									<a href="changePassword" class="btn_pw">비밀번호 변경</a>
 								</div>
 							</div>
 						</div>
@@ -78,8 +79,8 @@
 							<p class="label">닉네임</p>
 							<div class="cotn">
 								<div class="nick_wrap">
-									<input type="text" value="헤이칩스">
-									<button type="button"></button>
+									<input type="text" name = "nickname" id = "nickname" value="헤이칩스">
+									<button type="button" id = "changeNickname"></button>
 								</div>
 							</div>
 						</div>
@@ -93,7 +94,7 @@
 							<p class="label">wallet</p>
 							<div class="cotn">
 								<div class="btn_wrap">
-									<a href="#n" class="btn color_type4">Wallet으로 연결하기</a>
+									<a href="#n" class="btn color_type4 not_hover">Wallet으로 연결하기</a>
 								</div>
 							</div>
 						</div>
@@ -173,4 +174,120 @@
 </section>
 <!--// 탈퇴 팝업 -->
 </body>
+
+<script>
+
+
+	$(document).ready(function(){
+
+		var cookieValue = getCookieValue("id");
+		console.log("내가 만든 쿠키~", cookieValue);
+		getUserInfo()
+
+
+
+
+	});
+
+	const getCookieValue = (name) => (
+			document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+	)
+
+	function getUserInfo(){
+		let userTableId = getCookieValue("id")
+
+		// let dataValue = {
+		// 	"id" : temp_id
+		// }
+
+
+		$.ajax({
+			type: "POST",
+			url: "http://localhost:8080/travelboard/getUserInfo",
+			data: JSON.stringify({ "id": userTableId }),
+			contentType: "application/json",
+			dataType: "json",
+			success: function(data) {
+				console.log("data", data);
+				setUserInfo(data);
+			},
+			error: function(xhr, textStatus, errorThrown) {
+				alert("유저 정보 가져오기에 실패하였습니다.");
+				console.log("XHR status: " + xhr.status);
+				console.log("Text status: " + textStatus);
+				console.log("Error thrown: " + errorThrown);
+				console.log("Response text: " + xhr.responseText);
+			}
+		});
+
+
+	}
+
+	function setUserInfo(prop){
+
+		document.getElementById("login_id").innerText = prop.login_id;
+
+		$('input[name=nickname]')[0].value = prop.nickname;
+
+	}
+	$(".close").on("click", function(){
+		location.href = "home";
+
+
+
+	});
+
+	$("#changeNickname").on("click", function(){
+
+
+		const nick = $("#nickname").val()
+		let dataValue = {
+			"id" : getCookieValue("id"),
+			"nickname" : nick
+		}
+		console.log(dataValue)
+
+		$.ajax({
+			type : "POST",
+
+			url : "http://localhost:8080/travelboard/changeNickname",
+			data : JSON.stringify(dataValue),
+			contentType:"application/json",
+			dataType: "json",
+			success: function(data) {
+				console.log("data",data)
+				alert("닉네임이 변경되었습니다.")
+				location.href = "mypage";
+
+
+			},
+
+
+			error: function(xhr, textStatus, errorThrown) {
+				alert("닉네임 변경에 실패하였습니다.")
+				console.log("XHR status: " + xhr.status);
+				console.log("Text status: " + textStatus);
+				console.log("Error thrown: " + errorThrown);
+				console.log("Response text: " + xhr.responseText);
+			}
+		});
+
+
+
+
+	});
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
 </html>

@@ -9,7 +9,22 @@
 <!--    </insert>-->
 
     <select id="spotFindAll" resultType="spot">
-        select * from travel_spot order by id desc
+        SELECT
+            travel_spot.spot_name,
+            travel_spot.like_cnt,
+            user.nickname,
+            travel_spot.img_name,
+            COUNT(comment.id) AS commentCount,
+            map.road_name
+        FROM
+            travel_spot
+                LEFT JOIN user ON travel_spot.user_id = user.id
+                LEFT JOIN map ON travel_spot.map_id = map.id
+                LEFT JOIN comment ON travel_spot.id = comment.spot_id
+        GROUP BY
+            travel_spot.id
+        order by
+            travel_spot.like_cnt desc
     </select>
 
 
@@ -21,9 +36,25 @@
     </insert>
 
     <select id =  "loginUser" parameterType="loginUser" resultType="loginUser">
-        select * from user where login_id =#{id} and login_password = #{password}
+        select * from user where login_id =#{login_id} and login_password = #{login_password}
 
     </select>
+
+
+    <select id = "getUserInfo" parameterType="Integer" resultType="user">
+        select * from user where id = #{id}
+
+    </select>
+
+    <update id = "changePassword" parameterType="changePassword">
+        update user set login_password=#{changingPassword}where id=#{userId}
+
+    </update>
+
+    <update id = "changeNickname" parameterType="user">
+        update user set nickname=#{nickname}where id=#{id}
+
+    </update>
 
 
 

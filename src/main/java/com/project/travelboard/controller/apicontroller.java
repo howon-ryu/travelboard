@@ -7,10 +7,7 @@ package com.project.travelboard.controller;
 //import com.project.travelboard.service.BoardService;
 
 
-import com.project.travelboard.dto.HelloDTO;
-import com.project.travelboard.dto.JoinUserDTO;
-import com.project.travelboard.dto.LoginUserDTO;
-import com.project.travelboard.dto.SpotDTO;
+import com.project.travelboard.dto.*;
 import com.project.travelboard.service.TravelBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +36,10 @@ public class apicontroller {
     @GetMapping("/mypage") // HTTP GET 요청에 대한 처리를 위한 매핑
     public String mypage() {
         return "mypage"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
+    }
+    @GetMapping("/changePassword") // HTTP GET 요청에 대한 처리를 위한 매핑
+    public String changePassword() {
+        return "changePassword"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
     }
     @GetMapping("/login") // HTTP GET 요청에 대한 처리를 위한 매핑
     public String login() {
@@ -95,15 +96,46 @@ public class apicontroller {
     public ResponseEntity loginUser(@RequestBody() LoginUserDTO loginuserDTO){
         String tempId = loginuserDTO.getId();
         System.out.println("id"+ tempId);
-        int loginResult = travelBoardService.loginUser(loginuserDTO);
+        LoginUserDTO loginResult = travelBoardService.loginUser(loginuserDTO);
 
-        if (loginResult == 1) {
-            return ResponseEntity.ok().body("{\"result\": \"success\"}");
-        } else {
-            return ResponseEntity.ok().body("{\"result\": \"failure\"}");
-        }
+
+        return ResponseEntity.ok().body(loginResult);
+
     }
 
+    @PostMapping("/getUserInfo")
+    @ResponseBody
+    public UserDTO getUserInfo(@RequestBody() Map<String, String> data){
+
+        String id = data.get("id");
+        System.out.println("id"+id);
+        UserDTO userDTO =  travelBoardService.getUserInfo(Integer.valueOf(id));
+
+        return userDTO;
+
+
+    }
+
+
+    @PostMapping("/changePassword")
+    public ResponseEntity changePassword(@RequestBody ChangePasswordDTO changePasswordDTO){
+        String temppw = changePasswordDTO.getChangingPassword();
+        System.out.println("temppw"+ temppw);
+        travelBoardService.changePassword(changePasswordDTO);
+        return ResponseEntity.ok().body(changePasswordDTO);
+    }
+    @PostMapping("/changeNickname")
+
+    public ResponseEntity changeNickname(@RequestBody() UserDTO userDTO){
+
+        String nick = userDTO.getNickname();
+        System.out.println("nick"+nick);
+        travelBoardService.changeNickname(userDTO);
+
+        return ResponseEntity.ok().body(userDTO);
+
+
+    }
 
 
 

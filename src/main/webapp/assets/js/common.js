@@ -23,7 +23,9 @@ $(document).ready(function(){
 
 	}
 });
-
+const getCookieValue = (name) => (
+	document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+)
 function card_cnt() { //팩 프로그래스바
 	$('.tot_line').each(function(){
 		var $this = $(this),

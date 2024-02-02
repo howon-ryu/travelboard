@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="../assets/css/lib/jquery-ui.min.css">
 	<link rel="stylesheet" href="../assets/css/lib/swiper-bundle.min.css">
 	<link rel="stylesheet" href="${path}/assets/css/setting.css">
-	<link rel="stylesheet" href="${path}/assets/assets_howon/css/common.css">
+	<link rel="stylesheet" href="${path}/assets/assets_howon/css/common_temp.css">
 	<link rel="stylesheet" href="${path}/assets/assets_howon/css/joinMain.css">
 	<script type="text/javascript" src="../assets/js/lib/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>

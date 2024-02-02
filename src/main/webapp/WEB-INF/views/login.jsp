@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="../assets/css/lib/jquery-ui.min.css">
 	<link rel="stylesheet" href="../assets/css/lib/swiper-bundle.min.css">
 	<link rel="stylesheet" href="${path}/assets/css/setting.css">
-	<link rel="stylesheet" href="${path}/assets/assets_howon/css/common.css">
+	<link rel="stylesheet" href="${path}/assets/assets_howon/css/common_temp.css">
 	<link rel="stylesheet" href="${path}/assets/assets_howon/css/joinMain.css">
 	<script type="text/javascript" src="../assets/js/lib/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
@@ -610,6 +610,11 @@
 
 
     });
+    function setCookie(name, value, exp) {
+        var date = new Date();
+        date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+        document.cookie = name + '=' + escape(value) + ';expires=' + date.toUTCString() + ';path=/';
+    };
 
 
     $(".btn_bora").on("click", function(){
@@ -619,8 +624,8 @@
 
 
             let dataValue = {
-                "id" : id,
-                "password" : password
+                "login_id" : id,
+                "login_password" : password
 
             }
             console.log(dataValue)
@@ -635,7 +640,9 @@
                   success: function(data) {
                         console.log("data",data)
                         alert("로그인이 완료되었습니다.")
+                        alert(data.id);
                         location.href = "home";
+                      setCookie("id", data.id,'1')
 
 
                     },

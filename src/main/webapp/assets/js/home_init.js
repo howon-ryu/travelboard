@@ -40,7 +40,7 @@ console.log("home_init js")
 			datatype: "JSON",
 			success: function(obj){
 				console.log("count:",obj);
-				//popularPackList(obj);
+				popularPackList(obj);
 			},
 			error: function(xhr, status, error){
 				console.log("popularity error:",xhr);
@@ -80,19 +80,24 @@ console.log("home_init js")
 
 	function popularPackList(data){
 		for (key in data){
-			if (pop_num-3 > key || key >= pop_num){
-				continue;
-			}
-			let img = makeImgPath(data[key].packId, data[key].img);
-			let nickName = data[key].makerUserNickName == null ? "" : data[key].makerUserNickName
+			// if (pop_num-3 > key || key >= pop_num){
+			// 	continue;
+			// }
+			// let img = makeImgPath(data[key].packId, data[key].img);
+			let imgPath = "../assets/image/temp/"+data[key].img_name+".png";
+			let nickName = data[key].nickname == null ? "" : data[key].nickname
 
+			let popularPackListTag = document.getElementsByClassName('pack_li');
+
+			console.log("popularPackListTag",popularPackListTag)
+			popularPackListTag.innerHTML = ``;
 			let pack = `<li>
 						<div class="pack_group">
 							<div class="cotn">
 								<!-- 이미지영역 -->
 								<div class="img_area">
 									<figure class="img">
-										<img src="${img}" >
+										<img src="${imgPath}" >
 									</figure>
 								</div>
 								<!--// 이미지영역 -->
@@ -100,10 +105,10 @@ console.log("home_init js")
 								<!-- 텍스트영역 -->
 								<div class="txt_area">
 									<p class="nickname">${nickName}</p>
-									<p class="tit">${data[key].name}</p>
+									<p class="tit">${data[key].spot_name}</p>
 									<div class="addr">
 										<span class="cnt">12</span>
-										<p class="txt">/ 경기도 고양시 덕양구 항공대학로 76 외</p>
+										<p class="txt">/${data[key].road_name} </p>
 									</div>
 									<div class="pack_info">
 										<div class="count">
@@ -112,7 +117,7 @@ console.log("home_init js")
 											</p>
 										</div>
 										<div class="chat">
-											<span>1,045</span>
+											<span>${data[key].commentCount}</span>
 										</div>
 									</div>
 								</div>

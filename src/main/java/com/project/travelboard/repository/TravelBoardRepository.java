@@ -1,8 +1,6 @@
 package com.project.travelboard.repository;
 
-import com.project.travelboard.dto.JoinUserDTO;
-import com.project.travelboard.dto.LoginUserDTO;
-import com.project.travelboard.dto.SpotDTO;
+import com.project.travelboard.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -29,10 +27,33 @@ public class TravelBoardRepository {
         sql.insert("TravelBoard.joinUser",joinuserDTO);
 
     }
-    public LoginUserDTO loginUser(LoginUserDTO loginuserDTO) {
-        return sql.selectOne("TravelBoard.loginUser", loginuserDTO);
+      public LoginUserDTO loginUser(LoginUserDTO loginuserDTO) {
+          System.out.println("input id"+loginuserDTO.getLogin_id());
+          LoginUserDTO dto =sql.selectOne("TravelBoard.loginUser", loginuserDTO);
+          System.out.println("dto"+dto);
+
+//        return sql.selectOne("TravelBoard.loginUser", loginuserDTO);
+          return dto;
     }
 
 
+    public UserDTO getUserInfo(Integer id) {
 
+        return sql.selectOne("TravelBoard.getUserInfo",id);
+
+
+    }
+
+    public void changePassword(ChangePasswordDTO changepasswordDTO) {
+
+        sql.update("TravelBoard.changePassword",changepasswordDTO);
+
+
+    }
+
+    public void changeNickname(UserDTO userDTO) {
+
+        sql.update("TravelBoard.changeNickname",userDTO);
+
+    }
 }

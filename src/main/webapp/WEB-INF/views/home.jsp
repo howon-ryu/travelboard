@@ -99,11 +99,11 @@
 				</ul>
 
 				<!-- qr인증버튼 -->
-				<div class="btn_wrap">
-					<a href="#n" class="btn btn_qr">
-						<span>QR코드 인증</span>
-					</a>
-				</div>
+<%--				<div class="btn_wrap">--%>
+<%--					<a href="#n" class="btn btn_qr" >--%>
+<%--						<span>QR코드 인증</span>--%>
+<%--					</a>--%>
+<%--				</div>--%>
 				<!--// qr인증버튼 -->
 			</div>
 			<!--// QuickMenu -->
@@ -288,117 +288,7 @@
 
 				<!-- 목록:리스트형 -->
 				<ul class="pack_li">
-					<li>
-						<div class="pack_group">
-							<div class="cotn">
-								<!-- 이미지영역 -->
-								<div class="img_area">
-									<figure class="img">
-										<img src="../assets/image/temp/pack_02.png" >
-									</figure>
-								</div>
-								<!--// 이미지영역 -->
-
-								<!-- 텍스트영역 -->
-								<div class="txt_area">
-									<p class="nickname">닉네임</p>
-									<p class="tit">졸업생이 알려주는 고양이 주요 출몰 지역 고양이 주요 출몰 지역</p>
-									<div class="addr">
-										<span class="cnt">12</span>
-										<p class="txt">/ 경기도 고양시 덕양구 76 외</p>
-									</div>
-									<div class="pack_info">
-										<div class="count">
-											<p>
-												<em class="current">28</em> / <em class="tot">999</em>
-											</p>
-										</div>
-										<div class="chat">
-											<span>1,045</span>
-										</div>
-									</div>
-								</div>
-								<!--// 텍스트영역 -->
-							</div>
-							<a href="4_pack_01.html" class="go_view">
-								<span class="blind">상세이동</span>
-							</a>
-						</div>
-					</li>
-					<li>
-						<div class="pack_group">
-							<div class="cotn">
-								<!-- 이미지영역 -->
-								<div class="img_area">
-									<figure class="img">
-										<img src="../assets/image/temp/pack_01.png" >
-									</figure>
-								</div>
-								<!--// 이미지영역 -->
-
-								<!-- 텍스트영역 -->
-								<div class="txt_area">
-									<p class="nickname">Chipster Original</p>
-									<p class="tit">TravelBoard 공식 No.1 경복궁</p>
-									<div class="addr">
-										<span class="cnt">12</span>
-										<p class="txt">/ 서울특별시 종로구 사직로 161 외</p>
-									</div>
-									<div class="pack_info">
-										<div class="count">
-											<p>
-												<em class="current">999</em> / <em class="tot">무제한</em>
-											</p>
-										</div>
-										<div class="chat">
-											<span>23.4 K</span>
-										</div>
-									</div>
-								</div>
-								<!--// 텍스트영역 -->
-							</div>
-							<a href="4_pack_01.html" class="go_view">
-								<span class="blind">상세이동</span>
-							</a>
-						</div>
-					</li>
-					<li>
-						<div class="pack_group">
-							<div class="cotn">
-								<!-- 이미지영역 -->
-								<div class="img_area">
-									<figure class="img">
-										<img src="../assets/image/temp/pack_03.png" >
-									</figure>
-								</div>
-								<!--// 이미지영역 -->
-
-								<!-- 텍스트영역 -->
-								<div class="txt_area">
-									<p class="nickname">Chipster Original</p>
-									<p class="tit">TravelBoard 공식 No.1 경복궁</p>
-									<div class="addr">
-										<span class="cnt">12</span>
-										<p class="txt">/ 서울특별시 종로구 사직로 161 외</p>
-									</div>
-									<div class="pack_info">
-										<div class="count">
-											<p>
-												<em class="current">999</em> / <em class="tot">무제한</em>
-											</p>
-										</div>
-										<div class="chat">
-											<span>23.4 K</span>
-										</div>
-									</div>
-								</div>
-								<!--// 텍스트영역 -->
-							</div>
-							<a href="4_pack_01.html" class="go_view">
-								<span class="blind">상세이동</span>
-							</a>
-						</div>
-					</li>
+					
 				</ul>
 				<!--// 목록:리스트형 -->
 
@@ -442,7 +332,22 @@
 
 <script type="text/javascript" src="${path}/assets/js/home_init.js"></script>
 
+<script>
+	$(document).ready(function(){
+		const getCookieValue = (name) => (
+				document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+		)
+		var cookieValue = getCookieValue("id");
+		console.log("내가 만든 쿠키~", cookieValue);
 
+	});
+
+
+
+
+
+
+</script>
 
 
 

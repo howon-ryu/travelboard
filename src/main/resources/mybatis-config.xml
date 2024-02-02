@@ -7,5 +7,7 @@
         <typeAlias type="com.project.travelboard.dto.SpotDTO" alias="spot"></typeAlias>
         <typeAlias type="com.project.travelboard.dto.JoinUserDTO" alias="joinUser"></typeAlias>
         <typeAlias type="com.project.travelboard.dto.LoginUserDTO" alias="loginUser"></typeAlias>
+        <typeAlias type="com.project.travelboard.dto.UserDTO" alias="user"></typeAlias>
+        <typeAlias type="com.project.travelboard.dto.ChangePasswordDTO" alias="changepassword"></typeAlias>
     </typeAliases>
 </configuration>

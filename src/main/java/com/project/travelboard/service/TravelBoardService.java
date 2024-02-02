@@ -1,8 +1,6 @@
 package com.project.travelboard.service;
 
-import com.project.travelboard.dto.JoinUserDTO;
-import com.project.travelboard.dto.LoginUserDTO;
-import com.project.travelboard.dto.SpotDTO;
+import com.project.travelboard.dto.*;
 import com.project.travelboard.repository.TravelBoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,8 +27,31 @@ public class TravelBoardService {
 
     }
 
-    public int loginUser(LoginUserDTO loginuserDTO) {
+    public LoginUserDTO loginUser(LoginUserDTO loginuserDTO) {
         LoginUserDTO result = travelBoardRepository.loginUser(loginuserDTO);
-        return (result != null) ? 1 : 0;
+        System.out.println(result.getId());
+
+        return result;
+    }
+
+    public UserDTO getUserInfo(Integer id) {
+
+        UserDTO result = travelBoardRepository.getUserInfo(id);
+        return result;
+
+
+    }
+
+    public void changePassword(ChangePasswordDTO changepasswordDTO) {
+
+        travelBoardRepository.changePassword(changepasswordDTO);
+
+
+
+    }
+
+
+    public void changeNickname(UserDTO userDTO) {
+        travelBoardRepository.changeNickname(userDTO);
     }
 }

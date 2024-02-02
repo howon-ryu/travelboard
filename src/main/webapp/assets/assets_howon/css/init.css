@@ -2527,3 +2527,7 @@ overflow-x: hidden;
     background-position: bottom right;
     animation: mymove 60s infinite;
 }
+
+.not_hover{
+  pointer-events: none;
+}

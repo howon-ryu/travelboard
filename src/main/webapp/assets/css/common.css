@@ -92,6 +92,11 @@ select {
 	background-color: #28AA7F;
 }
 
+
+.not_hover{
+	pointer-events: none;
+}
+
 /* ============================== [ 팝업딤드 ] ========================================================================================== */
 body.dim {
 	overflow: hidden;
@@ -1513,3 +1518,5 @@ select {
 	font-weight: 500;
 	line-height: 19px;
 }
+
+
