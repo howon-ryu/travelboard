@@ -23,6 +23,15 @@ public class SpotDTO {
     private String road_name;
     private Integer commentCount;
     private String nickname;
+    private String spotComment;
+
+    public String getSpotComment() {
+        return spotComment;
+    }
+
+    public void setSpotComment(String spotComment) {
+        this.spotComment = spotComment;
+    }
 
     public Integer getId() {
         return id;

@@ -34,6 +34,9 @@ public class TravelBoardRepository {
         sql.insert("TravelBoard.joinUser",joinuserDTO);
 
     }
+    public void createSpot(SpotDTO spotDTO) {
+        sql.insert("TravelBoard.createSpot",spotDTO);
+    }
       public LoginUserDTO loginUser(LoginUserDTO loginuserDTO) {
           System.out.println("input id"+loginuserDTO.getLogin_id());
           LoginUserDTO dto =sql.selectOne("TravelBoard.loginUser", loginuserDTO);
@@ -65,5 +68,7 @@ public class TravelBoardRepository {
     }
 
 
-
+    public SpotDTO getSpotInfo(Integer packId) {
+        return sql.selectOne("TravelBoard.getSpotInfo",packId);
+    }
 }

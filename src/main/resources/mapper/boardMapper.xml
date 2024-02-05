@@ -77,6 +77,14 @@
 
     </insert>
 
+    <insert id = "createSpot" parameterType="spot">
+        insert into travel_spot(spot_name, spotComment,img_name,user_id)
+        values(#{spot_name}, #{spotComment},#{img_name},#{user_id})
+
+
+    </insert>
+
+
     <select id =  "loginUser" parameterType="loginUser" resultType="loginUser">
         select * from user where login_id =#{login_id} and login_password = #{login_password}
 
@@ -87,6 +95,12 @@
         select * from user where id = #{id}
 
     </select>
+
+    <select id = "getSpotInfo" parameterType="Integer" resultType="spot">
+        select * from travel_spot where id = #{pack_id}
+
+    </select>
+
 
     <update id = "changePassword" parameterType="changePassword">
         update user set login_password=#{changingPassword}where id=#{userId}

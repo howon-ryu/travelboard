@@ -69,6 +69,16 @@ public class apicontroller {
     public String createNewSpot() {
         return "createNewSpot"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
     }
+    @GetMapping("/selectPosition") // HTTP GET 요청에 대한 처리를 위한 매핑
+    public String selectPosition() {
+        return "selectPosition"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
+    }
+
+    @GetMapping("/spotDetail") // HTTP GET 요청에 대한 처리를 위한 매핑
+    public String spotDetail() {
+        return "spotDetail"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
+    }
+
 
 
     @GetMapping("/hello")
@@ -127,6 +137,15 @@ public class apicontroller {
 
         return ResponseEntity.ok().body("{\"result\": \"" + tempInput + "\"}");
     }
+    @PostMapping("/createSpot")
+//    @RequestBody
+    public ResponseEntity createSpot(@RequestBody()SpotDTO spotDTO){
+        String tempInput = spotDTO.getSpotComment();
+        //System.out.println("nick"+ tempInput);
+        travelBoardService.createSpot(spotDTO);
+
+        return ResponseEntity.ok().body("{\"result\": \"" + tempInput + "\"}");
+    }
 
 
     @PostMapping("/loginUser")
@@ -150,6 +169,19 @@ public class apicontroller {
         UserDTO userDTO =  travelBoardService.getUserInfo(Integer.valueOf(id));
 
         return userDTO;
+
+
+    }
+
+    @PostMapping("/getSpotInfo")
+    @ResponseBody
+    public SpotDTO getSpotInfo(@RequestBody() Map<String, String> data){
+
+        String packId = data.get("packId");
+        System.out.println("pack_id"+packId);
+        SpotDTO spotDTO =  travelBoardService.getSpotInfo(Integer.valueOf(packId));
+
+        return spotDTO;
 
 
     }

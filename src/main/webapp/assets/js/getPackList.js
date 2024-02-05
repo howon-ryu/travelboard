@@ -138,8 +138,8 @@ function myPackList(data){
 								</div>
 								<!--// 텍스트영역 -->
 							</div>
-							<a href="studio_detail.php?id=`+pack_id+`" class="go_view">
-								<span class="blind">상세이동</span>
+							<a id="detailLink" href="spotDetail?pack_id=${pack_id}" class="go_view">
+							    <span class="blind">상세이동</span>
 							</a>
 						</div>
 					</li>`;

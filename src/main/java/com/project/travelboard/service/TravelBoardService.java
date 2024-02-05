@@ -32,6 +32,11 @@ public class TravelBoardService {
 
 
     }
+    public void createSpot(SpotDTO spotDTO) {
+
+        travelBoardRepository.createSpot(spotDTO);
+
+    }
 
     public LoginUserDTO loginUser(LoginUserDTO loginuserDTO) {
         LoginUserDTO result = travelBoardRepository.loginUser(loginuserDTO);
@@ -62,5 +67,10 @@ public class TravelBoardService {
     }
 
 
+    public SpotDTO getSpotInfo(Integer packId) {
 
+        SpotDTO result = travelBoardRepository.getSpotInfo(packId);
+        return result;
+
+    }
 }

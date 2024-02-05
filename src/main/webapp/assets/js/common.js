@@ -26,6 +26,15 @@ $(document).ready(function(){
 const getCookieValue = (name) => (
 	document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
 )
+function deleteCookie(name) {
+	document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+function setCookie(name, value, exp) {
+	var date = new Date();
+	date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+	document.cookie = name + '=' + escape(value) + ';expires=' + date.toUTCString() + ';path=/';
+};
 function card_cnt() { //팩 프로그래스바
 	$('.tot_line').each(function(){
 		var $this = $(this),
