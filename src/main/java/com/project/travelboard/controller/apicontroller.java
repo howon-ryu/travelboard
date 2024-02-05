@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,6 +55,16 @@ public class apicontroller {
         return "boardList"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
     }
 
+    @GetMapping("/studio") // HTTP GET 요청에 대한 처리를 위한 매핑
+    public String studio() {
+        return "studio"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
+    }
+
+    @GetMapping("/createNewSpot") // HTTP GET 요청에 대한 처리를 위한 매핑
+    public String createNewSpot() {
+        return "createNewSpot"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
+    }
+
 
     @GetMapping("/hello")
     @ResponseBody
@@ -70,13 +79,37 @@ public class apicontroller {
 //        //helloDTO AA = new helloDTO(1L, "hi");
 //        return "hello";
 //    }
-    @GetMapping("/spotFindAll")
+    @GetMapping("/popularSpotFindAll")
     @ResponseBody
-    public List<SpotDTO> spotFindAll(){
+    public List<SpotDTO> popularSpotFindAll(){
         //SpotDTO spotList = new SpotDTO();
-        List<SpotDTO> spotAllList =  travelBoardService.spotFindAll();
+        List<SpotDTO> popularSpotFindAll =  travelBoardService.popularSpotFindAll();
 
-        return spotAllList;
+        return popularSpotFindAll;
+
+
+    }
+    @GetMapping("/newSpotFindAll")
+    @ResponseBody
+    public List<SpotDTO> newSpotFindAll(){
+        //SpotDTO spotList = new SpotDTO();
+        List<SpotDTO> newSpotFindAll =  travelBoardService.newSpotFindAll();
+
+        return newSpotFindAll;
+
+
+    }
+    @PostMapping("/mySpotFindAll")
+    @ResponseBody
+    public List<SpotDTO> mySpotFindAll(@RequestBody() Map<String, String> data){
+        //SpotDTO spotList = new SpotDTO();
+
+        String id = data.get("id");
+        System.out.println("id"+id);
+
+        List<SpotDTO> mySpotFindAll =  travelBoardService.mySpotFindAll(Integer.valueOf(id));
+
+        return mySpotFindAll;
 
 
     }

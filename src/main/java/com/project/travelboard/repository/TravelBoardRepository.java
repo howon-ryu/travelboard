@@ -18,9 +18,16 @@ public class TravelBoardRepository {
 //
 
 
-    public List<SpotDTO> spotFindAll() {
-        return sql.selectList("TravelBoard.spotFindAll");
+    public List<SpotDTO> popularSpotFindAll() {
+        return sql.selectList("TravelBoard.popularSpotFindAll");
 
+    }
+    public List<SpotDTO> mySpotFindAll(Integer id) {
+        return sql.selectList("TravelBoard.mySpotFindAll",id);
+
+    }
+    public List<SpotDTO> newSpotFindAll() {
+        return sql.selectList("TravelBoard.newSpotFindAll");
     }
 
     public void joinUser(JoinUserDTO joinuserDTO) {
@@ -56,4 +63,7 @@ public class TravelBoardRepository {
         sql.update("TravelBoard.changeNickname",userDTO);
 
     }
+
+
+
 }

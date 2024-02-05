@@ -96,7 +96,7 @@
 .pack_cover .cover_img.none {border:none;}
 .pack_cover .cover_img img {display:block; width:100%; height:100%; object-fit:cover;}
 .pack_cover .apply_area {margin-left:20px; flex:1;}
-.pack_cover .apply_area .txt_wrap {padding-top:52px; background:url(../image/common/chip_13.png) no-repeat top center; background-size:54px 44px;}
+.pack_cover .apply_area .txt_wrap {padding-top:52px; background:url(../assets_howon/image/logo_remove_icon.png) no-repeat top center; background-size:54px 44px;}
 .pack_cover .apply_area .txt_wrap p {font-weight:500; font-size:14px; line-height:19px; text-align:center;}
 
 /* ============================== [ AI로만들기 ] ========================================================================================== */
@@ -143,3 +143,5 @@
 .pick_map {position:relative; height:calc(100vh - 122px);}
 .pick_map .map_area {height:100%; overflow:hidden;}
 .pick_map .local_btn {bottom:calc(constant(safe-area-inset-bottom) + 12px); bottom:calc(env(safe-area-inset-bottom) + 12px);}
+
+

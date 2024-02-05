@@ -1,5 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<%
+	response.setHeader("Cache-Control","no-store");
+	response.setHeader("Pragma","no-cache");
+	response.setDateHeader("Expires",0);
+	if (request.getProtocol().equals("HTTP/1.1"))
+		response.setHeader("Cache-Control", "no-cache");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -75,7 +82,7 @@
 					<li>
 						<a href="boardList">
 							<img src="${path}/assets/image/common/icon_quick_01.png" alt="내가 가진 여행지">
-							<span>내가 만든 여행지</span>
+							<span>내가 저장한 여행지</span>
 						</a>
 					</li>
 					<li>
@@ -91,7 +98,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="5_studio_01.html">
+						<a href="studio">
 							<img src="${path}/assets/image/common/icon_quick_04.svg" alt="내가 만들기">
 							<span>내가 만들기</span>
 						</a>
@@ -116,166 +123,48 @@
 				<!-- 슬라이드 -->
 				<div class="swiper">
 					<div class="swiper-wrapper">
-						<div class="pack_slide swiper-slide">
-							<div class="pack_item">
-								<!-- 이미지영역 -->
-								<div class="img_area">
-									<figure class="img">
-										<img src="${path}/assets/image/temp/pack_01.png" >
-									</figure>
-								</div>
-								<!--// 이미지영역 -->
 
-								<!-- 텍스트영역 -->
-								<div class="txt_area">
-									<p class="tit">TravelBoard 공식 No.1 경복궁</p>
-								</div>
-								<!--// 텍스트영역 -->
-								<a href="4_pack_01.html" class="go_view">
-									<span class="blind">상세이동</span>
-								</a>
-							</div>
-						</div>
-						<div class="pack_slide swiper-slide">
-							<div class="pack_item">
-								<!-- 이미지영역 -->
-								<div class="img_area">
-									<figure class="img">
-										<img src="../assets/image/temp/pack_02.png" >
-									</figure>
-								</div>
-								<!--// 이미지영역 -->
 
-								<!-- 텍스트영역 -->
-								<div class="txt_area">
-									<p class="tit">졸업생이 알려주는 고양이 주요 출몰 지역</p>
-								</div>
-								<!--// 텍스트영역 -->
-								<a href="4_pack_01.html" class="go_view">
-									<span class="blind">상세이동</span>
-								</a>
-							</div>
-						</div>
-						<div class="pack_slide swiper-slide">
-							<div class="pack_item">
-								<!-- 이미지영역 -->
-								<div class="img_area">
-									<figure class="img">
-										<img src="${path}/assets/image/temp/pack_03.png" >
-									</figure>
-								</div>
-								<!--// 이미지영역 -->
+<%--								<div class="pack_slide swiper-slide">--%>
+<%--									<div class="pack_item">--%>
+<%--										<!-- 이미지영역 -->--%>
+<%--										<div class="img_area">--%>
+<%--											<figure class="img">--%>
+<%--												<img src="${path}/assets/image/temp/pack_04.png" >--%>
+<%--											</figure>--%>
+<%--										</div>--%>
+<%--										<!--// 이미지영역 -->--%>
 
-								<!-- 텍스트영역 -->
-								<div class="txt_area">
-									<p class="tit">일이삼사오육칠팔구십일이삼사오육칠팔구십</p>
-								</div>
-								<!--// 텍스트영역 -->
-								<a href="4_pack_01.html" class="go_view">
-									<span class="blind">상세이동</span>
-								</a>
-							</div>
-						</div>
-						<div class="pack_slide swiper-slide">
-							<div class="pack_item">
-								<!-- 이미지영역 -->
-								<div class="img_area">
-									<figure class="img">
-										<img src="${path}/assets/image/temp/pack_04.png" >
-									</figure>
-								</div>
-								<!--// 이미지영역 -->
+<%--										<!-- 텍스트영역 -->--%>
+<%--										<div class="txt_area">--%>
+<%--											<p class="tit">나만아는 서울근교 맛집 카페 모음</p>--%>
+<%--										</div>--%>
+<%--										<!--// 텍스트영역 -->--%>
+<%--										<a href="4_pack_01.html" class="go_view">--%>
+<%--											<span class="blind">상세이동</span>--%>
+<%--										</a>--%>
+<%--									</div>--%>
+<%--								</div>--%>
+<%--								<div class="pack_slide swiper-slide">--%>
+<%--									<div class="pack_item">--%>
+<%--										<!-- 이미지영역 -->--%>
+<%--										<div class="img_area">--%>
+<%--											<figure class="img">--%>
+<%--												<img src="${path}/assets/image/temp/pack_03.png" >--%>
+<%--											</figure>--%>
+<%--										</div>--%>
+<%--										<!--// 이미지영역 -->--%>
 
-								<!-- 텍스트영역 -->
-								<div class="txt_area">
-									<p class="tit">나만아는 서울근교 맛집 카페 모음</p>
-								</div>
-								<!--// 텍스트영역 -->
-								<a href="4_pack_01.html" class="go_view">
-									<span class="blind">상세이동</span>
-								</a>
-							</div>
-						</div>
-						<div class="pack_slide swiper-slide">
-							<div class="pack_item">
-								<!-- 이미지영역 -->
-								<div class="img_area">
-									<figure class="img">
-										<img src="${path}/assets/image/temp/pack_04.png" >
-									</figure>
-								</div>
-								<!--// 이미지영역 -->
-
-								<!-- 텍스트영역 -->
-								<div class="txt_area">
-									<p class="tit">나만아는 서울근교 맛집 카페 모음</p>
-								</div>
-								<!--// 텍스트영역 -->
-								<a href="4_pack_01.html" class="go_view">
-									<span class="blind">상세이동</span>
-								</a>
-							</div>
-						</div>
-						<div class="pack_slide swiper-slide">
-							<div class="pack_item">
-								<!-- 이미지영역 -->
-								<div class="img_area">
-									<figure class="img">
-										<img src="${path}/assets/image/temp/pack_03.png" >
-									</figure>
-								</div>
-								<!--// 이미지영역 -->
-
-								<!-- 텍스트영역 -->
-								<div class="txt_area">
-									<p class="tit">일이삼사오육칠팔구십일이삼사오육칠팔구십</p>
-								</div>
-								<!--// 텍스트영역 -->
-								<a href="4_pack_01.html" class="go_view">
-									<span class="blind">상세이동</span>
-								</a>
-							</div>
-						</div>
-						<div class="pack_slide swiper-slide">
-							<div class="pack_item">
-								<!-- 이미지영역 -->
-								<div class="img_area">
-									<figure class="img">
-										<img src="${path}/assets/image/temp/pack_04.png" >
-									</figure>
-								</div>
-								<!--// 이미지영역 -->
-
-								<!-- 텍스트영역 -->
-								<div class="txt_area">
-									<p class="tit">나만아는 서울근교 맛집 카페 모음</p>
-								</div>
-								<!--// 텍스트영역 -->
-								<a href="4_pack_01.html" class="go_view">
-									<span class="blind">상세이동</span>
-								</a>
-							</div>
-						</div>
-						<div class="pack_slide swiper-slide">
-							<div class="pack_item">
-								<!-- 이미지영역 -->
-								<div class="img_area">
-									<figure class="img">
-										<img src="${path}/assets/image/temp/pack_03.png" >
-									</figure>
-								</div>
-								<!--// 이미지영역 -->
-
-								<!-- 텍스트영역 -->
-								<div class="txt_area">
-									<p class="tit">일이삼사오육칠팔구십일이삼사오육칠팔구십</p>
-								</div>
-								<!--// 텍스트영역 -->
-								<a href="4_pack_01.html" class="go_view">
-									<span class="blind">상세이동</span>
-								</a>
-							</div>
-						</div>
+<%--										<!-- 텍스트영역 -->--%>
+<%--										<div class="txt_area">--%>
+<%--											<p class="tit">일이삼사오육칠팔구십일이삼사오육칠팔구십</p>--%>
+<%--										</div>--%>
+<%--										<!--// 텍스트영역 -->--%>
+<%--										<a href="4_pack_01.html" class="go_view">--%>
+<%--											<span class="blind">상세이동</span>--%>
+<%--										</a>--%>
+<%--									</div>--%>
+<%--						</div>--%>
 					</div>
 				</div>
 				<!--// 슬라이드 -->
@@ -288,7 +177,7 @@
 
 				<!-- 목록:리스트형 -->
 				<ul class="pack_li">
-					
+
 				</ul>
 				<!--// 목록:리스트형 -->
 
@@ -319,7 +208,7 @@
 				</a>
 			</div>
 			<div class="tab_btn add">
-				<a href="5_studio_01.html">
+				<a href="studio">
 					<span class="blind">스튜디오</span>
 				</a>
 			</div>
@@ -330,7 +219,7 @@
 <!--// #WRAP -->
 </body>
 
-<script type="text/javascript" src="${path}/assets/js/home_init.js"></script>
+<script type="text/javascript" src="${path}/assets/js/getPackList.js"></script>
 
 <script>
 	$(document).ready(function(){
@@ -339,6 +228,8 @@
 		)
 		var cookieValue = getCookieValue("id");
 		console.log("내가 만든 쿠키~", cookieValue);
+		getPopularPack()
+		getNewPack()
 
 	});
 

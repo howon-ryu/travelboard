@@ -15,8 +15,14 @@ public class TravelBoardService {
 //    public int save(TravelBoardDTO boardDTO) {
 //        return travelBoardRepository.save(boardDTO); // 게시글 저장 요청을 BoardRepository에 위임
 //    }
-    public List<SpotDTO> spotFindAll() {
-        return travelBoardRepository.spotFindAll();
+    public List<SpotDTO> popularSpotFindAll() {
+        return travelBoardRepository.popularSpotFindAll();
+    }
+    public List<SpotDTO> newSpotFindAll() {
+        return travelBoardRepository.newSpotFindAll();
+    }
+    public List<SpotDTO> mySpotFindAll(Integer id) {
+        return travelBoardRepository.mySpotFindAll(id);
     }
 
     public void joinUser(JoinUserDTO joinuserDTO) {
@@ -54,4 +60,7 @@ public class TravelBoardService {
     public void changeNickname(UserDTO userDTO) {
         travelBoardRepository.changeNickname(userDTO);
     }
+
+
+
 }
