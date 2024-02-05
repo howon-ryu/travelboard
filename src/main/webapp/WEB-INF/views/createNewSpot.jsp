@@ -60,7 +60,7 @@
 				<div class="pack_cover">
 					<!-- 등록이미지 -->
 					<div class="cover_img none"><!-- 이미지없을경우 class="none"추가 -->
-						<img src="../assets/image/temp/no_img.png">
+						<img id = "selected_img" src="../assets/image/temp/no_img.png">
 					</div>
 					<!--// 등록이미지 -->
 
@@ -452,57 +452,51 @@
 
 <script>
 
-	const getCookieValue = (name) => (
-			document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
-	)
-	var cookieValue = getCookieValue("id");
-	function changeImgValue(){
-		console.log("!!!")
+	// const getCookieValue = (name) => (
+	// 		document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+	// )
 
-		var file_data;
+	function changeImgValue() {
+		console.log("!!!");
+
+		var cookieValue = getCookieValue("id");
+		var file_data = $("#chooseFile").prop("files")[0];
+
+		if (!file_data || !file_data.type.match(/image.*/)) {
+			console.log("Invalid image file");
+			return false;
+		}
+
 		var form_data = new FormData();
-
 		form_data.append("user_id", cookieValue);
+		form_data.append("file", file_data);
+
+		$.ajax({
+			url: "http://localhost:8080/travelboard/uploadImage",
+
+			data: form_data,
+			type: "POST",
+			contentType: false,
+			processData: false,
+			cache: false,
+			success: function (data) {
+				console.log("Image uploaded successfully");
+				$('.pop_close').click();
+				select_img(data);
+				// Additional actions after successful upload
+			},
+			error: function (request, status, error) {
+				console.log("Error uploading image: " + error);
+			}
+		});
+	}
+
+	function select_img(imgName){
+		console.log("selectimg")
+		var cookieValue = getCookieValue("id");
+		document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+imgName+"?a="+Math.random();
 
 
-		file_data = $("#chooseFile").prop("files")[0];
-		//
-		// if(file_data=="" || file_data==null) {
-		// 	return false
-		// }
-		//
-		// if(file_data!="" || file_data!=null) {
-		// 	if(file_data.type.match(/image.*/)) {
-		// 		console.log("sasfsd",form_data)
-		// 		form_data.append("file", file_data);
-		// 		form_data.append("file_name", file_data.name);
-		// 		console.log("sasfsd",form_data)
-		// 		$.ajax({
-		// 			url: "api/pack_img_upload.php",
-		// 			data: form_data,
-		//
-		// 			type: "POST",
-		// 			enctype: "multipart/form-data",
-		// 			contentType: false,
-		// 			processData: false,
-		// 			cache: false,
-		// 			success: function(data) {
-		// 				console.log("success")
-		// 				$('.pop_close').click()
-		// 				select_img("phone")
-		//
-		//
-		// 			},
-		// 			error:function(request,status,error){
-		// 				console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-		// 			}
-		// 		});
-		//
-		//
-		// 	}
-		//
-		//
-		// }
 	}
 
 </script>

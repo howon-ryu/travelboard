@@ -9,11 +9,16 @@ package com.project.travelboard.controller;
 
 import com.project.travelboard.dto.*;
 import com.project.travelboard.service.TravelBoardService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -169,6 +174,43 @@ public class apicontroller {
 
 
     }
+
+
+
+
+    @PostMapping("/uploadImage")
+    public ResponseEntity<String> uploadImage(@RequestParam("user_id") String userId,
+                                              @RequestParam("file") MultipartFile file,
+                                              HttpServletRequest request) {
+        try {
+            // 사용자 ID를 기반으로 폴더 생성
+            String basePath = request.getServletContext().getRealPath("/");
+            String folderPath = basePath + "assets" + File.separator + "image" + File.separator + "userUploads" + File.separator + userId;
+
+            File folder = new File(folderPath);
+
+            // 폴더가 없다면 생성
+            if (!folder.exists()) {
+                if (!folder.mkdirs()) {
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                            .body("Failed to create user folder");
+                }
+            }
+
+            // 이미지를 폴더에 저장
+            String filePath = folderPath + File.separator + file.getOriginalFilename();
+            file.transferTo(new File(filePath));
+
+            return ResponseEntity.ok().body(file.getOriginalFilename());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to upload image: " + e.getMessage());
+        }
+    }
+
+
+
 
 
 
