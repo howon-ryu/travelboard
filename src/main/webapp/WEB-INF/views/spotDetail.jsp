@@ -106,78 +106,7 @@
 
                 <!-- 목록:스팟 리스트 -->
                 <ul class="spot_li">
-                    <li class="label_star">
-                        <div class="spot_group">
-                            <div class="cotn">
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_06.jpg" alt="">
-                                    </figure>
-                                    <span class="num">No.01</span>
-                                </div>
-                                <div class="txt_area">
-                                    <p class="tit">창업보육센터 주차장</p>
-                                    <p class="text">햇빛이 좋은 날이면 창업보육센터 주차장 한쪽 구석에서 플닢이가 풀향기 맡으면서 졸고 있어요</p>
-                                    <p class="addr"><span class="txt">경기도 고양시 덕양구 항공대학로 76</span></p>
-                                </div>
-                                <a href="5_spot_02.html" class="go_view"></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="spot_group">
-                            <div class="cotn">
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_05.jpg" alt="">
-                                    </figure>
-                                    <span class="num">No.02</span>
-                                </div>
-                                <div class="txt_area">
-                                    <p class="tit">항공우주박물관 앞 공터</p>
-                                    <p class="text">항공우주박물관에 오는 손님들을 맞이하는 순둥이를 만날 수 있어요~</p>
-                                    <p class="addr"><span class="txt">경기도 고양시 덕양구 항공대학로 76</span></p>
-                                </div>
-                                <a href="5_spot_02.html" class="go_view"></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="spot_group">
-                            <div class="cotn">
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_07.png" alt="">
-                                    </figure>
-                                    <span class="num">No.03</span>
-                                </div>
-                                <div class="txt_area">
-                                    <p class="tit">본관 앞 꽃밭</p>
-                                    <p class="text">간단한 스팟에 대한 설명. 글자 제한 있어요. 일이삼사오육칠팔구십 일이삼사오육칠팔구십 일이삼</p>
-                                    <p class="addr"><span class="txt">경기도 고양시 덕양구 항공대학로 76</span></p>
-                                </div>
-                                <a href="5_spot_02.html" class="go_view"></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="spot_group">
-                            <div class="cotn">
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_08.png" alt="">
-                                    </figure>
-                                    <span class="num">No.04</span>
-                                </div>
-                                <div class="txt_area">
-                                    <p class="tit">스팟 이름</p>
-                                    <p class="text">간단한 스팟에 대한 설명. 글자 제한 있어요. 일이삼사오육칠팔구십 일이삼사오육칠팔구십 일이삼</p>
-                                    <p class="addr"><span class="txt">경기도 고양시 덕양구 항공대학로 76</span></p>
-                                </div>
-                                <a href="5_spot_02.html" class="go_view"></a>
-                            </div>
-                        </div>
-                    </li>
+
                 </ul>
                 <!--// 목록:스팟 리스트 -->
                 <div class="btn_wrap btn_fixed">
@@ -191,7 +120,7 @@
 </div>
 <!--// #WRAP -->
 </body>
-<script type="text/javascript" src="${path}/assets/js/photoList.js"></script>
+
 <script>
 
     var currentUrl = window.location.href;
@@ -208,7 +137,7 @@
     }
 
     // pack_id 값을 추출합니다.
-    var packId = getParameterByName('pack_id', currentUrl);
+    const packId = getParameterByName('pack_id', currentUrl);
 
     // 결과 확인
     console.log(packId);
@@ -262,13 +191,16 @@ function setSpotInfo(data){
         spotCommentTag.innerText =data.spotComment;
     }
 
-    getSpotDetail(packId)
 
 
 </script>
+<script type="text/javascript" src="${path}/assets/js/photoList.js"></script>
 
 
-
+<script>
+    getSpotDetail(packId)
+    photoList(packId)
+</script>
 
 
 </html>

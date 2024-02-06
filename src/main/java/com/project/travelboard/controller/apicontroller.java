@@ -69,6 +69,10 @@ public class apicontroller {
     public String createNewSpot() {
         return "createNewSpot"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
     }
+    @GetMapping("/createPhotoDetail") // HTTP GET 요청에 대한 처리를 위한 매핑
+    public String createPhotoDetail() {
+        return "createPhotoDetail"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
+    }
     @GetMapping("/selectPosition") // HTTP GET 요청에 대한 처리를 위한 매핑
     public String selectPosition() {
         return "selectPosition"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
