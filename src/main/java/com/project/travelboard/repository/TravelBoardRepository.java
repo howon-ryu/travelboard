@@ -29,7 +29,9 @@ public class TravelBoardRepository {
     public List<SpotDTO> newSpotFindAll() {
         return sql.selectList("TravelBoard.newSpotFindAll");
     }
-
+    public List<SpotDTO> searchSpot(String spot_name) {
+        return sql.selectList("TravelBoard.searchSpot",spot_name);
+    }
     public void joinUser(JoinUserDTO joinuserDTO) {
         sql.insert("TravelBoard.joinUser",joinuserDTO);
 
@@ -81,6 +83,7 @@ public class TravelBoardRepository {
 
 
     }
+
 
 
 }

@@ -82,6 +82,14 @@ public class apicontroller {
     public String spotDetail() {
         return "spotDetail"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
     }
+    @GetMapping("/search") // HTTP GET 요청에 대한 처리를 위한 매핑
+    public String search() {
+        return "search"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
+    }
+    @GetMapping("/spotInfo") // HTTP GET 요청에 대한 처리를 위한 매핑
+    public String spotInfo() {
+        return "spotInfo"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
+    }
 
 
 
@@ -132,6 +140,24 @@ public class apicontroller {
 
 
     }
+    @PostMapping("/searchSpot")
+    @ResponseBody
+    public List<SpotDTO> searchSpot(@RequestBody() Map<String, String> data){
+        //SpotDTO spotList = new SpotDTO();
+
+        String spot_name = data.get("spot_name");
+
+
+        List<SpotDTO> SpotFindByName =  travelBoardService.searchSpot(spot_name);
+
+        return SpotFindByName;
+
+
+    }
+
+
+
+
     @PostMapping("/getPhotoList")
     @ResponseBody
     public List<PhotoDTO> getPhotoList(@RequestBody() Map<String, String> data){

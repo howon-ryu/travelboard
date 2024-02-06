@@ -68,6 +68,29 @@
             travel_spot.id
 
     </select>
+    <select id = "searchSpot" resultType="spot" parameterType="String">
+
+        SELECT
+            travel_spot.id,
+            travel_spot.user_id,
+            travel_spot.spot_name,
+            travel_spot.like_cnt,
+            travel_spot.timestamp,
+            user.nickname,
+            travel_spot.img_name,
+            COUNT(comment.id) AS commentCount,
+            map.road_name
+        FROM
+            travel_spot
+                LEFT JOIN user ON travel_spot.user_id = user.id
+                LEFT JOIN map ON travel_spot.map_id = map.id
+                LEFT JOIN comment ON travel_spot.id = comment.spot_id
+        where spot_name like '%${spot_name}%'
+        GROUP BY
+            travel_spot.id
+
+    </select>
+
 
     <select id = "getPhotoList" resultType="photo" parameterType="Integer">
         select * from photo where spot_id = #{spot_id}

@@ -21,6 +21,11 @@ public class TravelBoardService {
     public List<SpotDTO> newSpotFindAll() {
         return travelBoardRepository.newSpotFindAll();
     }
+
+    public List<SpotDTO> searchSpot(String spotName) {
+        return travelBoardRepository.searchSpot(spotName);
+    }
+
     public List<SpotDTO> mySpotFindAll(Integer id) {
         return travelBoardRepository.mySpotFindAll(id);
     }
@@ -82,6 +87,7 @@ public class TravelBoardService {
 
         return travelBoardRepository.getPhotoList(spot_id);
     }
+
 
 
 }

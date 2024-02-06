@@ -92,7 +92,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="2_search_01.html">
+						<a href="search">
 							<img src="${path}/assets/image/common/icon_srch_bk.svg" alt="이름으로 찾기">
 							<span>이름으로 찾기</span>
 						</a>

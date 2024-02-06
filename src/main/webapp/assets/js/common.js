@@ -23,6 +23,12 @@ $(document).ready(function(){
 
 	}
 });
+
+
+function goToBack(){
+	history.back();
+}
+
 const getCookieValue = (name) => (
 	document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
 )

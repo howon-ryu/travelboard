@@ -22,10 +22,42 @@ function getMyPack(){
 		}
 	});
 }
+function search_pack(){
+	let search_packname = document.getElementById('search_packname').value;
+	let get_packname_data ={
+		"spot_name":search_packname
+	}
+
+	console.log("search_packname",search_packname)
+	if(search_packname == ""){
+		make_searchedlist("none")
+	}else{
+
+		$.ajax({
+
+			url: "http://localhost:8080/travelboard/searchSpot",
+			type: "post",
+			contentType:"application/json",
+			async:false,
+			data:JSON.stringify(get_packname_data),
+			datatype: "JSON",
+			success: function(obj){
+				console.log(obj);
+				make_searchedlist(obj)
+				// Datatable 의 reinitialize 를 없애기 위해 destroy
+			},
+			error: function(xhr, status, error){
+				console.log(`error: ${error}`)
+				console.log(`status: ${status}`)
+				return
+			}
+		})
+	}
+}
 
 
 
-	function getNewPack(){
+function getNewPack(){
 		$.ajax({
 			url: "http://localhost:8080/travelboard/newSpotFindAll",
 			type: "GET",
@@ -40,8 +72,8 @@ function getMyPack(){
 				return
 			}
 		});
-	}
-	function getPopularPack(){
+}
+function getPopularPack(){
 
         $.ajax({
 			url: "http://localhost:8080/travelboard/popularSpotFindAll",
@@ -57,10 +89,10 @@ function getMyPack(){
 				return
 			}
 		});
-	}
+}
 
-	///////////////////// 함수 /////////////////////
-	function newPackList(data){
+
+function newPackList(data){
 
 
 
@@ -89,7 +121,7 @@ function getMyPack(){
 			</div>`
 			$(".swiper-wrapper").append(pack);
 		}
-	}
+}
 function myPackList(data){
 
 	for(key in data){
@@ -146,20 +178,20 @@ function myPackList(data){
 		$(".pack_li").append(pack);
 	}
 }
-	function popularPackList(data){
-		for (key in data){
-			// if (pop_num-3 > key || key >= pop_num){
-			// 	continue;
-			// }
-			// let img = makeImgPath(data[key].packId, data[key].img);
-			let imgPath = "../assets/image/temp/"+data[key].img_name+".png";
-			let nickName = data[key].nickname == null ? "" : data[key].nickname
+function popularPackList(data) {
+	for (key in data) {
+		// if (pop_num-3 > key || key >= pop_num){
+		// 	continue;
+		// }
+		// let img = makeImgPath(data[key].packId, data[key].img);
+		let imgPath = "../assets/image/temp/" + data[key].img_name + ".png";
+		let nickName = data[key].nickname == null ? "" : data[key].nickname
 
-			let popularPackListTag = document.getElementsByClassName('pack_li');
+		let popularPackListTag = document.getElementsByClassName('pack_li');
 
-			console.log("popularPackListTag",popularPackListTag)
-			popularPackListTag.innerHTML = ``;
-			let pack = `<li>
+		console.log("popularPackListTag", popularPackListTag)
+		popularPackListTag.innerHTML = ``;
+		let pack = `<li>
 						<div class="pack_group">
 							<div class="cotn">
 								<!-- 이미지영역 -->
@@ -196,6 +228,83 @@ function myPackList(data){
 							</a>
 						</div>
 					</li>`
-			$(".pack_li").append(pack);
-		}
+		$(".pack_li").append(pack);
 	}
+}
+
+
+		function make_searchedlist(pack_list_data){
+			console.log("pack_list_data",pack_list_data)
+			let search_init = document.querySelector("#search_init").setAttribute("style","display:none");
+
+			let search_territory = document.getElementById('search_territory');
+
+
+
+			search_territory.innerHTML = ``;
+
+			if(pack_list_data == "none"){
+				let search_none = document.querySelector("#search_none").setAttribute("style","display:blank");
+
+			}else{
+				let search_none = document.querySelector("#search_none").setAttribute("style","display:none");
+				pack_list_data.forEach((pack,index,array) => {
+					let img = ""
+					console.log("for",pack)
+
+					search_territory.innerHTML +=
+						`
+                        <li>
+                            <div class="pack_group">
+                                <div class="cotn">
+                                    <!-- 이미지영역 -->
+                                    <div class="img_area">
+                                        <figure class="img">
+                                        
+                                            <img src="${img}" >
+                                            
+                                        </figure>
+                                    </div>
+                                    <!--// 이미지영역 -->
+                                    <!-- 텍스트영역 -->
+                                    <div class="txt_area">
+                                        <p class="nickname">${pack.nickname}</p>
+                                        <p class="tit">${pack.spot_name}</p>
+                                        <p class="tit" id = "pack_${pack.id}" hidden></p>
+                                        <div class="addr">
+                                            <span class="cnt">12</span>
+                                            <p class="txt">/ ${pack.road_name}</p>
+                                        </div>
+                                        <div class="pack_info">
+                                            <div class="count">
+                                                <p>
+                                                    <em class="current">${pack.totalPocaSize}</em>  <em class="tot" hidden>999</em>
+                                                </p>
+                                            </div>
+                                            <div class="chat" >
+                                                <span>${pack.commentCount}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--// 텍스트영역 -->
+                                </div>
+
+                                <form id = "pack_form${pack.id}" action = "spotInfo?pack_id=${pack.id}" method = "get">
+                                    <input name = "pack_id" value = "${pack.id}" hidden>
+                                    <input name = "no_have" value = "true" hidden>
+                                    <a  class="go_view" onclick = "gotopack(${pack.id})">
+                                        <span class="blind">상세이동</span>
+                                    </a>
+                                </form>
+                            </div>
+                        </li>
+				    `
+				});
+			}
+
+
+
+
+
+		}
+
