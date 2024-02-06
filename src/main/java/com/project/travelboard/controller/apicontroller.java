@@ -128,6 +128,22 @@ public class apicontroller {
 
 
     }
+    @PostMapping("/getPhotoList")
+    @ResponseBody
+    public List<PhotoDTO> getPhotoList(@RequestBody() Map<String, String> data){
+        //SpotDTO spotList = new SpotDTO();
+
+        String packId = data.get("packId");
+        System.out.println("packId"+packId);
+
+        List<PhotoDTO> photoList =  travelBoardService.getPhotoList(Integer.valueOf(packId));
+
+        return photoList;
+
+
+    }
+
+
     @PostMapping("/joinUser")
 //    @RequestBody
     public ResponseEntity joinUser(@RequestBody()JoinUserDTO joinuserDTO){

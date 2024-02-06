@@ -71,4 +71,11 @@ public class TravelBoardRepository {
     public SpotDTO getSpotInfo(Integer packId) {
         return sql.selectOne("TravelBoard.getSpotInfo",packId);
     }
+
+    public List<PhotoDTO> getPhotoList(Integer spot_id) {
+
+        return sql.selectList("TravelBoard.getPhotoList",spot_id);
+
+
+    }
 }

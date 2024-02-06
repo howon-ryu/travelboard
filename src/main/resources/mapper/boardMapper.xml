@@ -69,6 +69,14 @@
 
     </select>
 
+    <select id = "getPhotoList" resultType="photo" parameterType="Integer">
+        select * from photo where spot_id = #{spot_id}
+
+
+    </select>
+
+
+
 
     <insert id = "joinUser" parameterType="joinUser">
         insert into user(login_id, login_password, nickname)
