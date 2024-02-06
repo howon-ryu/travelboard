@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../assets/js/lib/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="../assets/js/common.js"></script>
-    <title>#5_studio main | 스튜디오(공개중 팩)</title>
+    <title>#5_studio main | 스튜디오(공개중 여행지)</title>
     <link rel="stylesheet" href="../assets/css/studio.css">
 </head>
 
@@ -53,10 +53,10 @@
     <!-- #CONTENTS -->
     <div id="contents">
         <div class="sub">
-            <!-- 공개중 팩 -->
+            <!-- 공개중 여행지 -->
             <div class="studio_release">
                 <div class="btn_wrap">
-                    <a href="4_pack_01.html" class="btn btn_100p btn_full color_type4 btn_link"><span>팩 바로 가기</span></a>
+                    <a href="4_pack_01.html" class="btn btn_100p btn_full color_type4 btn_link"><span>여행지 바로 가기</span></a>
                 </div>
                 <!-- 목록:리스트형 -->
                 <div class="pack_cotn">
@@ -184,7 +184,7 @@
                     <a href="5_spot_01.html" class="btn btn_100p color_type3"><span>스팟 추가</span></a>
                 </div>
             </div>
-            <!--// 공개중 팩 -->
+            <!--// 공개중 여행지 -->
         </div>
     </div>
     <!--// #CONTENTS -->
