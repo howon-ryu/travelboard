@@ -36,7 +36,7 @@
         <div class="header_wrap">
             <!-- 뒤로가기 -->
             <div class="tit_ctrl">
-                <a href="1_home.html" class="back">
+                <a  id = "goToSpotDetail" class="back">
                     <span class="blind">뒤로가기</span>
                 </a>
             </div>
@@ -102,6 +102,7 @@
                         <p class="spot_txt">여행지에서 보여주고 싶은 사진 이미지</p>
                         <div class="info_btn">
                             <a href="#n" class="btn pt_gr btn_pop" open-pop="cover_pop">
+                                <input id = "img_name" type="text" style = "display: none">
                                 <span>사진 올리기</span>
                             </a>
 
@@ -114,6 +115,7 @@
                 <!-- 스팟 이름 -->
                 <div class="inpt_wrap">
                     <p class="tit">사진 이름</p>
+                    <input id = "packId" type="text" style = "display: none">
                     <input id = "photo_name" type="text" placeholder="스팟 이름을 입력하세요">
                 </div>
                 <!--// 스팟 이름 -->
@@ -136,7 +138,7 @@
             <!--// 정보입력폼 -->
 
             <div class="btn_wrap btn_fixed" id = "createPhoto">
-                <a href="5_studio_02.html" class="btn color_type4 inactv"><span>스팟 저장하기</span></a><!-- 비활성일경우 class="inactv"추가 -->
+                <a  class="btn color_type4 inactv"><span>스팟 저장하기</span></a><!-- 비활성일경우 class="inactv"추가 -->
             </div>
         </div>
     </div>
@@ -204,40 +206,59 @@
     }
 
     // pack_id 값을 추출합니다.
-    var packId = getParameterByName('pack_id', currentUrl);
-    var photoId = getParameterByName('pack_id', currentUrl);
+    let packId = ""
+    let photoId = ""
+
+
 
     // 결과 확인
     console.log("packId",packId);
     console.log("photoId",photoId);
 
-
+    // let lng = ""
+    // let lat = ""
+    let temp_name = ""
+    let temp_comment = ""
 
     $(document).ready(function(){
+        var lng_t = getCookieValue("lng");
+        var lat_t = getCookieValue("lat");
+        var temp_name_t = getCookieValue("temp_name");
+        var temp_comment_t = getCookieValue("temp_comment");
 
-        // let temp_name = getCookieValue("temp_name");
-        // let temp_comment = getCookieValue("temp_comment");
+        packId = getParameterByName('pack_id', currentUrl);
+        photoId = getParameterByName('photo_id', currentUrl);
+
+        let tempImgName_t = getCookieValue("tempImgName");
         //
+        console.log(temp_name_t,temp_comment_t,getCookieValue("lat"),getCookieValue("lng"),tempImgName_t)
         //
-        //
-        // let lng = getCookieValue("lng");
-        // let lat = getCookieValue("lat");
-        // let temp_tempImgName = getCookieValue("temp_tempImgName");
-        //
-        // console.log(temp_name,temp_comment,lat,lng,temp_tempImgName)
-        //
-        // if(temp_name!=""){
-        //     $('#spot_name').attr('value', temp_name);
-        // }
-        // if(temp_comment!=""){
-        //     $('#spotComment').attr('value', temp_comment);
-        //     $('#spotComment').text(temp_comment);
-        // }
-        //
-        // if(temp_tempImgName!=""){
-        //     var cookieValue = getCookieValue("id");
-        //     document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+temp_tempImgName+"?a="+Math.random();
-        // }
+        if(temp_name_t!=""){
+            $('#photo_name').attr('value', temp_name_t);
+        }
+        if(temp_comment_t!=""){
+            $('#photo_comment').attr('value', temp_comment_t);
+            $('#photo_comment').text(temp_comment_t);
+        }
+        if(lng_t!=""){
+            lng = lng_t
+        }
+        if(lat_t!=""){
+            $('#photo_comment').attr('value', temp_comment_t);
+            lat = lat_t
+        }
+        if(packId!=""){
+            alert(packId)
+            $('#packId').attr('value', packId);
+
+        }
+
+
+        if(tempImgName_t!=""){
+            var cookieValue = getCookieValue("id");
+            $('#img_name').attr('value', temp_comment_t);
+            document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+tempImgName_t+"?a="+Math.random();
+        }
 
 
     });
@@ -249,7 +270,7 @@
     // const getCookieValue = (name) => (
     // 		document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
     // )
-    let tempImgName=""
+    var tempImgName=""
     function changePhotoValue() {
         console.log("!!!");
 
@@ -287,7 +308,7 @@
     }
 
     function select_img(imgName){
-        console.log("selectimg")
+        console.log("selectimg",tempImgName)
         var cookieValue = getCookieValue("id");
         document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+imgName+"?a="+Math.random();
 
@@ -304,12 +325,12 @@
 
 
 
-        if(temp_name != null){
+        if(photo_name != null){
 
 
             setCookie("temp_name", photo_name,'1')
         }
-        if(temp_comment != null){
+        if(photo_comment != null){
 
             setCookie("temp_comment", photo_comment,'1')
         }
@@ -318,13 +339,20 @@
             setCookie("tempImgName", tempImgName,'1')
         }
 
-        location.href='selectPosition';
+        location.href='selectPosition?origin=photo&pack_id='+packId;
 
 
 
 
     })
 
+    $('#goToSpotDetail').on("click",function(){
+        deleteCookie("temp_name");
+        deleteCookie("temp_comment");
+        deleteCookie("tempImgName");
+        alert(packId)
+        location.href='spotDetail?pack_id=' + packId;
+    });
 
 
     $("#createPhoto").on("click", function(){
@@ -332,13 +360,16 @@
         console.log("btn click")
         const photo_name = $("#photo_name").val()
         const photo_comment = $("#photo_comment").val()
-
-
-        let dataValue = {
+        const img_name =$("#img_name").val()
+        const packId =$("#packId").val()
+        console.log("!!",packId)
+            let dataValue = {
             "photo_name" : photo_name,
             "photo_comment" : photo_comment,
-            "img_name":tempImgName,
-            "spot_id" : cookieValue,
+            "img_name":img_name,
+            "spot_id" : packId,
+            "latitude" : lat,
+            "longitude" : lng,
 
 
         }
@@ -347,18 +378,20 @@
         $.ajax({
             type : "POST",
 
-            url : "http://localhost:8080/travelboard/createSpot",
+            url : "http://localhost:8080/travelboard/createPhoto",
             data : JSON.stringify(dataValue),
             contentType:"application/json",
             dataType: "json",
             success: function(data) {
                 console.log("data",data)
-                alert("spot 생성이 완료되었습니다.")
+                alert("사진 생성이 완료되었습니다.")
                 deleteCookie("lat");
                 deleteCookie("lng");
-                deleteCookie("spot_name");
-                deleteCookie("spotComment");
-                deleteCookie("temp_tempImgName")
+
+
+                deleteCookie("temp_name")
+                deleteCookie("temp_comment")
+                deleteCookie("tempImgName")
 
                 location.href = "studio";
 

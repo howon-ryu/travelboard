@@ -2,44 +2,44 @@ package com.project.travelboard.dto;
 
 public class PhotoDTO {
 
-    private int id;
-    private int spot_id;
-    private long latitude;
-    private long longitude;
+    private String id;
+    private String spot_id;
+    private String latitude;
+    private String longitude;
 
     private String img_name;
     private String photo_name;
     private String photo_comment;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getSpot_id() {
+    public String getSpot_id() {
         return spot_id;
     }
 
-    public void setSpot_id(int spot_id) {
+    public void setSpot_id(String spot_id) {
         this.spot_id = spot_id;
     }
 
-    public long getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(long latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public long getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(long longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 

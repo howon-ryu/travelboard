@@ -45,6 +45,9 @@ public class TravelBoardRepository {
 //        return sql.selectOne("TravelBoard.loginUser", loginuserDTO);
           return dto;
     }
+    public void createPhoto(PhotoDTO photoDTO) {
+        sql.insert("TravelBoard.createPhoto",photoDTO);
+    }
 
 
     public UserDTO getUserInfo(Integer id) {
@@ -78,4 +81,6 @@ public class TravelBoardRepository {
 
 
     }
+
+
 }

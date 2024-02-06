@@ -73,7 +73,7 @@ function setPhotoList(data, pack_id){
                                     <p class="addr"><span class="txt">${photoSpotName}</span></p>
                                 </div>
                                 
-                                <a id="detailLink" href="createPhotoDetail?pack_id=${pack_id}?photo_id=${photo_id}" class="go_view">
+                                <a id="detailLink" href="createPhotoDetail?pack_id=${pack_id}&photo_id=${photo_id}" class="go_view">
 							        
 							    </a>
                             </div>

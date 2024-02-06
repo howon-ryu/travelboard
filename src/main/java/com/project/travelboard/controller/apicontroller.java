@@ -138,7 +138,7 @@ public class apicontroller {
         //SpotDTO spotList = new SpotDTO();
 
         String packId = data.get("packId");
-        System.out.println("packId"+packId);
+//        System.out.println("packId"+packId);
 
         List<PhotoDTO> photoList =  travelBoardService.getPhotoList(Integer.valueOf(packId));
 
@@ -163,6 +163,15 @@ public class apicontroller {
         String tempInput = spotDTO.getSpotComment();
         //System.out.println("nick"+ tempInput);
         travelBoardService.createSpot(spotDTO);
+
+        return ResponseEntity.ok().body("{\"result\": \"" + tempInput + "\"}");
+    }
+    @PostMapping("/createPhoto")
+
+    public ResponseEntity createPhoto(@RequestBody()PhotoDTO photoDTO){
+        String tempInput = photoDTO.getPhoto_name();
+        //System.out.println("nick"+ tempInput);
+        travelBoardService.createPhoto(photoDTO);
 
         return ResponseEntity.ok().body("{\"result\": \"" + tempInput + "\"}");
     }
@@ -198,7 +207,7 @@ public class apicontroller {
     public SpotDTO getSpotInfo(@RequestBody() Map<String, String> data){
 
         String packId = data.get("packId");
-        System.out.println("pack_id"+packId);
+//        System.out.println("pack_id"+packId);
         SpotDTO spotDTO =  travelBoardService.getSpotInfo(Integer.valueOf(packId));
 
         return spotDTO;

@@ -37,6 +37,10 @@ public class TravelBoardService {
         travelBoardRepository.createSpot(spotDTO);
 
     }
+    public void createPhoto(PhotoDTO photoDTO) {
+        travelBoardRepository.createPhoto(photoDTO);
+
+    }
 
     public LoginUserDTO loginUser(LoginUserDTO loginuserDTO) {
         LoginUserDTO result = travelBoardRepository.loginUser(loginuserDTO);
@@ -78,4 +82,6 @@ public class TravelBoardService {
 
         return travelBoardRepository.getPhotoList(spot_id);
     }
+
+
 }

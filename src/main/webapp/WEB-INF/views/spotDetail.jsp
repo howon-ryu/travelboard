@@ -35,7 +35,7 @@
         <div class="header_wrap">
             <!-- 뒤로가기 -->
             <div class="tit_ctrl">
-                <a href="5_studio_01.html" class="back">
+                <a href="studio" class="back">
                     <span class="blind">뒤로가기</span>
                 </a>
             </div>
@@ -110,7 +110,7 @@
                 </ul>
                 <!--// 목록:스팟 리스트 -->
                 <div class="btn_wrap btn_fixed">
-                    <a href="5_spot_01.html" class="btn btn_100p color_type3"><span>스팟 추가</span></a>
+                    <a id="goToPhotoDetail" class="btn btn_100p color_type3"><span>스팟 추가</span></a>
                 </div>
             </div>
             <!--// 공개중 여행지 -->
@@ -201,6 +201,20 @@ function setSpotInfo(data){
     getSpotDetail(packId)
     photoList(packId)
 </script>
+
+
+<script>
+
+    $('#goToPhotoDetail').on("click",function(){
+
+        location.href = "createPhotoDetail?pack_id="+packId
+
+
+    })
+
+
+</script>
+
 
 
 </html>

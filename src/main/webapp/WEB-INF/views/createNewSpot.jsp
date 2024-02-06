@@ -596,7 +596,7 @@
 		console.log("btn click")
 		const spot_name = $("#spot_name").val()
 		const spotComment = $("#spotComment").val()
-
+		//여기서 위경도로 위치값을 받아오고 받은 위경도로 map 에 insert후 해당 map id를 넘겨야함
 
 		let dataValue = {
 			"spot_name" : spot_name,

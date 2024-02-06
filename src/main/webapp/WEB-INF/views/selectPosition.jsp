@@ -37,7 +37,7 @@
         <div class="header_wrap">
             <!-- 뒤로가기 -->
             <div class="tit_ctrl">
-                <a href="createNewSpot" class="close">
+                <a id = "closePosition" class="close">
                     <span class="blind">닫기</span>
                 </a>
             </div>
@@ -61,6 +61,7 @@
                 <div class="srch_wrap">
                     <div class="inpt_wrap">
                         <input id = "address" type="text" placeholder="주소 입력">
+                        <input id = "packId" type="text" style = "display: none">
                     </div>
                 </div>
                 <!--// 검색영역 -->
@@ -91,6 +92,28 @@
 
 
 <script>
+
+    var currentUrl = window.location.href;
+
+    // URL에서 파라미터를 추출하는 함수
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    // pack_id 값을 추출합니다.
+
+    var origin = getParameterByName('origin', currentUrl);
+    var packId = getParameterByName('pack_id', currentUrl);
+    if(packId!=""){
+        $('#packId').attr('value', packId);
+
+    }
     var lat = "";
     var lng = "";
     var markers = [];
@@ -187,6 +210,21 @@
     getCurrentPosition().then(point => createMap(point));
 </script>
 
+<script>
+    $('#closePosition').on("click",function(){
+        if(origin=="photo"){
+            location.href = "createPhotoDetail?pack_id="+$('#packId').val()
 
+
+
+        }else{
+
+            location.href="createNewSpot"
+
+        }
+    })
+
+
+</script>
 
 </html>

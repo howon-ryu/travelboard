@@ -91,6 +91,12 @@
 
 
     </insert>
+    <insert id = "createPhoto" parameterType="spot">
+        insert into photo(spot_id, latitude, longitude,img_name,photo_name, photo_comment)
+        values(#{spot_id}, #{latitude},#{longitude},#{img_name},#{photo_name},#{photo_comment})
+
+
+    </insert>
 
 
     <select id =  "loginUser" parameterType="loginUser" resultType="loginUser">
