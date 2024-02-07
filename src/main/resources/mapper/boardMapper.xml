@@ -47,6 +47,15 @@
         order by
             travel_spot.timestamp desc
     </select>
+
+    <select id = "getCommentList" resultType="comment" parameterType="Integer">
+
+        select comment.id, comment.spot_id,comment.user_id,comment.content, comment.photo_id,user.nickname as user_nickname  from comment left join user on comment.user_id = user.id where spot_id = #{spot_id}
+
+    </select>
+
+
+
     <select id="mySpotFindAll" resultType="spot" parameterType="Integer">
         SELECT
             travel_spot.id,
@@ -126,6 +135,7 @@
 
 
 
+
     <insert id = "joinUser" parameterType="joinUser">
         insert into user(login_id, login_password, nickname)
         values(#{id}, #{password}, #{nickname})
@@ -155,6 +165,12 @@
 
     <select id = "getUserInfo" parameterType="Integer" resultType="user">
         select * from user where id = #{id}
+
+    </select>
+
+
+    <select id = "getPhotoInfo" parameterType="Integer" resultType="photo">
+        select * from photo where id = #{id}
 
     </select>
 

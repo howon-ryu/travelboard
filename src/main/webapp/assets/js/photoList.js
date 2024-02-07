@@ -39,6 +39,44 @@ function photoList(packId){
 
 }
 
+function getSpotPhotolist(pack_id){
+    console.log("pack_id = "+"pack_id");
+    console.log("poca_id = "+"photo_id");
+    let dataValue = {
+        "packId" : pack_id,
+
+
+    }
+
+    // console.log(tt)
+    $.ajax({
+
+        url: "http://localhost:8080/travelboard/getPhotoList",
+        type: "post",
+        contentType:"application/json",
+        async:false,
+        data : JSON.stringify(dataValue),
+        datatype: "JSON",
+        success: function(obj){
+
+
+            console.log(obj);
+
+            setPhotoGal(obj)
+
+
+
+        },
+        error: function(xhr, status, error){
+            console.log(`error: ${error}`)
+            console.log(`status: ${status}`)
+            return
+        }
+    })
+}
+
+
+
 
 
 
@@ -83,6 +121,38 @@ function setPhotoList(data, pack_id){
             `;
         $(".spot_li").append(photo);
     }
+
+
+}
+function setPhotoGal(poca_list_data){
+    let poca_list = document.getElementById("poca_gallary");
+
+    poca_list.innerHTML =``
+    poca_list_data.forEach((photo,index,array) => {
+        console.log("photo",photo)
+
+        poca_list.innerHTML +=
+            `
+		<li>
+			<div class="pack_item" >
+				<!-- 이미지영역 -->
+				<div class="img_area" id = "poca_chat_start">
+					<figure class="img">
+
+						<img src="http://localhost:8080/assets/spot/${photo.spot_id}/Photo/${photo.id}/${photo.img_name}" >
+					</figure>
+				</div>
+
+				<a href="#" class="go_view btn_full_pop"  open-pop="spot_pop" onclick="poca_pop(${photo.id})">
+					<span class="blind">상세이동</span>
+				</a>
+			</div>
+		</li>
+
+
+		`
+    });
+
 
 
 }

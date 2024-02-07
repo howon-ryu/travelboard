@@ -31,7 +31,7 @@
         <div class="header_wrap">
             <!-- 뒤로가기 -->
             <div class="tit_ctrl">
-                <a  class="back" onclick="goToBack()">
+                <a class="back" onclick="goToBack()">
                     <span class="blind">뒤로가기</span>
                 </a>
             </div>
@@ -69,17 +69,7 @@
                         </div>
                     </div>
 
-                    <!-- NFT버튼 -->
-                    <div class="btn_nft">
-                        <a href="#none" class="rcv">
-                            <!--
-                            NFT발행 class="rcv"추가
-                            NFT발행완료 class="cmplt"추가
-                        -->
-                            <span class="blind">NFT발행</span>
-                        </a>
-                    </div>
-                    <!--// NFT버튼 -->
+
 
                     <!-- 카드뒤집기영역 -->
                     <div class="flip">
@@ -113,99 +103,32 @@
             <!--// 팩영역 -->
 
             <!-- live talk -->
-            <div class="talk_wrap">
+            <div class="talk_wrap" style="min-height: 40%">
                 <div class="talk_tit">
                     <div class="tit_area">
-                        <p>LIVE TALK</p>
+                        <p>COMMENT</p>
                     </div>
                     <div class="talk_cnt">
                         <span>175</span>
                     </div>
-                    <a href="#none" class="go_view btn_full_pop" open-pop="talk_pop">
+                    <a   class="go_view btn_full_pop" open-pop="talk_pop">
                         <span class="blind">댓글영역보기</span>
                     </a>
                 </div>
                 <div class="talk_list">
-                    <div class="group gre"><!-- 텍스트 색상 초록 class="gre" 추가 -->
-                        <span class="user">Chipster Original</span>
-                        <span class="txt">경복궁 조아요!</span>
-                    </div>
-                    <div class="group pur"><!-- 텍스트 색상 보라 class="pur" 추가 -->
-                        <span class="user">Chipster Original</span>
-                        <span class="txt">튼튼이가 요즘에 안보여서 엄청 걱정했는데 덕분에 만날수 있었어요</span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">튼튼이가 요즘에 </span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">Good! Good! :</span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">튼튼이가 요즘에 </span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">튼튼이가 요즘에 </span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">나도 만나고 싶다구!!! </span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">Good! Good! </span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">튼튼이가 요즘에 안보여서 엄청 걱정했는데 덕분에 만날수 있었어요</span>
-                    </div>
-                    <div class="group">
-                        <span class="user">닉넴</span>
-                        <span class="txt">칩스칩스님이 올카 성공! 칩스칩스님이 올카 성공!칩스칩스님이 올카 성공!칩스칩스님이 올카 성공!칩스칩스님이 올카 성공!</span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">Good! Good! </span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">튼튼이가 요즘에 </span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">Good! Good! :</span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">튼튼이가 요즘에 </span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">튼튼이가 요즘에 </span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">나도 만나고 싶다구!!! </span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">Good! Good! </span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">칩스칩스님이 올카 성공!</span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">나도 만나고 싶다구!!! </span>
-                    </div>
-                    <div class="group">
-                        <span class="user">댓글작성자닉네임</span>
-                        <span class="txt">Good! Good! </span>
-                    </div>
+<%--                    <div class="group gre"><!-- 텍스트 색상 초록 class="gre" 추가 -->--%>
+<%--                        <span class="user">Chipster Original</span>--%>
+<%--                        <span class="txt">경복궁 조아요!</span>--%>
+<%--                    </div>--%>
+<%--                    <div class="group pur"><!-- 텍스트 색상 보라 class="pur" 추가 -->--%>
+<%--                        <span class="user">Chipster Original</span>--%>
+<%--                        <span class="txt">튼튼이가 요즘에 안보여서 엄청 걱정했는데 덕분에 만날수 있었어요</span>--%>
+<%--                    </div>--%>
+<%--                    <div class="group">--%>
+<%--                        <span class="user">댓글작성자닉네임</span>--%>
+<%--                        <span class="txt">튼튼이가 요즘에 </span>--%>
+<%--                    </div>--%>
+
                 </div>
             </div>
             <!--// live talk -->
@@ -222,7 +145,7 @@
                 </a>
             </div>
             <div class="tab_btn ar">
-                <a href="#none">
+                <a  >
                     <span class="blind">AR</span>
                 </a>
             </div>
@@ -239,70 +162,7 @@
 <!--// #WRAP -->
 
 <!-- LIVE TALK 전체팝업 -->
-<section class="full_pop talk_pop "><!-- 전체팝업 활성화 class="on"추가 -->
-    <!-- #header -->
-    <header id="head">
-        <div class="header_wrap">
-            <!-- 뒤로가기 -->
-            <div class="tit_ctrl">
-                <a href="#none" class="close">
-                    <span class="blind">닫기</span>
-                </a>
-            </div>
-            <!--// 뒤로가기 -->
 
-            <!-- 타이틀 -->
-            <h1>
-                LIVE <strong>TALK</strong>
-            </h1>
-            <!--// 타이틀 -->
-        </div>
-    </header>
-    <!--// #header -->
-
-    <!-- #CONTENTS -->
-    <div id="content">
-        <div class="sub">
-            <div class="talk_inner">
-                <!-- 팩 타이틀 -->
-                <div class="pack_title">
-                    <h2 id = "spot_name"></h2>
-                </div>
-                <!--// 팩 타이틀 -->
-
-                <!-- talk목록 -->
-                <div class="chat_list_wrap">
-                    <!-- 데이터없음 -->
-                    <div class="data_none">
-                        <figure class="img">
-                            <img src="../assets/image/common/chip_10.png">
-                        </figure>
-                        <p class="txt_01">안녕하세요~</p>
-                        <p class="txt_02">팩톡을 남겨주세요!<br>첫 톡을 남겨주시면 복이 온대요~</p>
-                    </div>
-                    <!--// 데이터없음 -->
-                </div>
-                <!--// talk목록 -->
-
-                <!-- 채팅입력 -->
-                <div class="btm_fixed">
-                    <!-- 검색 -->
-                    <div class="text_input">
-                        <form>
-                            <input type="text" placeholder="글을 입력해 주세요">
-                            <button type="button" class="btn_submit">
-                                <i class="icon_submit i_chat"></i>
-                            </button>
-                        </form>
-                    </div>
-                    <!--// 검색 -->
-                </div>
-                <!--// 채팅입력 -->
-            </div>
-        </div>
-    </div>
-    <!--// #CONTENTS -->
-</section>
 <!--// LIVE TALK 전체팝업 -->
 </body>
 <script>
@@ -373,15 +233,300 @@
 
     }
     getSpotInfo()
+    updateSimpleChatList()
 function goToBinder(){
     var packId = getParameterByName("pack_id",currentUrl)
     location.href = "binder?pack_id="+packId
 
 
 }
+    function updateSimpleChatList(){
+        var pack_id = getParameterByName('pack_id', currentUrl);
+        let dataValue = {
+            "packId" : pack_id,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/travelboard/getCommentList",
+            data: JSON.stringify(dataValue),
+            contentType: "application/json",
+            dataType: "json",
+            success: function(response) {
+                console.log("data",response);
+
+                let chatList_small = '';
+                let chatList_full = '';
+
+                Object.keys(response).forEach(function(commentKey) {
+                    const commentData = response[commentKey];
+                    const commentHtml = `
+                    <div class="group">
+                        <span class="user">`+commentData.user_nickname+`</span>
+                        <span class="txt">`+commentData.content+`</span>
+                    </div>`;
+                    chatList_small += commentHtml;
+                });
+
+                Object.keys(response).forEach(function(commentKey) {
+                    const commentData = response[commentKey];
+                    console.log("commentData",commentData,commentKey)
+                    const commentHtml =
+                        `<div class="group">
+                        <div class="img_area">
+                            <figure class="img">
+                                <img src="../assets/image/common/profile_none.png" alt=""><!-- 프로필이미지 없음 -->
+                            </figure>
+                        </div>
+                        <div class="txt_area">
+                            <p class="chat_info">
+                                <span class="user">`+commentData.user_nickname+`</span>
+                                <span class="date">`+commentData.create_timestamp+`</span>
+                            </p>
+                            <div class="txt_des">
+                                <span class="txt">${commentData.comment_content}</span>
+                                <span class="loc">${selected_poca_data.address}</span>
+                                <span class="num">sp No.<em>${selected_poca_data.number}</em></span>
+                            </div>
+                        </div>
+                        <div class="btn_edit">
+                            <a   class="btn_btm_pop" open-pop="btm_edit" onclick="btn_pop_click('${commentKey}')"><span class="blind">talk 상태변경</span></a>
+                        </div>
+                    </div>`
+                    chatList_full += commentHtml;
+                });
+
+                $('.talk_list').html(chatList_small);
+                $('.chat_list').html(chatList_full);
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                alert("여행지 불러오기에 실패하였습니다.")
+                console.log("XHR status: " + xhr.status);
+                console.log("Text status: " + textStatus);
+                console.log("Error thrown: " + errorThrown);
+                console.log("Response text: " + xhr.responseText);
+            }
+        });
+    }
+
 
 
 
 
 </script>
+
+
+<section class="full_pop talk_pop" ><!-- 전체팝업 활성화 class="on"추가 -->
+    <!-- #header -->
+    <header id="head">
+        <div class="header_wrap">
+            <!-- 뒤로가기 -->
+            <div class="tit_ctrl">
+                <a   class="close">
+                    <span class="blind">닫기</span>
+                </a>
+            </div>
+            <!--// 뒤로가기 -->
+
+            <!-- 타이틀 -->
+            <h1>
+                LIVE <strong>TALK</strong>
+            </h1>
+            <!--// 타이틀 -->
+        </div>
+    </header>
+    <!--// #header -->
+
+    <!-- #CONTENTS -->
+    <div id="content">
+        <div class="sub">
+            <div class="talk_inner">
+                <!-- 팩 타이틀 -->
+                <div class="pack_title">
+                    <h2>졸업생이 알려주는 고양이 주요 출몰 지역 찾아보면 다나옴 </h2>
+                </div>
+                <!--// 팩 타이틀 -->
+
+                <!-- talk목록 -->
+                <div class="chat_list_wrap">
+                    <div class="chat_list" id = "poca_list">
+                        <div class="group">
+                            <div class="img_area">
+                                <figure class="img">
+                                    <img src="../assets/image/common/profile_none.png" alt=""><!-- 프로필이미지 없음 -->
+                                </figure>
+                            </div>
+                            <div class="txt_area">
+                                <p class="chat_info">
+                                    <span class="user">언제나스마일</span>
+                                    <span class="date">2023.03.29 18:45</span>
+                                </p>
+                                <div class="txt_des">
+                                    <span class="txt">튼튼이가 요즘에 안보여서 엄청 걱정했는데 덕분에 만날수 있었어요</span>
+                                    <span class="loc">창업보육센터 주차장</span>
+                                    <span class="num">sp No.<em>01</em></span>
+                                </div>
+                            </div>
+                            <div class="btn_edit">
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="img_area">
+                                <figure class="img">
+                                    <img src="../assets/image/temp/profile_02.png" alt="">
+                                </figure>
+                            </div>
+                            <div class="txt_area">
+                                <p class="chat_info">
+                                    <span class="user">언제나스마일</span>
+                                    <span class="date">2023.03.29 18:45</span>
+                                </p>
+                                <div class="txt_des">
+                                    <span class="txt">나도 만나고 싶다구!!</span>
+                                </div>
+                            </div>
+                            <div class="btn_edit">
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="img_area">
+                                <figure class="img">
+                                    <img src="../assets/image/temp/profile_02.png" alt="">
+                                </figure>
+                            </div>
+                            <div class="txt_area">
+                                <p class="chat_info">
+                                    <span class="user">댓글작성자닉네임</span>
+                                    <span class="date">2023.03.29 18:45</span>
+                                </p>
+                                <div class="txt_des">
+                                    <span class="txt">글의 내용이 전체적으로 다 보입니다. 스팟명은 따로 선택이나 입력없이 해시태그로 자동 붙는건 어떨까요? 그리고 사용자도 해시태그를 #이용해서 넣을 수도 있고요</span>
+                                    <span class="loc">항공우주박물관 앞 공터</span>
+                                    <span class="num">sp No.<em>02</em></span>
+                                </div>
+                            </div>
+                            <div class="btn_edit">
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                            </div>
+                        </div>
+                        <div class="group"><!-- 텍스트 색상 초록 class="pur" 추가 -->
+                            <div class="img_area">
+                                <figure class="img">
+                                    <img src="../assets/image/temp/profile_02.png" alt="">
+                                </figure>
+                            </div>
+                            <div class="txt_area">
+                                <p class="chat_info">
+                                    <span class="user">댓글작성자닉네임</span>
+                                    <span class="date">2023.03.29 18:45</span>
+                                </p>
+                                <div class="txt_des">
+                                    <span class="txt">글의 내용이 전체적으로 다 보입니다. 스팟명은 따로 선택이나 입력없이 해시태그로 자동 붙는건 어떨까요? 그리고 사용자도 해시태그를 #이용해서 넣을 수도 있고요</span>
+                                    <span class="loc">항공우주박물관 앞 공터</span>
+                                    <span class="num">sp No.<em>02</em></span>
+                                </div>
+                            </div>
+                            <div class="btn_edit">
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="img_area">
+                                <figure class="img">
+                                    <img src="../assets/image/temp/profile_02.png" alt="">
+                                </figure>
+                            </div>
+                            <div class="txt_area">
+                                <p class="chat_info">
+                                    <span class="user">댓글작성자닉네임</span>
+                                    <span class="date">2023.03.29 18:45</span>
+                                </p>
+                                <div class="txt_des">
+                                    <span class="txt">글의 내용이 전체적으로 다 보입니다. 스팟명은 따로 선택이나 입력없이 해시태그로 자동 붙는건 어떨까요? 그리고 사용자도 해시태그를 #이용해서 넣을 수도 있고요</span>
+                                    <span class="loc">항공우주박물관 앞 공터</span>
+                                    <span class="num">sp No.<em>02</em></span>
+                                </div>
+                            </div>
+                            <div class="btn_edit">
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                            </div>
+                        </div>
+                        <div class="group pur"><!-- 텍스트 색상 초록 class="pur" 추가 -->
+                            <div class="img_area">
+                                <figure class="img">
+                                    <img src="../assets/image/temp/profile_01.png" alt="">
+                                </figure>
+                            </div>
+                            <div class="txt_area">
+                                <p class="chat_info">
+                                    <span class="user">Chipster Original</span>
+                                    <span class="date">2023.03.29 18:45</span>
+                                </p>
+                                <div class="txt_des">
+                                    <span class="txt">글의 내용이 전체적으로 다 보입니다. 스팟명은 따로 선택이나 입력없이 해시태그로 자동 붙는건 어떨까요? 그리고 사용자도 해시태그를 #이용해서 넣을 수도 있고요</span>
+                                    <span class="loc">항공우주박물관 앞 공터</span>
+                                    <span class="num">sp No.<em>02</em></span>
+                                </div>
+                            </div>
+                            <div class="btn_edit">
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="img_area">
+                                <figure class="img">
+                                    <img src="../assets/image/common/profile_none.png" alt="">
+                                </figure>
+                            </div>
+                            <div class="txt_area">
+                                <p class="chat_info">
+                                    <span class="user">댓글작성자닉네임</span>
+                                    <span class="date">2023.03.29 18:45</span>
+                                </p>
+                                <div class="txt_des">
+                                    <span class="txt">스팟명은 따로 선택이나 입력없이 해시태그로 자동 붙는건 어떨까요? 그리고 사용자도 해시태그를 #이용해서 넣을 수도 있고요. 상단에 팩명도 긴데, 스팟명은 또 어디까지 넣어야할지 막막합니다요. 나중에 해시태그 이용해서 팩안에서 소팅처럼 쓸 수도 있음 좋을 거 같고요.</span>
+                                    <span class="loc">본관</span>
+                                    <span class="num">sp No.<em>02</em></span>
+                                </div>
+                            </div>
+                            <div class="btn_edit">
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 더보기 -->
+                    <div class="chat_more" hidden>
+                        <a   class="btn_more">
+                            <span>더보기</span>
+                        </a>
+                    </div>
+                    <!--// 더보기 -->
+                </div>
+                <!--// talk목록 -->
+
+                <!-- 채팅입력 -->
+                <div class="btm_fixed">
+                    <!-- 검색 -->
+                    <div class="text_input">
+                        <form>
+                            <input type="text" id = "send_text" placeholder="글을 입력해 주세요">
+                            <!-- <input type="text" placeholder="글을 입력해 주세요"> -->
+                            <button type="button" class="btn_submit">
+                                <i class="icon_submit i_chat"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <!--// 검색 -->
+                </div>
+                <!--// 채팅입력 -->
+            </div>
+        </div>
+    </div>
+    <!--// #CONTENTS -->
+</section>
+
+
 </html>

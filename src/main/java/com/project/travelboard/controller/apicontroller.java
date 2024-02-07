@@ -149,6 +149,23 @@ public class apicontroller {
 
 
     }
+
+    @PostMapping("/getCommentList")
+    @ResponseBody
+    public List<CommentDTO> getCommentList(@RequestBody() Map<String, String> data){
+        //SpotDTO spotList = new SpotDTO();
+
+        String id = data.get("packId");
+        System.out.println("id"+id);
+
+        List<CommentDTO> getCommentList =  travelBoardService.getCommentList(Integer.valueOf(id));
+
+        return getCommentList;
+
+
+    }
+
+
     @PostMapping("/myPickSpotFindAll")
     @ResponseBody
     public List<SpotDTO> myPickSpotFindAll(@RequestBody() Map<String, String> data){
@@ -197,6 +214,9 @@ public class apicontroller {
 
 
     }
+
+
+
 
 
     @PostMapping("/joinUser")
@@ -342,6 +362,19 @@ public class apicontroller {
 
 
     }
+    @PostMapping("/getPhotoInfo")
+    @ResponseBody
+    public PhotoDTO getPhotoInfo(@RequestBody() Map<String, String> data){
+
+        String id = data.get("photo_id");
+        System.out.println("id"+id);
+        PhotoDTO photoDTO =  travelBoardService.getPhotoInfo(Integer.valueOf(id));
+
+        return photoDTO;
+
+
+    }
+
 
     @PostMapping("/getSpotInfo")
     @ResponseBody

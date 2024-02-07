@@ -38,7 +38,7 @@
         <div class="header_wrap">
             <!-- 뒤로가기 -->
             <div class="tit_ctrl">
-                <a href="mypack_list.php" class="back">
+                <a class="back" onclick="goToBack()">
                     <span class="blind">뒤로가기</span>
                 </a>
             </div>
@@ -53,7 +53,7 @@
             <!-- 버튼 -->
             <div class="btn_area">
                 <div class="btn_head btn_chat">
-                    <a href="#none" class="btn_full_pop" open-pop="talk_pop">
+                    <a class="btn_full_pop" open-pop="talk_pop">
                         <span class="blind">채팅</span>
                     </a>
                 </div>
@@ -110,7 +110,7 @@
                                 </div>
                                 <!--// 이미지영역 -->
 
-                                <a href="#none" class="go_view btn_full_pop" open-pop="spot_pop">
+                                <a class="go_view btn_full_pop" open-pop="spot_pop">
                                     <span class="blind">상세이동</span>
                                 </a>
                             </div>
@@ -125,7 +125,7 @@
                                 </div>
                                 <!--// 이미지영역 -->
 
-                                <a href="#none" class="go_view">
+                                <a  class="go_view">
                                     <span class="blind">상세이동</span>
                                 </a>
                             </div>
@@ -140,7 +140,7 @@
                                 </div>
                                 <!--// 이미지영역 -->
 
-                                <a href="#none" class="go_view">
+                                <a  class="go_view">
                                     <span class="blind">상세이동</span>
                                 </a>
                             </div>
@@ -173,7 +173,7 @@
                                 </div>
                                 <!--// 이미지영역 -->
 
-                                <a href="#none" class="go_view">
+                                <a   class="go_view">
                                     <span class="blind">상세이동</span>
                                 </a>
                             </div>
@@ -197,7 +197,7 @@
                                 </div>
                                 <!--// 이미지영역 -->
 
-                                <a href="#none" class="go_view">
+                                <a   class="go_view">
                                     <span class="blind">상세이동</span>
                                 </a>
                             </div>
@@ -221,7 +221,7 @@
                                 </div>
                                 <!--// 이미지영역 -->
 
-                                <a href="#none" class="go_view">
+                                <a   class="go_view">
                                     <span class="blind">상세이동</span>
                                 </a>
                             </div>
@@ -245,7 +245,7 @@
                                 </div>
                                 <!--// 이미지영역 -->
 
-                                <a href="#none" class="go_view">
+                                <a   class="go_view">
                                     <span class="blind">상세이동</span>
                                 </a>
                             </div>
@@ -269,7 +269,7 @@
                                 </div>
                                 <!--// 이미지영역 -->
 
-                                <a href="#none" class="go_view">
+                                <a   class="go_view">
                                     <span class="blind">상세이동</span>
                                 </a>
                             </div>
@@ -293,7 +293,7 @@
                                 </div>
                                 <!--// 이미지영역 -->
 
-                                <a href="#none" class="go_view">
+                                <a   class="go_view">
                                     <span class="blind">상세이동</span>
                                 </a>
                             </div>
@@ -346,7 +346,7 @@
         <div class="header_wrap">
             <!-- 뒤로가기 -->
             <div class="tit_ctrl">
-                <a href="#none" class="close">
+                <a  class="close" onclick="poca_pop_close()">
                     <span class="blind">닫기</span>
                 </a>
             </div>
@@ -357,7 +357,7 @@
 
     <!-- #CONTENTS -->
     <div id="content">
-        <div class="sub">
+        <div class="sub" style="height:50%">
             <div class="spot_detail">
                 <!-- spot상세정보 -->
                 <div class="detail_card" id = "poca_info">
@@ -444,7 +444,7 @@
                         </div>
                     </div>
                     <!--// live talk -->
-                    <a href="#none" class="go_view btn_full_pop" open-pop="talk_pop">
+                    <a  class="go_view btn_full_pop" open-pop="talk_pop">
                         <span class="blind">댓글팝업 이동</span>
                     </a>
                 </div>
@@ -463,7 +463,7 @@
         <div class="header_wrap">
             <!-- 뒤로가기 -->
             <div class="tit_ctrl">
-                <a href="#none" class="close">
+                <a   class="close">
                     <span class="blind">닫기</span>
                 </a>
             </div>
@@ -509,7 +509,7 @@
                                 </div>
                             </div>
                             <div class="btn_edit">
-                                <a href="#none" class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
                             </div>
                         </div>
                         <div class="group">
@@ -528,7 +528,7 @@
                                 </div>
                             </div>
                             <div class="btn_edit">
-                                <a href="#none" class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
                             </div>
                         </div>
                         <div class="group">
@@ -549,7 +549,7 @@
                                 </div>
                             </div>
                             <div class="btn_edit">
-                                <a href="#none" class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
                             </div>
                         </div>
                         <div class="group"><!-- 텍스트 색상 초록 class="pur" 추가 -->
@@ -570,7 +570,7 @@
                                 </div>
                             </div>
                             <div class="btn_edit">
-                                <a href="#none" class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
                             </div>
                         </div>
                         <div class="group">
@@ -591,7 +591,7 @@
                                 </div>
                             </div>
                             <div class="btn_edit">
-                                <a href="#none" class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
                             </div>
                         </div>
                         <div class="group pur"><!-- 텍스트 색상 초록 class="pur" 추가 -->
@@ -612,7 +612,7 @@
                                 </div>
                             </div>
                             <div class="btn_edit">
-                                <a href="#none" class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
                             </div>
                         </div>
                         <div class="group">
@@ -633,14 +633,14 @@
                                 </div>
                             </div>
                             <div class="btn_edit">
-                                <a href="#none" class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
+                                <a   class="btn_btm_pop" open-pop="btm_edit"><span class="blind">talk 상태변경</span></a>
                             </div>
                         </div>
                     </div>
 
                     <!-- 더보기 -->
                     <div class="chat_more">
-                        <a href="#none" class="btn_more">
+                        <a   class="btn_more">
                             <span>더보기</span>
                         </a>
                     </div>
@@ -674,11 +674,11 @@
 <section class="btm_pop btm_edit">
     <div class="cotn">
         <div class="btn_wrap">
-            <a href="#none" class="edit" onclick=delete_comment() >
+            <a   class="edit" onclick=delete_comment() >
                 <i class="i_edit i_del"></i>
                 <span>삭제</span>
             </a>
-            <a href="#none" class="edit close" onclick = btn_pop_click_out()>
+            <a   class="edit close" onclick = btn_pop_click_out()>
                 <i class="i_edit i_cancel"></i>
                 <span>취소</span>
             </a>
@@ -689,123 +689,101 @@
 <!--// 삭제/신고 팝업 -->
 </body>
 </html>
-
+<script type="text/javascript" src="${path}/assets/js/photoList.js"></script>
 
 <script>
     let pack_list = []
     let pack_poca_data = ""
     let selected_poca_data = "null"
 
+    var currentUrl = window.location.href;
+
+    // URL에서 파라미터를 추출하는 함수
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    // pack_id 값을 추출합니다.
+
     $(document).ready(function(){
-        let ad_poca = <?=$ad_poca_id?>;
-        get_pack_pocalist()
-        getTotalPackList()
-        console.log("pack_poca_data",pack_poca_data)
-        make_poca_gal(pack_poca_data)
-        if(ad_poca!=null){
-            poca_pop(ad_poca)
-        }
+
+        var pack_id = getParameterByName('pack_id', currentUrl);
+        getSpotPhotolist(pack_id)
+
+        //getTotalPackList()
+
+        // console.log("pack_poca_data",pack_poca_data)
+        // make_poca_gal(pack_poca_data)
+        // if(ad_poca!=null){
+        //     poca_pop(ad_poca)
+        // }
         // make_poca_section(pack_poca_data)
         // poca_pop(pack_poca_data[0].id)
     })
 
-    function getSpotPhotolist(){
-        console.log("pack_id = "+"pack_id");
-        console.log("poca_id = "+"photo_id");
-        // console.log(tt)
-        $.ajax({
-
-            url: "<?=$api_url?>"+"/api/v1/arpocas/"+pack_id,
-        type: "get",
-            contentType:"application/json",
-            async:false,
-            //   data:get_pack_data,
-            datatype: "JSON",
-            success: function(obj){
 
 
-            console.log(obj);
-            pack_poca_data = obj
-            // Datatable 의 reinitialize 를 없애기 위해 destroy
+    function poca_pop(pocadata){
+    	make_poca_section(pocadata)
+    	let poca_section = document.getElementById("poca_section");
+    	console.log("classList",poca_section.classList)
 
 
-        },
-        error: function(xhr, status, error){
-            console.log(`error: ${error}`)
-            console.log(`status: ${status}`)
-            return
+    	if(poca_section.classList[2]!="on"){
+    		$('#poca_section').addClass('on')
+    		console.log("selected_poca_data",selected_poca_data)
+    		//updateSimpleChatList();
+
+    	}else{
+    		$('#poca_section').removeClass('on')
+    	}
+
+
+
+
+    }
+
+
+    function poca_pop_close(){
+        let poca_section = document.getElementById("poca_section");
+        console.log("classList",poca_section.classList)
+
+
+        if(poca_section.classList[2]!="on"){
+            $('#poca_section').addClass('on')
+            console.log("selected_poca_data",selected_poca_data)
+            //updateSimpleChatList();
+
+        }else{
+            $('#poca_section').removeClass('on')
         }
-    })
-    }
-    function make_poca_gal(poca_list_data){
-        let poca_list = document.getElementById("poca_gallary");
-
-        poca_list.innerHTML =``
-        <%--poca_list_data.forEach((poca,index,array) => {--%>
-        <%--    console.log("poca",poca)--%>
-
-        <%--    poca_list.innerHTML +=--%>
-        <%--        `--%>
-		<%--<li>--%>
-		<%--	<div class="pack_item" >--%>
-		<%--		<!-- 이미지영역 -->--%>
-		<%--		<div class="img_area" id = "poca_chat_start">--%>
-		<%--			<figure class="img">--%>
-
-		<%--				<img src="../media/arpoca/${pack_id}/${poca.img}" >--%>
-		<%--			</figure>--%>
-		<%--		</div>--%>
-
-		<%--		<a href="#" class="go_view btn_full_pop"  open-pop="spot_pop" onclick="poca_pop(${poca.id})">--%>
-		<%--			<span class="blind">상세이동</span>--%>
-		<%--		</a>--%>
-		<%--	</div>--%>
-		<%--</li>--%>
-
-
-		<%--`--%>
-        <%--});--%>
-
-
 
     }
-    // function poca_pop(pocadata){
-    // 	make_poca_section(pocadata)
-    // 	let poca_section = document.getElementById("poca_section");
-    // 	console.log("classList",poca_section.classList)
 
-
-    // 	if(poca_section.classList[2]!="on"){
-    // 		$('#poca_section').addClass('on')
-    // 		console.log("selected_poca_data",selected_poca_data)
-    // 		updateSimpleChatList();
-
-    // 	}else{
-    // 		$('#poca_section').removeClass('on')
-    // 	}
-
-
-
-
-
-
-    // }
     function make_poca_section(pocaid){
+        console.log("make_poca_section",pocaid)
         let poca_data = ""
         $.ajax({
-
-            url: "<?=$api_url?>"+"/api/v1/arpoca/"+pocaid,
-            type: "get",
+            url: "http://localhost:8080/travelboard/getPhotoInfo",
+            type: "post",
             contentType:"application/json",
+            data: JSON.stringify({ "photo_id": pocaid }),
             async:false,
-            //   data:get_pack_data,
+
             datatype: "JSON",
             success: function(obj){
 
 
                 console.log(obj);
                 poca_data = obj
-                selected_poca_data = poca_data
+                setPhotoDetail(poca_data)
+                //selected_poca_data = poca_data
                 // Datatable 의 reinitialize 를 없애기 위해 destroy
 
 
@@ -816,29 +794,114 @@
                 return
             }
         })
-        console.log("pocaid",pocaid)
+
+
+
+
+
+    }
+
+
+
+
+    function updateSimpleChatList(){
+        var pack_id = getParameterByName('pack_id', currentUrl);
+        let dataValue = {
+            "packId" : pack_id,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/travelboard/getCommentList",
+            data: JSON.stringify(dataValue),
+            contentType: "application/json",
+            dataType: "json",
+            success: function(response) {
+                console.log("data",response);
+
+                let chatList_small = '';
+                let chatList_full = '';
+
+                Object.keys(response).forEach(function(commentKey) {
+                    const commentData = response[commentKey];
+                    const commentHtml = `
+                    <div class="group">
+                        <span class="user">`+commentData.user_nickname+`</span>
+                        <span class="txt">`+commentData.content+`</span>
+                    </div>`;
+                    chatList_small += commentHtml;
+                });
+
+                Object.keys(response).forEach(function(commentKey) {
+                    const commentData = response[commentKey];
+                    console.log("commentData",commentData,commentKey)
+                    const commentHtml =
+                        `<div class="group">
+                        <div class="img_area">
+                            <figure class="img">
+                                <img src="../assets/image/common/profile_none.png" alt=""><!-- 프로필이미지 없음 -->
+                            </figure>
+                        </div>
+                        <div class="txt_area">
+                            <p class="chat_info">
+                                <span class="user">`+commentData.user_nickname+`</span>
+                                <span class="date">`+commentData.create_timestamp+`</span>
+                            </p>
+                            <div class="txt_des">
+                                <span class="txt">${commentData.comment_content}</span>
+                                <span class="loc">${selected_poca_data.address}</span>
+                                <span class="num">sp No.<em>${selected_poca_data.number}</em></span>
+                            </div>
+                        </div>
+                        <div class="btn_edit">
+                            <a   class="btn_btm_pop" open-pop="btm_edit" onclick="btn_pop_click('${commentKey}')"><span class="blind">talk 상태변경</span></a>
+                        </div>
+                    </div>`
+                    chatList_full += commentHtml;
+                });
+
+                $('.talk_list').html(chatList_small);
+                $('.chat_list').html(chatList_full);
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                alert("여행지 불러오기에 실패하였습니다.")
+                console.log("XHR status: " + xhr.status);
+                console.log("Text status: " + textStatus);
+                console.log("Error thrown: " + errorThrown);
+                console.log("Response text: " + xhr.responseText);
+            }
+        });
+    }
+
+
+
+    function setPhotoDetail(photo){
+        console.log("photo detail",photo)
         let poca_section = document.getElementById("poca_section");
         let poca_info = document.getElementById("poca_info");
         poca_info.innerHTML =``
+
         poca_info.innerHTML =
             `<div class="cotn">
 						<!-- 이미지영역 -->
 						<div class="img_area">
 							<figure class="img">
-							<img src="../media/arpoca/${pack_id}/${poca_data.img}" >
+
+							<img src="http://localhost:8080/assets/spot/`+photo.spot_id+`/Photo/`+photo.id+`/`+photo.img_name+`" >
 							</figure>
 						</div>
-						<!--// 이미지영역 -->
+						<!-- 이미지영역 -->
 
 						<!-- 텍스트영역 -->
 	 					<div class="txt_area" id = "textMore"><!-- 텍스트 전체보기 class="on"추가 -->
-	 						<p class="tit">${poca_data.name}!!!</p>
+	 						<p class="tit">`+photo.photo_name+`</p>
 	 						<p class="info">
-	 							<span class="num">sp No.<em>${poca_data.number}</em></span> :
-	 							<span class="addr">${poca_data.address}</span>
+	 							<span class="num">sp No.<em>`+photo.id+`</em></span> :
+	 							<span class="addr">`+photo.latitude+` `+photo.longitude+`</span>
+
 	 						</p>
-	 						<p class="txt">
-	 							${poca_data.content}
+	 						<p class="txt">`+photo.photo_comment+`
+
 	 						</p>
 	 						<p class="date">2023.03.31</p>
 	 					</div>
@@ -851,8 +914,6 @@
 		</div>`
 
         ;
-
-
 
     }
 
@@ -875,57 +936,57 @@
     }
 
 
-    function getTotalPackList(){
+    <%--function getTotalPackList(){--%>
 
 
-        // console.log(tt)
-        $.ajax({
-            url: "<?=$api_url?>"+"/api/v1/arpoca/userPack/"+<?=$user_id?>,
-        type: "get",
-            contentType:"application/json",
-            async:false,
-            //   data:get_pack_data,
-            datatype: "JSON",
-            success: function(obj){
+    <%--    // console.log(tt)--%>
+    <%--    $.ajax({--%>
+    <%--        url: "<?=$api_url?>"+"/api/v1/arpoca/userPack/"+<?=$user_id?>,--%>
+    <%--    type: "get",--%>
+    <%--        contentType:"application/json",--%>
+    <%--        async:false,--%>
+    <%--        //   data:get_pack_data,--%>
+    <%--        datatype: "JSON",--%>
+    <%--        success: function(obj){--%>
 
 
-            console.log(obj);
-            obj.forEach((pack,index,array)=>{
-                console.log("pack",pack)
-                // pack.pocaList.forEach((poca,index,array)=>{
-                // 	console.log("poca",poca)
+    <%--        console.log(obj);--%>
+    <%--        obj.forEach((pack,index,array)=>{--%>
+    <%--            console.log("pack",pack)--%>
+    <%--            // pack.pocaList.forEach((poca,index,array)=>{--%>
+    <%--            // 	console.log("poca",poca)--%>
 
-                // })
-                if(JSON.stringify(pack.pocaList)==JSON.stringify(pack_poca_data)){
-                    console.log("@@@")
-                    let end_num = document.getElementById("end_num");
-                    let crt_num = document.getElementById("crt_num");
-                    let total_num = document.getElementById("total_num");
-                    end_num.innerHTML=pack.totalPocaSize
-                    crt_num.innerHTML=pack.pocaGetSize
-                    total_num.innerHTML = pack.totalPocaSize
-                    if(pack.totalPocaSize==pack.pocaGetSize){
-                        $( '.bd_state' ).addClass( 'allca' );
-                    }else{
-                        $( '.bd_state' ).removeClass( 'allca' );
-                    }
+    <%--            // })--%>
+    <%--            if(JSON.stringify(pack.pocaList)==JSON.stringify(pack_poca_data)){--%>
+    <%--                console.log("@@@")--%>
+    <%--                let end_num = document.getElementById("end_num");--%>
+    <%--                let crt_num = document.getElementById("crt_num");--%>
+    <%--                let total_num = document.getElementById("total_num");--%>
+    <%--                end_num.innerHTML=pack.totalPocaSize--%>
+    <%--                crt_num.innerHTML=pack.pocaGetSize--%>
+    <%--                total_num.innerHTML = pack.totalPocaSize--%>
+    <%--                if(pack.totalPocaSize==pack.pocaGetSize){--%>
+    <%--                    $( '.bd_state' ).addClass( 'allca' );--%>
+    <%--                }else{--%>
+    <%--                    $( '.bd_state' ).removeClass( 'allca' );--%>
+    <%--                }--%>
 
-                }else{
-                    console.log(pack.pocaList,pack_poca_data)
-                }
-            })
+    <%--            }else{--%>
+    <%--                console.log(pack.pocaList,pack_poca_data)--%>
+    <%--            }--%>
+    <%--        })--%>
 
-            // Datatable 의 reinitialize 를 없애기 위해 destroy
+    <%--        // Datatable 의 reinitialize 를 없애기 위해 destroy--%>
 
 
-        },
-        error: function(xhr, status, error){
-            console.log(`error: ${error}`)
-            console.log(`status: ${status}`)
-            return
-        }
-    })
-    }
+    <%--    },--%>
+    <%--    error: function(xhr, status, error){--%>
+    <%--        console.log(`error: ${error}`)--%>
+    <%--        console.log(`status: ${status}`)--%>
+    <%--        return--%>
+    <%--    }--%>
+    <%--})--%>
+    <%--}--%>
 
 
 
@@ -954,132 +1015,10 @@
     // ...
 </script>
 <!-- <script type="text/javascript" src="../chat-api/vendor/firebase-config.js"></script> -->
-<script type="module">
 
-    import { getDatabase, ref, onChildAdded, onChildChanged,onChildRemoved } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
-
-    const db = getDatabase();
-    const commentsRef = ref(db, 'comments');
-    console.log("!!pack_poca_data",pack_poca_data)
-    let global_poca_id = selected_poca_data.id
-    let packId = pack_id;
-    let pocaId = global_poca_id;
-
-    // const pocaId = 231;
-    let reqUrl = (pocaId == null) ? `chat-api/get-comments-api.php?pack_id=${packId}` : `chat-api/get-comments-api.php?pack_id=${packId}&poca_id=${pocaId}`
-
-    // AJAX로 채팅 목록 업데이트하는 함수
-    window.updateSimpleChatList = function() {
-        let global_poca_id = selected_poca_data.id
-        let packId = pack_id;
-        let pocaId = global_poca_id;
-
-        // const pocaId = 231;
-        let reqUrl = (pocaId == null) ? `chat-api/get-comments-api.php?pack_id=${packId}` : `chat-api/get-comments-api.php?pack_id=${packId}&poca_id=${pocaId}`
-        console.log("selected_poca_data!!",selected_poca_data)
-        if(selected_poca_data!="null"){
-            $.ajax({
-                url: reqUrl,
-                type: 'GET',
-                // dataType: 'json',
-                // data: JSON.stringify({ pack_id: "934", poca_id: "231" }),
-                success: function(response) {
-                    // 업데이트된 채팅 목록을 생성
-                    console.log("response",response)
-                    let chatList_small = '';
-                    let chatList_full = '';
-                    Object.keys(response).forEach(function(commentKey) {
-                        const commentData = response[commentKey];
-                        const commentHtml = `
-                        <div class="group">
-                            <span class="user">${commentData.user_nickname}</span>
-                            <span class="txt">${commentData.comment_content}</span>
-                        </div>`;
-                        chatList_small += commentHtml;
-                    });
-                    Object.keys(response).forEach(function(commentKey) {
-
-                        const commentData = response[commentKey];
-                        console.log("commentData",commentData,commentKey)
-                        const commentHtml =
-                            `<div class="group">
-							<div class="img_area">
-								<figure class="img">
-									<img src="../assets/image/common/profile_none.png" alt=""><!-- 프로필이미지 없음 -->
-								</figure>
-							</div>
-							<div class="txt_area">
-								<p class="chat_info">
-									<span class="user">${commentData.user_nickname}</span>
-									<span class="date">${commentData.create_timestamp}</span>
-								</p>
-								<div class="txt_des">
-									<span class="txt">${commentData.comment_content}</span>
-									<span class="loc">${selected_poca_data.address}</span>
-									<span class="num">sp No.<em>${selected_poca_data.number}</em></span>
-								</div>
-							</div>
-							<div class="btn_edit">
-								<a href="#none" class="btn_btm_pop" open-pop="btm_edit" onclick = "btn_pop_click('${commentKey}')"><span class="blind">talk 상태변경</span></a>
-							</div>
-						</div>`
-                        chatList_full += commentHtml;
-                    });
-
-                    $('.talk_list').html(chatList_small);
-                    $('.chat_list').html(chatList_full);
-
-                }
-            });}
-
-    }
-
-    //"comments" 데이터 추가되면 실시간 업데이트하는 리스너
-    onChildAdded(commentsRef, (snapshot) => {
-        updateSimpleChatList();
-    });
-
-    //"comments" 데이터 수정되면 실시간 업데이트하는 리스너
-    onChildChanged(commentsRef, (snapshot) => {
-        updateSimpleChatList();
-    });
-
-    // "comment" 데이터 삭제되면 실시간 업데이트하는 리스너
-    onChildRemoved(commentsRef, (snapshot) => {
-        updateSimpleChatList();
-    });
-
-
-    // 페이지 로드 시 초기 채팅 목록 업데이트
-    // $(document).ready(function() {
-    //     updateSimpleChatList();
-    // });
-
-</script>
 <script>
 
-    function poca_pop(pocadata){
 
-        make_poca_section(pocadata)
-        let poca_section = document.getElementById("poca_section");
-        console.log("classList",poca_section.classList)
-
-
-        if(poca_section.classList[2]!="on"){
-            $('#poca_section').addClass('on')
-            console.log("selected_poca_data",selected_poca_data)
-            updateSimpleChatList();
-
-        }else{
-            $('#poca_section').removeClass('on')
-        }
-
-
-
-
-
-
-    }
 </script>
 <script>
     $(".btn_submit").on("click", function(){
@@ -1087,41 +1026,41 @@
     })
 
 
-    function send_msg(){
-        let send_text = document.getElementById('send_text').value;
-        let send_text_data =
-            {
-                "user_id" : <?=$user_id?>,
-        "user_nickname" : "귤버섯",
-            "pack_id" : pack_id,
-        "poca_id" : selected_poca_data.id,
+    <%--function send_msg(){--%>
+    <%--    let send_text = document.getElementById('send_text').value;--%>
+    <%--    let send_text_data =--%>
+    <%--        {--%>
+    <%--            "user_id" : <?=$user_id?>,--%>
+    <%--    "user_nickname" : "귤버섯",--%>
+    <%--        "pack_id" : pack_id,--%>
+    <%--    "poca_id" : selected_poca_data.id,--%>
 
-            "comment_content" : send_text
-    }
-        console.log("send_text_data",send_text_data)
+    <%--        "comment_content" : send_text--%>
+    <%--}--%>
+    <%--    console.log("send_text_data",send_text_data)--%>
 
 
-        $.ajax({
-            url: "https://chipsterplay.soundgram.co.kr/chat-api/chat-send.php",
-            type: "post",
-            //   contentType:"application/json",
-            async:false,
-            data:JSON.stringify(send_text_data),
+    <%--    $.ajax({--%>
+    <%--        url: "https://chipsterplay.soundgram.co.kr/chat-api/chat-send.php",--%>
+    <%--        type: "post",--%>
+    <%--        //   contentType:"application/json",--%>
+    <%--        async:false,--%>
+    <%--        data:JSON.stringify(send_text_data),--%>
 
-            //   datatype: "JSON",
-            success: function(obj){
-                console.log(obj);
-                console.log("sendresponse",obj)
-                // Datatable 의 reinitialize 를 없애기 위해 destroy
-            },
-            error: function(xhr, status, error){
-                console.log(`error: ${error}`)
-                console.log(`status: ${status}`)
-                return
-            }
-        })
+    <%--        //   datatype: "JSON",--%>
+    <%--        success: function(obj){--%>
+    <%--            console.log(obj);--%>
+    <%--            console.log("sendresponse",obj)--%>
+    <%--            // Datatable 의 reinitialize 를 없애기 위해 destroy--%>
+    <%--        },--%>
+    <%--        error: function(xhr, status, error){--%>
+    <%--            console.log(`error: ${error}`)--%>
+    <%--            console.log(`status: ${status}`)--%>
+    <%--            return--%>
+    <%--        }--%>
+    <%--    })--%>
 
-    }
+    <%--}--%>
     // function btmclick(){ /* 팝업열기 */
     // 		// e.preventDefault();
     // 		alert("!!!!")

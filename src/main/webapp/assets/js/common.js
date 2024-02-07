@@ -23,8 +23,19 @@ $(document).ready(function(){
 
 	}
 });
-
-
+//
+// $('.btn_full_pop').on('click', function(e){ /* 팝업열기 */
+// 	e.preventDefault();
+// 	console.log("pop")
+// 	var target = $(this).attr('open-pop') || e;
+// 	$('.full_pop' + '.' + target).addClass('on');
+// 	$('body').css('overflow','hidden')
+// });
+//
+// $('.full_pop .close').on('click', function(e){ /* 닫기 */
+// 	$(this).closest($('.full_pop')).removeClass('on');
+// 	$('body').css('overflow','');
+// });
 function goToBack(){
 	history.back();
 }

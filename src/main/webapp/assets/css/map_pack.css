@@ -24,7 +24,7 @@
 /* 팩타이틀 영역 */
 .pack_box {margin-top:24px; padding:0 20px;}
 .pack_box .card {max-width:290px; width:100%; margin:0 auto; box-shadow:0px 4px 20px rgba(0, 0, 0, 0.15); border-radius:30px; overflow:visible; background-color:#fff; position:relative;}
-.pack_box .card::after {display:block; content:''; background-repeat:no-repeat; background-position:0 0; background-image:url(../image/common/chip_06.png); background-size:64px auto; position:absolute; right:17px; bottom:-17px; width:64px; height:40px;}
+.pack_box .card::after {display:block; content:''; background-repeat:no-repeat; background-position:0 0; background-size:64px auto; position:absolute; right:17px; bottom:-17px; width:64px; height:40px;}
 .card .box_tit {padding:17px 15px 8px;}
 .card.pack_group .box_tit .nickname {text-align:center;}
 .card.pack_group .box_tit .tit {text-align:center; font-size:18px; display:block;}
@@ -72,7 +72,7 @@
 .talk_wrap {margin-top:30px; position:relative;}
 .talk_wrap::after {display:block; content:''; width:100%; height:calc(100% + 210px); position:absolute; left:0; top:-210px; background-color:#272727; z-index:-1;}
 .talk_wrap .talk_tit {margin:0 15px; padding-bottom:2px; display:flex; align-items:center; justify-content:space-between; height:32px; position:relative; border-bottom:1px solid #3B3C39;}
-.talk_wrap .talk_tit .tit_area {padding-right:52px; background:url(../image/common/chip_07.png) no-repeat right center; background-size:44px auto;}
+.talk_wrap .talk_tit .tit_area {padding-right:52px;  background-size:44px auto;}
 .talk_wrap .talk_tit .tit_area p {color:#ff762b; font-weight:600; line-height:34px;}
 .talk_cnt {font-size:14px; line-height:16px; font-weight:500; color:#fff; padding-left:24px; background:url(../image/common/icon_chat_wh.svg) no-repeat left center; background-size:16px 16px;}
 .talk_wrap .talk_list {margin-top:7px; padding-bottom:21px;}
