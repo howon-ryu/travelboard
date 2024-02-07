@@ -19,6 +19,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Map;
 
@@ -58,6 +62,11 @@ public class apicontroller {
     @GetMapping("/boardList") // HTTP GET 요청에 대한 처리를 위한 매핑
     public String boardList() {
         return "boardList"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
+    }
+
+    @GetMapping("/binder") // HTTP GET 요청에 대한 처리를 위한 매핑\
+    public String binder() {
+        return "binder"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
     }
 
     @GetMapping("/studio") // HTTP GET 요청에 대한 처리를 위한 매핑
@@ -140,6 +149,22 @@ public class apicontroller {
 
 
     }
+    @PostMapping("/myPickSpotFindAll")
+    @ResponseBody
+    public List<SpotDTO> myPickSpotFindAll(@RequestBody() Map<String, String> data){
+        //SpotDTO spotList = new SpotDTO();
+
+        String id = data.get("id");
+        System.out.println("id"+id);
+
+        List<SpotDTO> myPickSpotFindAll =  travelBoardService.myPickSpotFindAll(Integer.valueOf(id));
+
+        return myPickSpotFindAll;
+
+
+    }
+
+
     @PostMapping("/searchSpot")
     @ResponseBody
     public List<SpotDTO> searchSpot(@RequestBody() Map<String, String> data){
@@ -164,7 +189,7 @@ public class apicontroller {
         //SpotDTO spotList = new SpotDTO();
 
         String packId = data.get("packId");
-//        System.out.println("packId"+packId);
+        System.out.println("packId"+packId);
 
         List<PhotoDTO> photoList =  travelBoardService.getPhotoList(Integer.valueOf(packId));
 
@@ -185,21 +210,111 @@ public class apicontroller {
     }
     @PostMapping("/createSpot")
 //    @RequestBody
-    public ResponseEntity createSpot(@RequestBody()SpotDTO spotDTO){
+    public ResponseEntity createSpot(@RequestBody()SpotDTO spotDTO,HttpServletRequest request){
         String tempInput = spotDTO.getSpotComment();
         //System.out.println("nick"+ tempInput);
-        travelBoardService.createSpot(spotDTO);
 
-        return ResponseEntity.ok().body("{\"result\": \"" + tempInput + "\"}");
+        travelBoardService.createSpot(spotDTO);
+        SpotDTO lastSpot=travelBoardService.lastInputSpot();
+        System.out.println("lastSpot"+lastSpot.getId());
+        String basePath = request.getServletContext().getRealPath("/");
+        String beforeFolderPath = basePath + "assets" + File.separator + "image" + File.separator + "userUploads" ;
+        String folderPath = basePath + "assets" + File.separator + "spot" + File.separator + lastSpot.getId();
+
+        try {
+            // 복사할 파일 이름
+            String fileName = lastSpot.getImg_name();
+
+            // 이전 폴더에서 해당 파일 가져오기
+            File beforeFile = new File(beforeFolderPath, fileName);
+
+            // 해당 파일이 존재하는지 확인
+            if (!beforeFile.exists()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body("File not found in the before folder");
+            }
+            File folder = new File(folderPath);
+
+            // 폴더가 없다면 생성
+            if (!folder.exists()) {
+                if (!folder.mkdirs()) {
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                            .body("Failed to create user folder");
+                }
+            }
+            // 새 폴더에 파일 복사
+            Path source = beforeFile.toPath();
+            Path destination = Paths.get(folderPath, fileName);
+            Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
+
+
+            return ResponseEntity.ok().body("{\"result\": \"" + lastSpot + "\"}");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to copy file: " + e.getMessage());
+        }
+
+
+
+
+
+
+
+
     }
     @PostMapping("/createPhoto")
 
-    public ResponseEntity createPhoto(@RequestBody()PhotoDTO photoDTO){
+    public ResponseEntity createPhoto(@RequestBody()PhotoDTO photoDTO, HttpServletRequest request){
         String tempInput = photoDTO.getPhoto_name();
         //System.out.println("nick"+ tempInput);
         travelBoardService.createPhoto(photoDTO);
 
-        return ResponseEntity.ok().body("{\"result\": \"" + tempInput + "\"}");
+        PhotoDTO lastPhoto=travelBoardService.lastInputPhoto();
+        System.out.println("lastSpot"+lastPhoto.getId());
+        String basePath = request.getServletContext().getRealPath("/");
+        String beforeFolderPath = basePath + "assets" + File.separator + "image" + File.separator + "userUploads" ;
+        String folderPath = basePath + "assets" + File.separator + "spot" + File.separator+lastPhoto.getSpot_id()+File.separator+"Photo" + File.separator + lastPhoto.getId();
+
+        try {
+            // 복사할 파일 이름
+            String fileName = lastPhoto.getImg_name();
+
+            // 이전 폴더에서 해당 파일 가져오기
+            File beforeFile = new File(beforeFolderPath, fileName);
+            if (!beforeFile.exists()) {
+                if (!beforeFile.mkdirs()) {
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                            .body("Failed to create user folder");
+                }
+            }
+
+
+            File folder = new File(folderPath);
+
+            // 폴더가 없다면 생성
+            if (!folder.exists()) {
+                if (!folder.mkdirs()) {
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                            .body("Failed to create user folder");
+                }
+            }
+            // 새 폴더에 파일 복사
+            Path source = beforeFile.toPath();
+            Path destination = Paths.get(folderPath, fileName);
+            Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
+
+
+            return ResponseEntity.ok().body("{\"result\": \"" + lastPhoto + "\"}");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to copy file: " + e.getMessage());
+        }
+
+
+
+
     }
 
 
@@ -272,7 +387,8 @@ public class apicontroller {
         try {
             // 사용자 ID를 기반으로 폴더 생성
             String basePath = request.getServletContext().getRealPath("/");
-            String folderPath = basePath + "assets" + File.separator + "image" + File.separator + "userUploads" + File.separator + userId;
+//            String folderPath = basePath + "assets" + File.separator + "image" + File.separator + "userUploads" + File.separator + userId;
+            String folderPath = basePath + "assets" + File.separator + "image" + File.separator + "userUploads" ;
 
             File folder = new File(folderPath);
 

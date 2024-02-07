@@ -65,7 +65,7 @@
                 <!-- 검색 -->
                 <div class="text_input">
                     <div>
-                        <input type="text" id = "search_packname" placeholder="팩이름을 검색해주세요">
+                        <input type="text" id = "search_packname" placeholder="팩이름을 검색해주세요" onkeyup="search_pack()">
                         <button type="button" class="btn_submit" >
                             <i class="icon_submit i_srch"></i>
                         </button>
@@ -81,7 +81,7 @@
                     </ul>
                     <div class="data_none before" id = "search_init" style="display:blank">
                         <figure class="img">
-                            <img src="../assets/image/common/chip_05.png" >
+                            <img src="http://localhost:8080/assets/assets_howon/image/logo_remove_icon.png" >
                         </figure>
                         <p class="txt_01">검색하면 다 나와요~</p>
                         <p class="txt_02">여러분의 관심사 또는 지역명을 검색해보세요!</p>
@@ -90,10 +90,10 @@
                     <!-- 검색전 텍스트 -->
                     <div class="data_none" id = "search_none" style="display:none">
                         <figure class="img">
-                            <img src="../assets/image/common/chip_02.png" >
+                            <img src="http://localhost:8080/assets/assets_howon/image/logo_remove_icon.png" >
                         </figure>
                         <p class="txt_01">OOOPS!</p>
-                        <p class="txt_02">아직 보유한 팩이 없어요.</p>
+                        <p class="txt_02">다른 여행지를 검색해보세요!</p>
                     </div>
                     <!--// 검색전 텍스트 -->
                 </div>

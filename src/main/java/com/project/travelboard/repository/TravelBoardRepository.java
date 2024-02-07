@@ -26,6 +26,9 @@ public class TravelBoardRepository {
         return sql.selectList("TravelBoard.mySpotFindAll",id);
 
     }
+    public List<SpotDTO> myPickSpotFindAll(Integer id) {
+        return sql.selectList("TravelBoard.myPickSpotFindAll",id);
+    }
     public List<SpotDTO> newSpotFindAll() {
         return sql.selectList("TravelBoard.newSpotFindAll");
     }
@@ -84,6 +87,15 @@ public class TravelBoardRepository {
 
     }
 
+
+    public SpotDTO lastInputSpot() {
+        return sql.selectOne("TravelBoard.lastInputSpot");
+
+    }
+
+    public PhotoDTO lastInputPhoto() {
+        return sql.selectOne("TravelBoard.lastInputPhoto");
+    }
 
 
 }

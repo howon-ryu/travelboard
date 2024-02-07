@@ -248,7 +248,7 @@
             lat = lat_t
         }
         if(packId!=""){
-            alert(packId)
+
             $('#packId').attr('value', packId);
 
         }
@@ -256,8 +256,8 @@
 
         if(tempImgName_t!=""){
             var cookieValue = getCookieValue("id");
-            $('#img_name').attr('value', temp_comment_t);
-            document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+tempImgName_t+"?a="+Math.random();
+            $('#img_name').attr('value', tempImgName_t);
+            document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+tempImgName_t+"?a="+Math.random();
         }
 
 
@@ -297,7 +297,9 @@
             success: function (data) {
                 console.log("Image uploaded successfully");
                 $('.pop_close').click();
+                console.log("uploadimgdata",data)
                 tempImgName = data;
+                $('#img_name').attr('value', data);
                 select_img(data);
                 // Additional actions after successful upload
             },
@@ -310,7 +312,7 @@
     function select_img(imgName){
         console.log("selectimg",tempImgName)
         var cookieValue = getCookieValue("id");
-        document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+imgName+"?a="+Math.random();
+        document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+imgName+"?a="+Math.random();
 
 
     }
@@ -350,7 +352,7 @@
         deleteCookie("temp_name");
         deleteCookie("temp_comment");
         deleteCookie("tempImgName");
-        alert(packId)
+
         location.href='spotDetail?pack_id=' + packId;
     });
 
@@ -374,7 +376,7 @@
 
         }
         console.log(dataValue)
-        alert("before")
+
         $.ajax({
             type : "POST",
 

@@ -227,7 +227,7 @@
                 </a>
             </div>
             <div class="tab_btn binder">
-                <a href="4_binder.html">
+                <a onclick= "goToBinder()">
                     <span class="blind">binder</span>
                 </a>
             </div>
@@ -373,7 +373,12 @@
 
     }
     getSpotInfo()
+function goToBinder(){
+    var packId = getParameterByName("pack_id",currentUrl)
+    location.href = "binder?pack_id="+packId
 
+
+}
 
 
 

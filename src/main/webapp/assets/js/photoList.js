@@ -51,7 +51,7 @@ function setPhotoList(data, pack_id){
         let photo_comment = data[key]['photo_comment'];
 
         let photo_name = data[key]['photo_name'];
-        let imgPath = "../assets/image/temp/"+data[key].img_name+".png";
+        let imgPath = "http://localhost:8080/assets/spot/"+data[key].spot_id+'/Photo/'+data[key].id+'/'+data[key].img_name;
         let photoSpotName = latitude + " " + longitude
 
 
@@ -63,7 +63,7 @@ function setPhotoList(data, pack_id){
                             <div class="cotn">
                                 <div class="img_area">
                                     <figure class="img">
-                                        <img src="../assets/image/temp/pack_06.jpg" alt="">
+                                        <img src="${imgPath}" alt="">
                                     </figure>
                                     <span class="num">${data[key]['img_name']}</span>
                                 </div>

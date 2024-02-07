@@ -22,6 +22,28 @@ function getMyPack(){
 		}
 	});
 }
+
+function getMyPickPack(){
+	let userTableId = getCookieValue("id")
+	console.log("mu pack userTableId",userTableId)
+	$.ajax({
+		url: "http://localhost:8080/travelboard/myPickSpotFindAll",
+		type: "POST",
+		data: JSON.stringify({ "id": userTableId }),
+		contentType:"application/json",
+		dataType: "JSON",
+		success: function(obj){
+			console.log("pick spot data:",obj);
+			myPickPackList(obj);
+		},
+		error: function(xhr, status, error){
+			console.log("orderbyupdate error:",xhr);
+			return
+		}
+	});
+}
+
+
 function search_pack(){
 	let search_packname = document.getElementById('search_packname').value;
 	let get_packname_data ={
@@ -98,7 +120,7 @@ function newPackList(data){
 
 		for(key in data){
 
-			let imgPath = "../assets/image/temp/"+data[key].img_name+".png";
+			let imgPath = `http://localhost:8080/assets/spot/`+data[key].id+'/'+data[key].img_name;
 			let pack = `<div class="pack_slide swiper-slide">
 				<div class="pack_item">
 					<!-- 이미지영역 -->
@@ -131,7 +153,7 @@ function myPackList(data){
 		let title = data[key]['spot_name'];
 		//let status = data[key]['status']>0?`<span class="studio_pack_tag"></span>`:``;
 		let commentCount = data[key]['commentCount'];
-		let imgPath = "../assets/image/temp/"+data[key].img_name+".png";
+		let imgPath = `http://localhost:8080/assets/spot/`+data[key].id+'/'+data[key].img_name;
 		let road_name = data[key]['road_name']
 		//let totalPocaSize = data[key]['totalPocaSize']
 		let totalPocaSize = 100
@@ -184,7 +206,61 @@ function popularPackList(data) {
 		// 	continue;
 		// }
 		// let img = makeImgPath(data[key].packId, data[key].img);
-		let imgPath = "../assets/image/temp/" + data[key].img_name + ".png";
+		let imgPath = `http://localhost:8080/assets/spot/`+data[key].id+'/'+data[key].img_name;
+		let nickName = data[key].nickname == null ? "" : data[key].nickname
+
+		let popularPackListTag = document.getElementsByClassName('pack_li');
+
+		console.log("popularPackListTag", popularPackListTag)
+		popularPackListTag.innerHTML = ``;
+		let pack = `<li>
+						<div class="pack_group">
+							<div class="cotn">
+								<!-- 이미지영역 -->
+								<div class="img_area">
+									<figure class="img">
+										<img src="${imgPath}" >
+									</figure>
+								</div>
+								<!--// 이미지영역 -->
+
+								<!-- 텍스트영역 -->
+								<div class="txt_area">
+									<p class="nickname">${nickName}</p>
+									<p class="tit">${data[key].spot_name}</p>
+									<div class="addr">
+										<span class="cnt">12</span>
+										<p class="txt">/${data[key].road_name} </p>
+									</div>
+									<div class="pack_info">
+										<div class="count">
+											<p>
+												<em class="current">28</em> / <em class="tot">999</em>
+											</p>
+										</div>
+										<div class="chat">
+											<span>${data[key].commentCount}</span>
+										</div>
+									</div>
+								</div>
+								<!--// 텍스트영역 -->
+							</div>
+							<a href="pack.php?pack_id=${data[key].id}" class="go_view">
+								<span class="blind">상세이동</span>
+							</a>
+						</div>
+					</li>`
+		$(".pack_li").append(pack);
+	}
+}
+
+function popularPackList(data) {
+	for (key in data) {
+		// if (pop_num-3 > key || key >= pop_num){
+		// 	continue;
+		// }
+		// let img = makeImgPath(data[key].packId, data[key].img);
+		let imgPath = `http://localhost:8080/assets/spot/`+data[key].id+'/'+data[key].img_name;
 		let nickName = data[key].nickname == null ? "" : data[key].nickname
 
 		let popularPackListTag = document.getElementsByClassName('pack_li');
@@ -233,7 +309,10 @@ function popularPackList(data) {
 }
 
 
-		function make_searchedlist(pack_list_data){
+
+
+
+function make_searchedlist(pack_list_data){
 			console.log("pack_list_data",pack_list_data)
 			let search_init = document.querySelector("#search_init").setAttribute("style","display:none");
 
@@ -249,8 +328,9 @@ function popularPackList(data) {
 			}else{
 				let search_none = document.querySelector("#search_none").setAttribute("style","display:none");
 				pack_list_data.forEach((pack,index,array) => {
-					let img = ""
-					console.log("for",pack)
+					let imgPath = `http://localhost:8080/assets/spot/`+pack.id+'/'+pack.img_name;
+
+					console.log("for",pack.id)
 
 					search_territory.innerHTML +=
 						`
@@ -261,7 +341,7 @@ function popularPackList(data) {
                                     <div class="img_area">
                                         <figure class="img">
                                         
-                                            <img src="${img}" >
+                                            <img src="${imgPath}" >
                                             
                                         </figure>
                                     </div>
@@ -306,5 +386,71 @@ function popularPackList(data) {
 
 
 
+}
+
+function myPickPackList(pack_list_data){
+	let pack_list = document.getElementById("pack_li");
+	let allca = ""
+	let allca_flag = "hidden"
+	// pack_list.innerHTML =``
+	pack_list_data.forEach((pack,index,array) => {
+		console.log("pack",pack)
+		let imgPath = `http://localhost:8080/assets/spot/`+pack.id+'/'+pack.img_name;
+		if(pack.pocaGetSize == pack.totalPocaSize){
+			allca = "allca";
+			allca_flag = "";
+			// num_allca ++;
+		}else{
+			allca = ""
+			allca_flag = "hidden"
 		}
+		pack_list.innerHTML +=
+			`
+			
+			<li ">
+				<div class="pack_group">
+					<div class="cotn">
+						<!-- 이미지영역 -->
+						<div class="img_area">
+							<figure class="img">
+								<img src="${imgPath}" >
+							</figure>
+							
+						</div>
+						<!--// 이미지영역 -->
+						<!-- 텍스트영역 -->
+						<div class="txt_area">
+							<p class="nickname">${pack.nickname}</p>
+							<p class="tit">${pack.spot_name}</p>
+							<p class="tit" id = "pack_${pack.id}" hidden></p>
+							<div class="addr">
+								<span class="cnt">12</span>
+								<p class="txt">/ ${pack.road_name}</p>
+							</div>
+							<div class="pack_info">
+								<div class="count">
+									<p>
+										<em class="current">${pack.nickname}</em>  <em class="tot" hidden>999</em>
+									</p>
+								</div>
+								<div class="chat" >
+									<span>${pack.commentCount}</span>
+								</div>
+							</div>
+						</div>
+						<!--// 텍스트영역 -->
+					</div>
+					
+					<form id = "pack_form${pack.id}" action = "spotInfo?pack_id=${pack.id}" method = "get">
+						<input name = "pack_id" value = "${pack.id}" hidden>
+						<input name = "allca" value = "${allca}" hidden>
+						<a  class="go_view" onclick = "gotopack(${pack.id})">
+							<span class="blind">상세이동</span>
+						</a>
+					</form>
+				</div>
+			</li>
+		`
+	});
+}
 

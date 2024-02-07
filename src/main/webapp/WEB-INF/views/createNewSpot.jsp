@@ -72,6 +72,7 @@
 						</div>
 						<div class="info_btn">
 							<a href="#n" class="btn pt btn_pop" open-pop="cover_pop">
+								<input id = "img_name" type="text" style = "display: none">
 								<span>사진 올리기</span>
 							</a>
 							
@@ -500,6 +501,9 @@
 
 		if(temp_tempImgName!=""){
 			var cookieValue = getCookieValue("id");
+
+			$('#img_name').attr('value', temp_tempImgName);
+			tempImgName = temp_tempImgName
 			document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+temp_tempImgName+"?a="+Math.random();
 		}
 
@@ -560,7 +564,7 @@
 
 	$('#goToSelectPosition').on("click",function(){
 
-		let temp_name = $("#temp_name").val()
+		let temp_name = $("#spot_name").val()
 		let temp_comment = $("#spotComment").val()
 
 
@@ -619,8 +623,8 @@
 				alert("spot 생성이 완료되었습니다.")
 				deleteCookie("lat");
 				deleteCookie("lng");
-				deleteCookie("spot_name");
-				deleteCookie("spotComment");
+				deleteCookie("temp_name");
+				deleteCookie("temp_comment");
 				deleteCookie("temp_tempImgName")
 
 				location.href = "studio";

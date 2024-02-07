@@ -69,7 +69,7 @@
                             <!-- 이미지영역 -->
                             <div class="img_area">
                                 <figure class="img">
-                                    <img src="../assets/image/temp/pack_02.png" >
+                                    <img id = "spot_img" src="../assets/image/temp/pack_02.png" >
                                 </figure>
                                 <span class="studio_pack_tag"></span>
                             </div>
@@ -185,10 +185,13 @@ function setSpotInfo(data){
 
         let spotNameTag = document.getElementById('spot_name');
         let spotCommentTag = document.getElementById('spotComment');
-
+        document.getElementById("spot_img").src = "http://localhost:8080/assets/spot/"+data.id+"/"+data.img_name;
 
         spotNameTag.innerText = data.spot_name;
         spotCommentTag.innerText =data.spotComment;
+
+
+
     }
 
 

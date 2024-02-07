@@ -29,7 +29,9 @@ public class TravelBoardService {
     public List<SpotDTO> mySpotFindAll(Integer id) {
         return travelBoardRepository.mySpotFindAll(id);
     }
-
+    public List<SpotDTO> myPickSpotFindAll(Integer id) {
+        return travelBoardRepository.myPickSpotFindAll(id);
+    }
     public void joinUser(JoinUserDTO joinuserDTO) {
 
         travelBoardRepository.joinUser(joinuserDTO);
@@ -37,10 +39,11 @@ public class TravelBoardService {
 
 
     }
-    public void createSpot(SpotDTO spotDTO) {
+    public SpotDTO createSpot(SpotDTO spotDTO) {
 
         travelBoardRepository.createSpot(spotDTO);
 
+        return spotDTO;
     }
     public void createPhoto(PhotoDTO photoDTO) {
         travelBoardRepository.createPhoto(photoDTO);
@@ -88,6 +91,17 @@ public class TravelBoardService {
         return travelBoardRepository.getPhotoList(spot_id);
     }
 
+
+    public SpotDTO lastInputSpot() {
+        SpotDTO result = travelBoardRepository.lastInputSpot();
+        return result;
+
+    }
+
+    public PhotoDTO lastInputPhoto() {
+        PhotoDTO result = travelBoardRepository.lastInputPhoto();
+        return result;
+    }
 
 
 }
