@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../assets/js/lib/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../assets/js/lib/swiper-bundle.min.js"></script>
-
+    <script type="text/javascript" src="${path}/assets/js/common.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <title>#4_pack | BINDER</title>
     <link rel="stylesheet" href="../assets/css/map_pack.css">
@@ -612,7 +612,7 @@
                     </div>
 
                     <!-- 더보기 -->
-                    <div class="chat_more">
+                    <div class="chat_more" hidden>
                         <a   class="btn_more">
                             <span>더보기</span>
                         </a>
@@ -700,7 +700,19 @@
         // poca_pop(pack_poca_data[0].id)
     })
 
+    let delete_num_key = ""
+    function btn_pop_click(commentKey, user_id){
+        console.log(user_id, getCookieValue("id"))
+        if(user_id == getCookieValue("id")){
+            console.log("commentKey",commentKey)
+            delete_num_key = commentKey
+            $('.btm_pop').addClass('on');
+            dimShow()
 
+        }
+
+
+    }
 
     function poca_pop(pocadata){
     	make_poca_section(pocadata)
@@ -779,12 +791,13 @@
 
 
     function updateSimpleChatListPhoto(){
+
         var pack_id = getParameterByName('pack_id', currentUrl);
         let dataValue = {
-            "packId" : pack_id,
+            "spot_id" : pack_id,
             "photo_id" : photo_id
         };
-
+        console.log(photo_id)
         $.ajax({
             type: "POST",
             url: "http://localhost:8080/travelboard/getCommentList",
@@ -823,13 +836,12 @@
                                 <span class="date">`+commentData.create_timestamp+`</span>
                             </p>
                             <div class="txt_des">
-                                <span class="txt">${commentData.comment_content}</span>
-                                <span class="loc">${selected_poca_data.address}</span>
-                                <span class="num">sp No.<em>${selected_poca_data.number}</em></span>
+                                <span class="txt">`+commentData.content+`</span>
+
                             </div>
                         </div>
                         <div class="btn_edit">
-                            <a   class="btn_btm_pop" open-pop="btm_edit" onclick="btn_pop_click('${commentKey}')"><span class="blind">talk 상태변경</span></a>
+                            <a   class="btn_btm_pop" open-pop="btm_edit" onclick="btn_pop_click(`+commentData.id+`,`+commentData.user_id+`)"><span class="blind">talk 상태변경</span></a>
                         </div>
                     </div>`
                     chatList_full += commentHtml;
@@ -999,49 +1011,58 @@
 
 </script>
 <script>
+    let delete_num_key = ""
     $(".btn_submit").on("click", function(){
         send_msg();
     })
+    function send_msg(){
+        var send_text = document.getElementById('send_text').value;
+        var pack_id = getParameterByName('pack_id', currentUrl);
+        let send_text_data =
+            {
+                "spot_id":pack_id,
+                "user_id":getCookieValue("id"),
+                "photo_id":photo_id,
+                "content":send_text
 
 
-    <%--function send_msg(){--%>
-    <%--    let send_text = document.getElementById('send_text').value;--%>
-    <%--    let send_text_data =--%>
-    <%--        {--%>
-    <%--            "user_id" : <?=$user_id?>,--%>
-    <%--    "user_nickname" : "귤버섯",--%>
-    <%--        "pack_id" : pack_id,--%>
-    <%--    "poca_id" : selected_poca_data.id,--%>
-
-    <%--        "comment_content" : send_text--%>
-    <%--}--%>
-    <%--    console.log("send_text_data",send_text_data)--%>
+            }
+        console.log("send_text_data",send_text_data)
 
 
-    <%--    $.ajax({--%>
-    <%--        url: "https://chipsterplay.soundgram.co.kr/chat-api/chat-send.php",--%>
-    <%--        type: "post",--%>
-    <%--        //   contentType:"application/json",--%>
-    <%--        async:false,--%>
-    <%--        data:JSON.stringify(send_text_data),--%>
+        $.ajax({
 
-    <%--        //   datatype: "JSON",--%>
-    <%--        success: function(obj){--%>
-    <%--            console.log(obj);--%>
-    <%--            console.log("sendresponse",obj)--%>
-    <%--            // Datatable 의 reinitialize 를 없애기 위해 destroy--%>
-    <%--        },--%>
-    <%--        error: function(xhr, status, error){--%>
-    <%--            console.log(`error: ${error}`)--%>
-    <%--            console.log(`status: ${status}`)--%>
-    <%--            return--%>
-    <%--        }--%>
-    <%--    })--%>
+            url: "http://localhost:8080/travelboard/sendComment",
+            type: "post",
+            contentType:"application/json",
+            async:false,
+            data : JSON.stringify(send_text_data),
+            datatype: "JSON",
+            success: function(obj){
 
-    <%--}--%>
+
+                console.log(obj);
+                $('#send_text').val('');
+
+                updateSimpleChatListPhoto()
+
+
+
+            },
+            error: function(xhr, status, error){
+                console.log(`error: ${error}`)
+                console.log(`status: ${status}`)
+                return
+            }
+        })
+
+    }
+
+
+
     // function btmclick(){ /* 팝업열기 */
     // 		// e.preventDefault();
-    // 		alert("!!!!")
+    //
     // 		var target = $(this).attr('open-pop') ;
     // 		$('.btm_pop' + '.' + target).addClass('on');
     // 		dimShow();
@@ -1051,13 +1072,7 @@
     }
 </script>
 <script>
-    let delete_num_key = ""
-    function btn_pop_click(commentKey){
-        console.log("commentKey",commentKey)
-        delete_num_key = commentKey
-        $('.btm_pop').addClass('on');
-        dimShow()
-    }
+
     function btn_pop_click_out(){
         $('.btm_pop').removeClass('on');
         setTimeout(dimHide, 150);
@@ -1072,24 +1087,30 @@
     function delete_comment(){
         let delete_data =
             {
-                "user_id" : 934,
-                "key" : delete_num_key,
+
+                "id" : delete_num_key,
 
             }
         console.log("delete_data",delete_data)
         $.ajax({
-            url: "https://chipsterplay.soundgram.co.kr/chat-api/chat-delete.php",
-            type: "post",
-            //   contentType:"application/json",
-            async:false,
-            data:JSON.stringify(delete_data),
 
-            //   datatype: "JSON",
+            url: "http://localhost:8080/travelboard/deleteComment",
+            type: "post",
+            contentType:"application/json",
+            async:false,
+            data : JSON.stringify(delete_data),
+            datatype: "JSON",
             success: function(obj){
+
+
                 console.log(obj);
-                console.log("sendresponse",obj)
+
+
                 btn_pop_click_out()
-                // Datatable 의 reinitialize 를 없애기 위해 destroy
+                updateSimpleChatListPhoto()
+
+
+
             },
             error: function(xhr, status, error){
                 console.log(`error: ${error}`)
@@ -1097,6 +1118,7 @@
                 return
             }
         })
+
     }
 
 </script>

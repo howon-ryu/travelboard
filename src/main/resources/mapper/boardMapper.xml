@@ -48,9 +48,9 @@
             travel_spot.timestamp desc
     </select>
 
-    <select id = "getCommentList" resultType="comment" parameterType="Integer">
+    <select id = "getCommentList" resultType="comment" parameterType="comment">
 
-        select comment.id, comment.spot_id,comment.user_id,comment.content, comment.photo_id,user.nickname as user_nickname  from comment left join user on comment.user_id = user.id where spot_id = #{spot_id}
+        select comment.id, comment.spot_id,comment.user_id,comment.content, comment.photo_id,user.nickname as user_nickname  from comment left join user on comment.user_id = user.id where comment.spot_id = #{spot_id} and comment.photo_id = ${photo_id}
 
     </select>
 
@@ -165,7 +165,7 @@
     </insert>
 
     <delete id = "deleteComment" parameterType="comment" >
-        DELETE FROM comment WHERE id=#{id};
+        DELETE FROM comment WHERE id=#{id} ;
 
 
     </delete>

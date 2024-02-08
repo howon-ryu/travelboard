@@ -152,13 +152,13 @@ public class apicontroller {
 
     @PostMapping("/getCommentList")
     @ResponseBody
-    public List<CommentDTO> getCommentList(@RequestBody() Map<String, String> data){
+    public List<CommentDTO> getCommentList(@RequestBody() CommentDTO commentDTO){
         //SpotDTO spotList = new SpotDTO();
 
-        String id = data.get("packId");
-        System.out.println("id"+id);
 
-        List<CommentDTO> getCommentList =  travelBoardService.getCommentList(Integer.valueOf(id));
+
+
+        List<CommentDTO> getCommentList =  travelBoardService.getCommentList(commentDTO);
 
         return getCommentList;
 

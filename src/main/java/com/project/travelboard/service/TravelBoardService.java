@@ -29,8 +29,8 @@ public class TravelBoardService {
     public List<SpotDTO> mySpotFindAll(Integer id) {
         return travelBoardRepository.mySpotFindAll(id);
     }
-    public List<CommentDTO> getCommentList(Integer id) {
-        return travelBoardRepository.getCommentList(id);
+    public List<CommentDTO> getCommentList(CommentDTO commentDTO) {
+        return travelBoardRepository.getCommentList(commentDTO);
     }
     public List<SpotDTO> myPickSpotFindAll(Integer id) {
         return travelBoardRepository.myPickSpotFindAll(id);

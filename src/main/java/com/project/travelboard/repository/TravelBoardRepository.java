@@ -30,8 +30,8 @@ public class TravelBoardRepository {
         return sql.selectList("TravelBoard.myPickSpotFindAll",id);
     }
 
-    public List<CommentDTO> getCommentList(Integer spot_id) {
-        return sql.selectList("TravelBoard.getCommentList",spot_id);
+    public List<CommentDTO> getCommentList(CommentDTO commentDTO) {
+        return sql.selectList("TravelBoard.getCommentList",commentDTO);
     }
     public List<SpotDTO> newSpotFindAll() {
         return sql.selectList("TravelBoard.newSpotFindAll");

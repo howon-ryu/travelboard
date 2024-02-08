@@ -529,8 +529,8 @@ function updateSimpleChatListSpot(){
 
 
         let dataValue = {
-            "packId" : pack_id,
-            "photoId" : "0"
+            "spot_id" : pack_id,
+            "photo_id" : "0"
         };
 
         $.ajax({
