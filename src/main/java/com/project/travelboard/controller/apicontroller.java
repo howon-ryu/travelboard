@@ -99,6 +99,10 @@ public class apicontroller {
     public String spotInfo() {
         return "spotInfo"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
     }
+    @GetMapping("/mylocal") // HTTP GET 요청에 대한 처리를 위한 매핑
+    public String mylocal() {
+        return "mylocal"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
+    }
 
 
 
