@@ -215,7 +215,8 @@
 
                 setSpotInfo(data)
 
-
+                var  spot_title = document.getElementById(' spot_title')
+                spot_title.innerText = data.spot_name
 
             },
 
@@ -240,8 +241,10 @@ function goToBinder(){
 
 
 }
-    function updateSimpleChatList(){
+function updateSimpleChatList(){
         var pack_id = getParameterByName('pack_id', currentUrl);
+
+
         let dataValue = {
             "packId" : pack_id,
         };
@@ -284,9 +287,8 @@ function goToBinder(){
                                 <span class="date">`+commentData.create_timestamp+`</span>
                             </p>
                             <div class="txt_des">
-                                <span class="txt">${commentData.comment_content}</span>
-                                <span class="loc">${selected_poca_data.address}</span>
-                                <span class="num">sp No.<em>${selected_poca_data.number}</em></span>
+                                <span class="txt">`+commentData.content+`</span>
+
                             </div>
                         </div>
                         <div class="btn_edit">
@@ -343,7 +345,7 @@ function goToBinder(){
             <div class="talk_inner">
                 <!-- 팩 타이틀 -->
                 <div class="pack_title">
-                    <h2>졸업생이 알려주는 고양이 주요 출몰 지역 찾아보면 다나옴 </h2>
+                    <h2 id = " spot_title"> </h2>
                 </div>
                 <!--// 팩 타이틀 -->
 
