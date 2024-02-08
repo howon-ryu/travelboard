@@ -192,7 +192,7 @@ function popup(){ //팝업
 function bmtPopup(){ //바닥팝업
 	$('.btn_btm_pop').on('click', function(e){ /* 팝업열기 */
 		e.preventDefault();
-		alert("!!!!")
+
 		var target = $(this).attr('open-pop') || e;
 		$('.btm_pop' + '.' + target).addClass('on');
 		dimShow();

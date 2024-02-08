@@ -447,6 +447,36 @@ public class apicontroller {
 
 
 
+    @PostMapping("/sendComment")
+    public ResponseEntity sendComment(@RequestBody()CommentDTO commentDTO){
+        String tempInput = commentDTO.getContent();
+        //System.out.println("nick"+ tempInput);
+
+        travelBoardService.sendComment(commentDTO);
+
+        return ResponseEntity.ok().body(commentDTO);
+
+
+
+
+    }
+    @PostMapping("/deleteComment")
+    public ResponseEntity deleteComment(@RequestBody()CommentDTO commentDTO){
+        String tempInput = commentDTO.getId();
+        //System.out.println("nick"+ tempInput);
+
+        travelBoardService.deleteComment(commentDTO);
+
+        return ResponseEntity.ok().body(commentDTO);
+
+
+
+
+    }
+
+
+
+
 
 
 

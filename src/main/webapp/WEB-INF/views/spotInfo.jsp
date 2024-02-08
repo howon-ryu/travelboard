@@ -165,158 +165,6 @@
 
 <!--// LIVE TALK 전체팝업 -->
 </body>
-<script>
-    var currentUrl = window.location.href;
-
-    // URL에서 파라미터를 추출하는 함수
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-
-
-    var lng_t = getCookieValue("lng");
-    function setSpotInfo(data){
-        var packId = getParameterByName("pack_id",currentUrl)
-        let spotNameTag = document.getElementById('spot_name');
-        let spotCommentTag = document.getElementById('spotComment');
-
-
-
-        spotNameTag.innerText = data.spot_name;
-        spotCommentTag.innerText =data.spotComment;
-        // document.getElementById("imgTag").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+tempImgName_t+"?a="+Math.random();
-        document.getElementById("imgTag").src = "${path}/assets/spot/"+packId+"/"+data.img_name+"?a="+Math.random();
-    }
-
-
-    function getSpotInfo(){
-        var packId = getParameterByName("pack_id",currentUrl)
-        let dataValue = {
-            "packId" : packId,
-
-
-        }
-        console.log("dataValue",dataValue)
-        $.ajax({
-            type : "POST",
-
-            url : "http://localhost:8080/travelboard/getSpotInfo",
-            data : JSON.stringify(dataValue),
-            contentType:"application/json",
-            dataType: "json",
-            success: function(data) {
-                console.log("data",data)
-
-                setSpotInfo(data)
-
-                var  spot_title = document.getElementById(' spot_title')
-                spot_title.innerText = data.spot_name
-
-            },
-
-
-            error: function(xhr, textStatus, errorThrown) {
-                alert("여행지 불러오기에 실패하였습니다.")
-                console.log("XHR status: " + xhr.status);
-                console.log("Text status: " + textStatus);
-                console.log("Error thrown: " + errorThrown);
-                console.log("Response text: " + xhr.responseText);
-            }
-        });
-
-
-
-    }
-    getSpotInfo()
-    updateSimpleChatList()
-function goToBinder(){
-    var packId = getParameterByName("pack_id",currentUrl)
-    location.href = "binder?pack_id="+packId
-
-
-}
-function updateSimpleChatList(){
-        var pack_id = getParameterByName('pack_id', currentUrl);
-
-
-        let dataValue = {
-            "packId" : pack_id,
-        };
-
-        $.ajax({
-            type: "POST",
-            url: "http://localhost:8080/travelboard/getCommentList",
-            data: JSON.stringify(dataValue),
-            contentType: "application/json",
-            dataType: "json",
-            success: function(response) {
-                console.log("data",response);
-
-                let chatList_small = '';
-                let chatList_full = '';
-
-                Object.keys(response).forEach(function(commentKey) {
-                    const commentData = response[commentKey];
-                    const commentHtml = `
-                    <div class="group">
-                        <span class="user">`+commentData.user_nickname+`</span>
-                        <span class="txt">`+commentData.content+`</span>
-                    </div>`;
-                    chatList_small += commentHtml;
-                });
-
-                Object.keys(response).forEach(function(commentKey) {
-                    const commentData = response[commentKey];
-                    console.log("commentData",commentData,commentKey)
-                    const commentHtml =
-                        `<div class="group">
-                        <div class="img_area">
-                            <figure class="img">
-                                <img src="../assets/image/common/profile_none.png" alt=""><!-- 프로필이미지 없음 -->
-                            </figure>
-                        </div>
-                        <div class="txt_area">
-                            <p class="chat_info">
-                                <span class="user">`+commentData.user_nickname+`</span>
-                                <span class="date">`+commentData.create_timestamp+`</span>
-                            </p>
-                            <div class="txt_des">
-                                <span class="txt">`+commentData.content+`</span>
-
-                            </div>
-                        </div>
-                        <div class="btn_edit">
-                            <a   class="btn_btm_pop" open-pop="btm_edit" onclick="btn_pop_click('${commentKey}')"><span class="blind">talk 상태변경</span></a>
-                        </div>
-                    </div>`
-                    chatList_full += commentHtml;
-                });
-
-                $('.talk_list').html(chatList_small);
-                $('.chat_list').html(chatList_full);
-            },
-            error: function(xhr, textStatus, errorThrown) {
-                alert("여행지 불러오기에 실패하였습니다.")
-                console.log("XHR status: " + xhr.status);
-                console.log("Text status: " + textStatus);
-                console.log("Error thrown: " + errorThrown);
-                console.log("Response text: " + xhr.responseText);
-            }
-        });
-    }
-
-
-
-
-
-</script>
-
 
 <section class="full_pop talk_pop" ><!-- 전체팝업 활성화 class="on"추가 -->
     <!-- #header -->
@@ -529,6 +377,277 @@ function updateSimpleChatList(){
     </div>
     <!--// #CONTENTS -->
 </section>
+<section class="btm_pop btm_edit">
+    <div class="cotn">
+        <div class="btn_wrap">
+            <a   class="edit" onclick=delete_comment() >
+                <i class="i_edit i_del"></i>
+                <span>삭제</span>
+            </a>
+            <a   class="edit close" onclick = btn_pop_click_out()>
+                <i class="i_edit i_cancel"></i>
+                <span>취소</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+<script>
+    let delete_num_key = ""
+    function btn_pop_click_out(){
+        $('.btm_pop').removeClass('on');
+        setTimeout(dimHide, 150);
+    }
+    function delete_comment(){
+        let delete_data =
+            {
+
+                "id" : delete_num_key,
+
+            }
+        console.log("delete_data",delete_data)
+        $.ajax({
+
+            url: "http://localhost:8080/travelboard/deleteComment",
+            type: "post",
+            contentType:"application/json",
+            async:false,
+            data : JSON.stringify(delete_data),
+            datatype: "JSON",
+            success: function(obj){
+
+
+                console.log(obj);
+
+
+                btn_pop_click_out()
+                updateSimpleChatListSpot()
+
+
+
+            },
+            error: function(xhr, status, error){
+                console.log(`error: ${error}`)
+                console.log(`status: ${status}`)
+                return
+            }
+        })
+
+    }
+    function btn_pop_click(commentKey, user_id){
+        console.log(user_id, getCookieValue("id"))
+        if(user_id == getCookieValue("id")){
+            console.log("commentKey",commentKey)
+            delete_num_key = commentKey
+            $('.btm_pop').addClass('on');
+            dimShow()
+
+        }
+
+
+    }
+    function dimShow(){ /* 딤드 show */
+        $('body').addClass('dim');
+    }
+    var currentUrl = window.location.href;
+
+    // URL에서 파라미터를 추출하는 함수
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+
+    var lng_t = getCookieValue("lng");
+    function setSpotInfo(data){
+        var packId = getParameterByName("pack_id",currentUrl)
+        let spotNameTag = document.getElementById('spot_name');
+        let spotCommentTag = document.getElementById('spotComment');
+
+
+
+        spotNameTag.innerText = data.spot_name;
+        spotCommentTag.innerText =data.spotComment;
+        // document.getElementById("imgTag").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+tempImgName_t+"?a="+Math.random();
+        document.getElementById("imgTag").src = "${path}/assets/spot/"+packId+"/"+data.img_name+"?a="+Math.random();
+    }
+
+
+    function getSpotInfo(){
+        var packId = getParameterByName("pack_id",currentUrl)
+        let dataValue = {
+            "packId" : packId,
+
+
+        }
+        console.log("dataValue",dataValue)
+        $.ajax({
+            type : "POST",
+
+            url : "http://localhost:8080/travelboard/getSpotInfo",
+            data : JSON.stringify(dataValue),
+            contentType:"application/json",
+            dataType: "json",
+            success: function(data) {
+                console.log("data",data)
+
+                setSpotInfo(data)
+
+                var  spot_title = document.getElementById(' spot_title')
+                spot_title.innerText = data.spot_name
+
+            },
+
+
+            error: function(xhr, textStatus, errorThrown) {
+                alert("여행지 불러오기에 실패하였습니다.")
+                console.log("XHR status: " + xhr.status);
+                console.log("Text status: " + textStatus);
+                console.log("Error thrown: " + errorThrown);
+                console.log("Response text: " + xhr.responseText);
+            }
+        });
+
+
+
+    }
+    getSpotInfo()
+    updateSimpleChatListSpot()
+function goToBinder(){
+    var packId = getParameterByName("pack_id",currentUrl)
+    location.href = "binder?pack_id="+packId
+
+
+}
+function updateSimpleChatListSpot(){
+        var pack_id = getParameterByName('pack_id', currentUrl);
+
+
+        let dataValue = {
+            "packId" : pack_id,
+            "photoId" : "0"
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/travelboard/getCommentList",
+            data: JSON.stringify(dataValue),
+            contentType: "application/json",
+            dataType: "json",
+            success: function(response) {
+                console.log("data",response);
+
+                let chatList_small = '';
+                let chatList_full = '';
+
+                Object.keys(response).forEach(function(commentKey) {
+                    const commentData = response[commentKey];
+                    const commentHtml = `
+                    <div class="group">
+                        <span class="user">`+commentData.user_nickname+`</span>
+                        <span class="txt">`+commentData.content+`</span>
+                    </div>`;
+                    chatList_small += commentHtml;
+                });
+
+                Object.keys(response).forEach(function(commentKey) {
+                    const commentData = response[commentKey];
+                    console.log("commentData",commentData,commentKey)
+                    const commentHtml =
+                        `<div class="group">
+                        <div class="img_area">
+                            <figure class="img">
+                                <img src="../assets/image/common/profile_none.png" alt=""><!-- 프로필이미지 없음 -->
+                            </figure>
+                        </div>
+                        <div class="txt_area">
+                            <p class="chat_info">
+                                <span class="user">`+commentData.user_nickname+`</span>
+                                <span class="date">`+commentData.create_timestamp+`</span>
+                            </p>
+                            <div class="txt_des">
+                                <span class="txt">`+commentData.content+`</span>
+
+                            </div>
+                        </div>
+                        <div class="btn_edit">
+                            <a   class="btn_btm_pop" open-pop="btm_edit" onclick="btn_pop_click(`+commentData.id+`,`+commentData.user_id+`)"><span class="blind">talk 상태변경</span></a>
+                        </div>
+                    </div>`
+                    chatList_full += commentHtml;
+                });
+
+                $('.talk_list').html(chatList_small);
+                $('.chat_list').html(chatList_full);
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                alert("여행지 불러오기에 실패하였습니다.")
+                console.log("XHR status: " + xhr.status);
+                console.log("Text status: " + textStatus);
+                console.log("Error thrown: " + errorThrown);
+                console.log("Response text: " + xhr.responseText);
+            }
+        });
+    }
+    $(".btn_submit").on("click", function(){
+        console.log("btn click")
+        send_msg();
+    })
+    function send_msg(){
+        var send_text = document.getElementById('send_text').value;
+        var pack_id = getParameterByName('pack_id', currentUrl);
+        let send_text_data =
+            {
+                "spot_id":pack_id,
+                "user_id":getCookieValue("id"),
+                "photo_id":0,
+                "content":send_text
+
+
+            }
+        console.log("send_text_data",send_text_data)
+
+
+        $.ajax({
+
+            url: "http://localhost:8080/travelboard/sendComment",
+            type: "post",
+            contentType:"application/json",
+            async:false,
+            data : JSON.stringify(send_text_data),
+            datatype: "JSON",
+            success: function(obj){
+
+
+                console.log(obj);
+                $('#send_text').val('');
+
+                updateSimpleChatListSpot()
+
+
+
+            },
+            error: function(xhr, status, error){
+                console.log(`error: ${error}`)
+                console.log(`status: ${status}`)
+                return
+            }
+        })
+
+    }
+
+
+
+
+</script>
+
+
+
 
 
 </html>

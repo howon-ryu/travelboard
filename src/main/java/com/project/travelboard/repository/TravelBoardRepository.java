@@ -57,7 +57,12 @@ public class TravelBoardRepository {
     public void createPhoto(PhotoDTO photoDTO) {
         sql.insert("TravelBoard.createPhoto",photoDTO);
     }
-
+    public void sendComment(CommentDTO commentDTO) {
+        sql.insert("TravelBoard.sendComment",commentDTO);
+    }
+    public void deleteComment(CommentDTO commentDTO) {
+        sql.delete("TravelBoard.deleteComment",commentDTO);
+    }
 
     public UserDTO getUserInfo(Integer id) {
 

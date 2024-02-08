@@ -52,6 +52,12 @@ public class TravelBoardService {
         travelBoardRepository.createPhoto(photoDTO);
 
     }
+    public void sendComment(CommentDTO commentDTO) {
+        travelBoardRepository.sendComment(commentDTO);
+    }
+    public void deleteComment(CommentDTO commentDTO) {
+        travelBoardRepository.deleteComment(commentDTO);
+    }
 
     public LoginUserDTO loginUser(LoginUserDTO loginuserDTO) {
         LoginUserDTO result = travelBoardRepository.loginUser(loginuserDTO);

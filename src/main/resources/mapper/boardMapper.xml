@@ -157,6 +157,21 @@
     </insert>
 
 
+    <insert id = "sendComment" parameterType="comment" >
+        insert into comment(spot_id, user_id,content,photo_id)
+        values(#{spot_id}, #{user_id},#{content},#{photo_id})
+
+
+    </insert>
+
+    <delete id = "deleteComment" parameterType="comment" >
+        DELETE FROM comment WHERE id=#{id};
+
+
+    </delete>
+
+
+
     <select id =  "loginUser" parameterType="loginUser" resultType="loginUser">
         select * from user where login_id =#{login_id} and login_password = #{login_password}
 

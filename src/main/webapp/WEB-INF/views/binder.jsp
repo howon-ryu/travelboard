@@ -401,46 +401,19 @@
                             </div>
                         </div>
                         <div class="talk_list">
-                            <div class="group gre"><!-- 텍스트 색상 초록 class="gre" 추가 -->
-                                <span class="user">Chipster Original</span>
-                                <span class="txt">경복궁 조아요!</span>
-                            </div>
-                            <div class="group pur"><!-- 텍스트 색상 보라 class="pur" 추가 -->
-                                <span class="user">Chipster Original</span>
-                                <span class="txt">튼튼이가 요즘에 안보여서 엄청 걱정했는데 덕분에 만날수 있었어요</span>
-                            </div>
-                            <div class="group">
-                                <span class="user">댓글작성자닉네임</span>
-                                <span class="txt">튼튼이가 요즘에 </span>
-                            </div>
-                            <div class="group">
-                                <span class="user">댓글작성자닉네임</span>
-                                <span class="txt">Good! Good! :</span>
-                            </div>
-                            <div class="group">
-                                <span class="user">댓글작성자닉네임</span>
-                                <span class="txt">튼튼이가 요즘에 </span>
-                            </div>
-                            <div class="group">
-                                <span class="user">댓글작성자닉네임</span>
-                                <span class="txt">튼튼이가 요즘에 </span>
-                            </div>
-                            <div class="group">
-                                <span class="user">댓글작성자닉네임</span>
-                                <span class="txt">Good! Good!  </span>
-                            </div>
-                            <div class="group">
-                                <span class="user">댓글작성자닉네임</span>
-                                <span class="txt">칩스칩스님이 올카 성공!</span>
-                            </div>
-                            <div class="group">
-                                <span class="user">댓글작성자닉네임</span>
-                                <span class="txt">나도 만나고 싶다구!!! </span>
-                            </div>
-                            <div class="group">
-                                <span class="user">댓글작성자닉네임</span>
-                                <span class="txt">Good! Good!  </span>
-                            </div>
+<%--                            <div class="group gre"><!-- 텍스트 색상 초록 class="gre" 추가 -->--%>
+<%--                                <span class="user">Chipster Original</span>--%>
+<%--                                <span class="txt">경복궁 조아요!</span>--%>
+<%--                            </div>--%>
+<%--                            <div class="group pur"><!-- 텍스트 색상 보라 class="pur" 추가 -->--%>
+<%--                                <span class="user">Chipster Original</span>--%>
+<%--                                <span class="txt">튼튼이가 요즘에 안보여서 엄청 걱정했는데 덕분에 만날수 있었어요</span>--%>
+<%--                            </div>--%>
+<%--                            <div class="group">--%>
+<%--                                <span class="user">댓글작성자닉네임</span>--%>
+<%--                                <span class="txt">튼튼이가 요즘에 </span>--%>
+<%--                            </div>--%>
+
                         </div>
                     </div>
                     <!--// live talk -->
@@ -731,6 +704,7 @@
 
     function poca_pop(pocadata){
     	make_poca_section(pocadata)
+        photo_id = pocadata
     	let poca_section = document.getElementById("poca_section");
     	console.log("classList",poca_section.classList)
 
@@ -738,7 +712,7 @@
     	if(poca_section.classList[2]!="on"){
     		$('#poca_section').addClass('on')
     		console.log("selected_poca_data",selected_poca_data)
-    		//updateSimpleChatList();
+    		updateSimpleChatListPhoto();
 
     	}else{
     		$('#poca_section').removeClass('on')
@@ -758,7 +732,7 @@
         if(poca_section.classList[2]!="on"){
             $('#poca_section').addClass('on')
             console.log("selected_poca_data",selected_poca_data)
-            //updateSimpleChatList();
+            //updateSimpleChatListPhoto();
 
         }else{
             $('#poca_section').removeClass('on')
@@ -800,14 +774,15 @@
 
 
     }
+    let photo_id = "0"
 
 
 
-
-    function updateSimpleChatList(){
+    function updateSimpleChatListPhoto(){
         var pack_id = getParameterByName('pack_id', currentUrl);
         let dataValue = {
             "packId" : pack_id,
+            "photo_id" : photo_id
         };
 
         $.ajax({
@@ -915,6 +890,9 @@
 
         ;
 
+    }
+    function goToBack(){
+        history.back();
     }
 
     function testOn(){
@@ -1068,9 +1046,9 @@
     // 		$('.btm_pop' + '.' + target).addClass('on');
     // 		dimShow();
     // 	};
-    // function dimShow(){ /* 딤드 show */
-    // 	$('body').addClass('dim');
-    // }
+    function dimShow(){ /* 딤드 show */
+    	$('body').addClass('dim');
+    }
 </script>
 <script>
     let delete_num_key = ""
