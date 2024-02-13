@@ -28,13 +28,14 @@
             travel_spot.like_cnt desc
     </select>
 
-    <select id="getSpotLocation" resultType="map">
+    <select id="getSpotLocation" resultType="mapList">
         SELECT
+            travel_spot.id as spot_id,
             travel_spot.spot_name,
-            travel_spot.spot_comment,
-            map.longitude
+            travel_spot.spotComment,
+            map.longitude,
             travel_spot.img_name,
-            map.latitude
+            map.latitude,
             map.road_name
         FROM
             travel_spot
@@ -68,6 +69,28 @@
 
         select comment.id, comment.spot_id,comment.user_id,comment.content, comment.photo_id,user.nickname as user_nickname  from comment left join user on comment.user_id = user.id where comment.spot_id = #{spot_id} and comment.photo_id = ${photo_id}
 
+    </select>
+
+
+    <select id="getOnePack" resultType="spot" parameterType="Integer">
+        SELECT
+            travel_spot.id,
+            travel_spot.user_id,
+            travel_spot.spot_name,
+            travel_spot.like_cnt,
+            travel_spot.timestamp,
+            user.nickname,
+            travel_spot.img_name,
+            COUNT(comment.id) AS commentCount,
+            map.road_name
+        FROM
+            travel_spot
+                LEFT JOIN user ON travel_spot.user_id = user.id
+                LEFT JOIN map ON travel_spot.map_id = map.id
+                LEFT JOIN comment ON travel_spot.id = comment.spot_id
+        where travel_spot.id = #{packId}
+        GROUP BY
+            travel_spot.id;
     </select>
 
 
@@ -185,6 +208,25 @@
 
 
     </delete>
+
+    <insert id = "sendUserPick" parameterType="userPick" >
+        insert into user_pick(pick_spot_id, user_id)
+        values(#{pick_spot_id}, #{user_id})
+
+
+    </insert>
+
+    <delete id = "deletePick" parameterType="userPick" >
+        DELETE FROM user_pick WHERE user_id=#{user_id} and pick_spot_id = #{pick_spot_id} ;
+
+
+    </delete>
+
+    <select id = "checkPick" parameterType="userPick" resultType="userPick">
+        select * from user_pick WHERE user_id=#{user_id} and pick_spot_id = #{pick_spot_id};
+
+
+    </select>
 
 
 

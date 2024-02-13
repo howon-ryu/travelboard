@@ -43,6 +43,27 @@ function getMyPickPack(){
 	});
 }
 
+function getOnePack(packId){
+	console.log("getOnePack")
+	$.ajax({
+		url: "http://localhost:8080/travelboard/getOnePack",
+		type: "POST",
+		data: JSON.stringify({ "packId": packId }),
+		contentType:"application/json",
+		dataType: "JSON",
+		success: function(obj){
+			console.log("pick spot data:",obj);
+			setClickSpotInfo(obj)
+		},
+		error: function(xhr, status, error){
+			console.log("orderbyupdate error:",xhr);
+
+		}
+	});
+
+}
+
+
 
 function search_pack(){
 	let search_packname = document.getElementById('search_packname').value;

@@ -38,7 +38,7 @@
         <div class="header_wrap">
             <!-- 뒤로가기 -->
             <div class="tit_ctrl">
-                <a href="home_rhw.php" class="back">
+                <a href="home" class="back">
                     <span class="blind">뒤로가기</span>
                 </a>
             </div>
@@ -102,23 +102,25 @@
                                     <p class="nickname" id ="nickname">닉네임</p>
                                     <p class="tit" id ="tit">졸업생이 알려주는 항공대 고양이 주요 출몰 지역 고양이 주요 출몰 지역</p>
                                     <div class="addr">
-                                        <span class="cnt" id ="cnt">12</span>
+                                        <span class="cnt" id ="cnt" hidden>12</span>
                                         <p class="txt" id ="txt">/ 경기도 고양시 덕양구 항공대학로 76 외</p>
                                     </div>
                                     <div class="pack_info">
-                                        <div class="count">
-                                            <p>
-                                                <em class="current" id = "current">28</em>  <em class="tot" hidden>999</em>
-                                            </p>
-                                        </div>
-                                        <div class="chat" hidden>
+                                        <div class="chat">
                                             <span>1,045</span>
                                         </div>
+                                        <div class="count">
+                                            <p>
+                                                <em class="current" id = "current" hidden>28</em>  <em class="tot" hidden>999</em>
+                                            </p>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <!--// 텍스트영역 -->
                             </div>
-                            <form id = "pack_form" action = "pack.php" method = "post">
+
+                            <form id = "pack_form" action = "spotInfo" method = "get">
                                 <input name = "pack_id" id = "pack_id" value = "" hidden>
                                 <!-- <input name = "no_have" id = "getflag" value = "true" hidden> -->
                                 <a  class="go_view" onclick = "gotopack()">
@@ -139,7 +141,7 @@
     <aside class="tab_bar main">
         <div class="cotn">
             <div class="tab_btn home"><!-- 활성화시 class="on" 추가 -->
-                <a href="home_rhw.php">
+                <a href="home">
                     <span class="blind">홈</span>
                 </a>
             </div>
@@ -159,18 +161,21 @@
 </div>
 <!--// #WRAP -->
 <script type="text/javascript" src="${path}/assets/js/mapList.js"></script>
+<script type="text/javascript" src="${path}/assets/js/getPackList.js"></script>
 <script>
 
 
-    let pack_location_list = ""
+    let pack_location_list = "";
 
-    $(document).ready(function(){
-        pack_location_list = getPackLocation()
-        getCurrentPosition().then(point=>createMap(point))
-        //setting_location()
-        // make_poca_section(pack_poca_data)
-        // poca_pop(pack_poca_data[0].id)
-    })
+    $(document).ready(function() {
+        getPackLocation().then(obj => {
+            pack_location_list = obj; // 성공적으로 받은 데이터를 pack_location_list에 할당
+            console.log("pack_location_list", pack_location_list);
+            getCurrentPosition().then(point => createMap(point));
+        }).catch(error => {
+            console.error("Error fetching pack location:", error);
+        });
+    });
     let pack_data = ""
     function getpack(pack_id){
         console.log("pack_id",pack_id)
@@ -196,15 +201,18 @@
         }
 
     }
-    function make_poca_info(){
-        let img = makeImgPath(pack_data.packInfo.packId, pack_data.packInfo.img);
+    function setClickSpotInfo(spotData){
+
+        console.log("spotData",spotData)
+        $("#pack_id").val(spotData[0].id);
+        let imgPath = `http://localhost:8080/assets/spot/`+spotData[0].id+'/'+spotData[0].img_name;
         console.log("img")
-        document.getElementById("pack_img").src = img
-        document.getElementById("tit").innerText = pack_data.packInfo.name;
-        document.getElementById("nickname").innerText = pack_data.packInfo.makerUserNickName;
-        document.getElementById("cnt").innerText = pack_data.packInfo.totalPocaSize;
-        document.getElementById("txt").innerText = "/ "+pack_data.packInfo.representPocaAddress;
-        document.getElementById("current").innerText = pack_data.packInfo.totalPocaSize;
+        document.getElementById("pack_img").src = imgPath
+        document.getElementById("tit").innerText = spotData[0].spot_name;
+        document.getElementById("nickname").innerText = spotData[0].nickname;
+        document.getElementById("chat").innerText = spotData[0].commentCount;
+        document.getElementById("txt").innerText = "/ "+spotData[0].road_name;
+        //document.getElementById("current").innerText = spotData[0].packInfo.totalPocaSize;
     }
 
     function get_pack_location(){
@@ -264,7 +272,7 @@
             // if(distance<1) {
             latlngs.push(new naver.maps.LatLng(pack_location_list[_l].latitude, pack_location_list[_l].longitude));
             // 221005 pack_id별 pin 이미지로 셋팅
-            iconList.push("<a href = '#none' class = 'spot' onclick = getpack("+pack_id+")> <img style='position: absolute; display: block; width: 50px; height: 50px; background-size: contain; background-repeat: no-repeat;' src='../assets/image/common/target_chip.png' alt=''> </a>");
+            iconList.push("<a href = '#none' class = 'spot' onclick = getOnePack("+pack_id+")> <img style='position: absolute; display: block; width: 50px; height: 50px; background-size: contain; background-repeat: no-repeat;' src='../assets/image/common/target_chip.png' alt=''> </a>");
             // }
         }
         for (var i=0, ii=latlngs.length; i<ii; i++) {
@@ -350,19 +358,22 @@
         var iconList = [];
         var markerList = [];
         var latlngs = [];
+        console.log("pack_location_list",pack_location_list)
         for(var _l=0; _l<pack_location_list.length; _l++) {
 
-            var distance = parseInt(pack_location_list[_l].distance);
+            ;
             let pack_id= ""
-            if(pack_location_list[_l].poca!=null){
-                pack_id = pack_location_list[_l].pack
+            if(pack_location_list[_l].spot_id!=null){
+                pack_id = pack_location_list[_l].spot_id
             }
             // if(distance<1) {
+            console.log("pack_location_list[_l]",pack_location_list[_l])
             latlngs.push(new naver.maps.LatLng(pack_location_list[_l].latitude, pack_location_list[_l].longitude));
             // 221005 pack_id별 pin 이미지로 셋팅
-            iconList.push("<a href = '#none' class = 'spot' onclick = getpack("+pack_id+")> <img style='position: absolute; display: block; width: 50px; height: 50px; background-size: contain; background-repeat: no-repeat;' src='../assets/image/common/target_chip.png' alt=''> </a>");
+            iconList.push("<a href = '#none' class = 'spot' onclick = getOnePack("+pack_id+")> <img style= ' position: absolute; display: block; width: 50px; height: 50px; background-size: contain; background-repeat: no-repeat;' src='${path}/assets/image/common/target_chip.png' alt=''> </a>");
             // }
         }
+        console.log("latlngs",latlngs)
         for (var i=0, ii=latlngs.length; i<ii; i++) {
 
             var icon = {
@@ -373,13 +384,18 @@
                     origin: new naver.maps.Point(i*29, 0),
                 },
                 marker = new naver.maps.Marker({
-                    position: latlngs[i],
+
+                    position:new naver.maps.LatLng(latlngs[i].x, latlngs[i].y),
+
+
+
+
                     map: map,
                     icon: icon
                 });
 
             marker.set('seq', i);
-
+            console.log("marker",marker)
             markerList.push(marker);
 
 
@@ -425,31 +441,8 @@
 
     function gotopack(){
 
-        $("#pack_id").val(pack_data.packInfo.packId);
-        // let listlist = ""
-        // $.ajax({
-        //   url: "<?=$api_url?>"+"/api/v1/arpoca/pack/"+pack_data.packInfo.packId,
-        //   type: "get",
-        //   contentType:"application/json",
-        //   async:false,
-        // //   data:get_pack_data,
-        //   datatype: "JSON",
-        //   success: function(obj){
-        //     listlist = obj
-        // 	obj.forEach((pack,index,array) => {
-        // 		console.log("1",pack)
-        // 	})
-        //     // Datatable 의 reinitialize 를 없애기 위해 destroy
-        //   },
-        //   error: function(xhr, status, error){
-        //     console.log(`error: ${error}`)
-        //     console.log(`status: ${status}`)
-        //     return
-        //   }
-        // })
 
 
-        // $("#getflag").val(pack_data.packInfo.packId);
 
 
 
@@ -459,24 +452,7 @@
 
         document.getElementById('pack_form').submit();
     }
-    // var i1 = {
-    // 	content: "<a href = '#none' class = 'spot'> <img style='position: absolute; display: block; width: 50px; height: 50px; background-size: contain; background-repeat: no-repeat;' src='../assets/image/common/target_chip.png' alt=''> </a>",
-    // 	size: new naver.maps.Size(55, 72),
-    // 	anchor: new naver.maps.Point(27, 72),
-    // 	origin: new naver.maps.Point(1*29, 0),
-    // }
-    // var i2 = {
-    // 	content: "<a href = '#none' class = 'spot'> <img  style='position: absolute; display: block; width: 50px; height: 50px; background-size: contain; background-repeat: no-repeat;' src='../assets/image/common/target_chip.png' alt=''> </a>",
-    // 	size: new naver.maps.Size(55, 72),
-    // 	anchor: new naver.maps.Point(27, 72),
-    // 	origin: new naver.maps.Point(2*29, 0),
-    // }
-    // var i3 = {
-    // 	content: "<a href = '#none' class = 'spot'> <img  style='position: absolute; display: block; width: 50px; height: 50px; background-size: contain; background-repeat: no-repeat;' src='../assets/image/common/target_chip.png' alt=''> </a>",
-    // 	size: new naver.maps.Size(55, 72),
-    // 	anchor: new naver.maps.Point(27, 72),
-    // 	origin: new naver.maps.Point(3*29, 0),
-    // }
+
 
 
 

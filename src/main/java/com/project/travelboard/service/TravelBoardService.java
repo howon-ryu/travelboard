@@ -38,6 +38,11 @@ public class TravelBoardService {
     public List<SpotDTO> myPickSpotFindAll(Integer id) {
         return travelBoardRepository.myPickSpotFindAll(id);
     }
+
+    public List<SpotDTO> getOnePack(Integer packId) {
+        return travelBoardRepository.getOnePack(packId);
+    }
+
     public void joinUser(JoinUserDTO joinuserDTO) {
 
         travelBoardRepository.joinUser(joinuserDTO);
@@ -60,6 +65,21 @@ public class TravelBoardService {
     }
     public void deleteComment(CommentDTO commentDTO) {
         travelBoardRepository.deleteComment(commentDTO);
+    }
+    public void sendUserPick(UserPickDTO pickDTO) {
+        travelBoardRepository.sendUserPick(pickDTO);
+    }
+    public void deletePick(UserPickDTO pickDTO) {
+        travelBoardRepository.deletePick(pickDTO);
+
+
+
+    }
+    public UserPickDTO checkPick(UserPickDTO pickDTO) {
+        System.out.println("checkpickser");
+        UserPickDTO result = travelBoardRepository.checkPick(pickDTO);
+        System.out.println(result.getPick_spot_id()+"!!");
+        return result;
     }
 
     public LoginUserDTO loginUser(LoginUserDTO loginuserDTO) {

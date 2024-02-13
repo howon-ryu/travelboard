@@ -25,7 +25,7 @@
 
 	<script type="text/javascript" src="${path}/assets/js/lib/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="${path}/assets/js/lib/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="${path}/assets/js/lib/swiper-bundle.min.js"></script>
+
 	<script type="text/javascript" src="${path}/assets/js/common.js"></script>
 
 	<!-- 임시로 howon asset main.css로 변경 -->
@@ -125,46 +125,7 @@
 					<div class="swiper-wrapper">
 
 
-<%--								<div class="pack_slide swiper-slide">--%>
-<%--									<div class="pack_item">--%>
-<%--										<!-- 이미지영역 -->--%>
-<%--										<div class="img_area">--%>
-<%--											<figure class="img">--%>
-<%--												<img src="${path}/assets/image/temp/pack_04.png" >--%>
-<%--											</figure>--%>
-<%--										</div>--%>
-<%--										<!--// 이미지영역 -->--%>
 
-<%--										<!-- 텍스트영역 -->--%>
-<%--										<div class="txt_area">--%>
-<%--											<p class="tit">나만아는 서울근교 맛집 카페 모음</p>--%>
-<%--										</div>--%>
-<%--										<!--// 텍스트영역 -->--%>
-<%--										<a href="4_pack_01.html" class="go_view">--%>
-<%--											<span class="blind">상세이동</span>--%>
-<%--										</a>--%>
-<%--									</div>--%>
-<%--								</div>--%>
-<%--								<div class="pack_slide swiper-slide">--%>
-<%--									<div class="pack_item">--%>
-<%--										<!-- 이미지영역 -->--%>
-<%--										<div class="img_area">--%>
-<%--											<figure class="img">--%>
-<%--												<img src="${path}/assets/image/temp/pack_03.png" >--%>
-<%--											</figure>--%>
-<%--										</div>--%>
-<%--										<!--// 이미지영역 -->--%>
-
-<%--										<!-- 텍스트영역 -->--%>
-<%--										<div class="txt_area">--%>
-<%--											<p class="tit">일이삼사오육칠팔구십일이삼사오육칠팔구십</p>--%>
-<%--										</div>--%>
-<%--										<!--// 텍스트영역 -->--%>
-<%--										<a href="4_pack_01.html" class="go_view">--%>
-<%--											<span class="blind">상세이동</span>--%>
-<%--										</a>--%>
-<%--									</div>--%>
-<%--						</div>--%>
 					</div>
 				</div>
 				<!--// 슬라이드 -->
@@ -222,14 +183,16 @@
 <script type="text/javascript" src="${path}/assets/js/getPackList.js"></script>
 
 <script>
+	getPopularPack()
+	getNewPack()
 	$(document).ready(function(){
 		const getCookieValue = (name) => (
 				document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
 		)
 		var cookieValue = getCookieValue("id");
 		console.log("내가 만든 쿠키~", cookieValue);
-		getPopularPack()
-		getNewPack()
+		// getPopularPack()
+		// getNewPack()
 
 	});
 
@@ -239,7 +202,7 @@
 
 
 </script>
-
+<script type="text/javascript" src="${path}/assets/js/lib/swiper-bundle.min.js"></script>
 
 
 </html>

@@ -63,15 +63,29 @@ public class TravelBoardRepository {
     public void sendComment(CommentDTO commentDTO) {
         sql.insert("TravelBoard.sendComment",commentDTO);
     }
+    public void sendUserPick(UserPickDTO pickDTO) {
+        sql.insert("TravelBoard.sendUserPick",pickDTO);
+    }
     public void deleteComment(CommentDTO commentDTO) {
         sql.delete("TravelBoard.deleteComment",commentDTO);
     }
+    public void deletePick(UserPickDTO pickDTO) {
+        sql.delete("TravelBoard.deletePick",pickDTO);
+    }
+    public UserPickDTO checkPick(UserPickDTO pickDTO) {
+        System.out.println("chekpickrepo"+pickDTO.getPick_spot_id()+" "+pickDTO.getUser_id());
 
+        return sql.selectOne("TravelBoard.checkPick",pickDTO);
+
+    }
     public UserDTO getUserInfo(Integer id) {
 
         return sql.selectOne("TravelBoard.getUserInfo",id);
 
 
+    }
+    public List<SpotDTO> getOnePack(Integer packId) {
+        return sql.selectList("TravelBoard.getOnePack",packId);
     }
 
     public PhotoDTO getPhotoInfo(Integer id) {

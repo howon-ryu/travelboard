@@ -144,7 +144,7 @@
                     <span class="blind">내 위치</span>
                 </a>
             </div>
-            <div class="tab_btn ar">
+            <div class="tab_btn ar " id = "userPick" onclick="userPick()">
                 <a  >
                     <span class="blind">AR</span>
                 </a>
@@ -394,10 +394,51 @@
 </section>
 <script>
     let delete_num_key = ""
+    $(document).ready(function() {
+        checkPick()
+    });
     function btn_pop_click_out(){
         $('.btm_pop').removeClass('on');
         setTimeout(dimHide, 150);
     }
+
+    function checkPick(){
+        let checkPickData =
+            {
+
+                "user_id":getCookieValue("id"),
+
+                "pick_spot_id":getParameterByName("pack_id",currentUrl)
+
+
+            }
+
+        $.ajax({
+
+            url: "http://localhost:8080/travelboard/checkPick",
+            type: "post",
+            contentType:"application/json",
+            async:false,
+            data : JSON.stringify(checkPickData),
+            datatype: "JSON",
+            success: function(obj){
+
+
+                console.log("checkPick",obj);
+
+
+
+            },
+            error: function(xhr, status, error){
+                console.log(`error: ${error}`)
+                console.log(`status: ${status}`)
+                return
+            }
+        })
+
+
+    }
+
     function delete_comment(){
         let delete_data =
             {
@@ -434,6 +475,81 @@
         })
 
     }
+    function userPick(){
+
+
+
+        if(document.getElementById('userPick').classList.contains('on')){
+            alert("내 저장 리스트에서 삭제합니다.")
+            document.getElementById('userPick').classList.remove('on');
+            let deletePickData =
+                {
+
+                    "user_id":getCookieValue("id"),
+
+                    "pick_spot_id":getParameterByName("pack_id",currentUrl)
+
+
+                }
+            $.ajax({
+
+                url: "http://localhost:8080/travelboard/deletePick",
+                type: "post",
+                contentType:"application/json",
+                async:false,
+                data : JSON.stringify(deletePickData),
+                datatype: "JSON",
+                success: function(obj){
+
+
+                    console.log(obj);
+
+                },
+                error: function(xhr, status, error){
+                    console.log(`error: ${error}`)
+                    console.log(`status: ${status}`)
+                    return
+                }
+            })
+        }else{
+            alert("내 저장 리스트에 추가합니다.")
+            document.getElementById('userPick').classList.add('on');
+            let userPickData =
+                {
+
+                    "user_id":getCookieValue("id"),
+
+                    "pick_spot_id":getParameterByName("pack_id",currentUrl)
+
+
+                }
+            $.ajax({
+
+                url: "http://localhost:8080/travelboard/sendUserPick",
+                type: "post",
+                contentType:"application/json",
+                async:false,
+                data : JSON.stringify(userPickData),
+                datatype: "JSON",
+                success: function(obj){
+
+
+                    console.log(obj);
+
+                },
+                error: function(xhr, status, error){
+                    console.log(`error: ${error}`)
+                    console.log(`status: ${status}`)
+                    return
+                }
+            })
+
+        }
+
+
+
+    }
+
     function btn_pop_click(commentKey, user_id){
         console.log(user_id, getCookieValue("id"))
         if(user_id == getCookieValue("id")){

@@ -153,9 +153,23 @@ public class apicontroller {
 
 
     }
+    @PostMapping("/getOnePack")
+    @ResponseBody
+    public List<SpotDTO> getOnePack(@RequestBody() Map<String, String> data){
+        //SpotDTO spotList = new SpotDTO();
+
+        String packId = data.get("packId");
 
 
-    @PostMapping("/getSpotLocation")
+        List<SpotDTO> spotInfo =  travelBoardService.getOnePack(Integer.valueOf(packId));
+
+        return spotInfo;
+
+
+    }
+
+
+    @GetMapping("/getSpotLocation")
     @ResponseBody
     public List<MapDTO> getSpotLocation(){
 
@@ -479,6 +493,20 @@ public class apicontroller {
 
 
     }
+
+    @PostMapping("/sendUserPick")
+    public ResponseEntity sendUserPick(@RequestBody()UserPickDTO pickDTO){
+
+
+        travelBoardService.sendUserPick(pickDTO);
+
+        return ResponseEntity.ok().body(pickDTO);
+
+
+
+
+    }
+
     @PostMapping("/deleteComment")
     public ResponseEntity deleteComment(@RequestBody()CommentDTO commentDTO){
         String tempInput = commentDTO.getId();
@@ -487,6 +515,31 @@ public class apicontroller {
         travelBoardService.deleteComment(commentDTO);
 
         return ResponseEntity.ok().body(commentDTO);
+
+
+
+
+    }
+    @PostMapping("/deletePick")
+    public ResponseEntity deletePick(@RequestBody()UserPickDTO pickDTO){
+
+
+        travelBoardService.deletePick(pickDTO);
+
+        return ResponseEntity.ok().body(pickDTO);
+
+
+
+
+    }
+    @PostMapping("/checkPick")
+    public UserPickDTO checkPick(@RequestBody()UserPickDTO pickDTO){
+
+
+        UserPickDTO pickResult= (UserPickDTO) travelBoardService.checkPick(pickDTO);
+        System.out.println(pickResult.getPick_spot_id());
+
+        return pickResult;
 
 
 

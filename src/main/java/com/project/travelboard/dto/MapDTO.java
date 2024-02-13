@@ -4,7 +4,18 @@ public class MapDTO {
 
 
     private String spot_name;
-    private String spot_comment;
+
+    private String spot_id ;
+
+    public String getSpot_id() {
+        return spot_id;
+    }
+
+    public void setSpot_id(String spot_id) {
+        this.spot_id = spot_id;
+    }
+
+    private String spotComment;
     private String road_name;
     private String latitude;
     private String longitude;
@@ -18,12 +29,12 @@ public class MapDTO {
         this.spot_name = spot_name;
     }
 
-    public String getSpot_comment() {
-        return spot_comment;
+    public String getSpotComment() {
+        return spotComment;
     }
 
-    public void setSpot_comment(String spot_comment) {
-        this.spot_comment = spot_comment;
+    public void setSpotComment(String spot_comment) {
+        this.spotComment = spot_comment;
     }
 
     public String getRoad_name() {
