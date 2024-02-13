@@ -139,7 +139,7 @@
     <!-- 팩탭바 -->
     <aside class="tab_bar pack">
         <div class="cotn">
-            <div class="tab_btn map"><!-- 활성화시 class="on" 추가 -->
+            <div class="tab_btn map not_hover" ><!-- 활성화시 class="on" 추가 -->
                 <a href="4_pack_local.html">
                     <span class="blind">내 위치</span>
                 </a>
@@ -407,7 +407,6 @@
             {
 
                 "user_id":getCookieValue("id"),
-
                 "pick_spot_id":getParameterByName("pack_id",currentUrl)
 
 
@@ -425,7 +424,14 @@
 
 
                 console.log("checkPick",obj);
+                if(obj.user_id !=null){
+                    document.getElementById('userPick').classList.add('on');
 
+
+                }else{
+                    document.getElementById('userPick').classList.remove('on');
+
+                }
 
 
             },

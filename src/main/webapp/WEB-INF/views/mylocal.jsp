@@ -53,7 +53,7 @@
             <!-- 버튼 -->
             <div class="btn_area">
                 <div class="btn_head btn_my">
-                    <a href="mypage.php">
+                    <a href="mypage">
                         <span class="blind">마이페이지</span>
                     </a>
                 </div>
@@ -146,12 +146,12 @@
                 </a>
             </div>
             <div class="tab_btn pack">
-                <a href="mypack_list.php">
+                <a href="boardList">
                     <span class="blind">my pack</span>
                 </a>
             </div>
             <div class="tab_btn add">
-                <a href="studio.php">
+                <a href="studio">
                     <span class="blind">스튜디오</span>
                 </a>
             </div>
@@ -272,7 +272,7 @@
             // if(distance<1) {
             latlngs.push(new naver.maps.LatLng(pack_location_list[_l].latitude, pack_location_list[_l].longitude));
             // 221005 pack_id별 pin 이미지로 셋팅
-            iconList.push("<a href = '#none' class = 'spot' onclick = getOnePack("+pack_id+")> <img style='position: absolute; display: block; width: 50px; height: 50px; background-size: contain; background-repeat: no-repeat;' src='../assets/image/common/target_chip.png' alt=''> </a>");
+            iconList.push("<a href = '#none' class = 'spot' onclick = getOnePack("+pack_id+")> <img style='position: absolute; display: block; width: 50px; height: 50px; background-size: contain; background-repeat: no-repeat;' src='${path}/assets/assets_howon/image/logo_remove_icon.png' alt=''> </a>");
             // }
         }
         for (var i=0, ii=latlngs.length; i<ii; i++) {
@@ -370,7 +370,7 @@
             console.log("pack_location_list[_l]",pack_location_list[_l])
             latlngs.push(new naver.maps.LatLng(pack_location_list[_l].latitude, pack_location_list[_l].longitude));
             // 221005 pack_id별 pin 이미지로 셋팅
-            iconList.push("<a href = '#none' class = 'spot' onclick = getOnePack("+pack_id+")> <img style= ' position: absolute; display: block; width: 50px; height: 50px; background-size: contain; background-repeat: no-repeat;' src='${path}/assets/image/common/target_chip.png' alt=''> </a>");
+            iconList.push("<a href = '#none' class = 'spot' onclick = getOnePack("+pack_id+")> <img style= ' position: absolute; display: block; width: 50px; height: 50px; background-size: contain; background-repeat: no-repeat;' src='${path}/assets/assets_howon/image/logo_remove_icon.png' alt=''> </a>");
             // }
         }
         console.log("latlngs",latlngs)

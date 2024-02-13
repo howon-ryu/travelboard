@@ -76,9 +76,9 @@ public class TravelBoardService {
 
     }
     public UserPickDTO checkPick(UserPickDTO pickDTO) {
-        System.out.println("checkpickser");
+
         UserPickDTO result = travelBoardRepository.checkPick(pickDTO);
-        System.out.println(result.getPick_spot_id()+"!!");
+
         return result;
     }
 

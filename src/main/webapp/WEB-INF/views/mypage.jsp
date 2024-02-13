@@ -28,7 +28,7 @@
 		<div class="header_wrap">
 			<!-- 뒤로가기 -->
 			<div class="tit_ctrl">
-				<a href="#n" class="close">
+				<a class="close" onclick="goToBack()">
 					<span class="blind">닫기</span>
 				</a>
 			</div>
@@ -230,12 +230,12 @@
 		$('input[name=nickname]')[0].value = prop.nickname;
 
 	}
-	$(".close").on("click", function(){
-		location.href = "home";
-
-
-
-	});
+	// $(".close").on("click", function(){
+	// 	location.href = "home";
+	//
+	//
+	//
+	// });
 
 	$("#changeNickname").on("click", function(){
 

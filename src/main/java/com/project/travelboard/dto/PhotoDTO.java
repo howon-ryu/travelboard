@@ -10,6 +10,15 @@ public class PhotoDTO {
     private String img_name;
     private String photo_name;
     private String photo_comment;
+    private String spot_name;
+
+    public String getSpot_name() {
+        return spot_name;
+    }
+
+    public void setSpot_name(String spot_name) {
+        this.spot_name = spot_name;
+    }
 
     public String getId() {
         return id;

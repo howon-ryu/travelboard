@@ -102,12 +102,12 @@
 				</a>
 			</div>
 			<div class="tab_btn pack on">
-				<a href="3_list_01.html">
+				<a href="boardList">
 					<span class="blind">my travel</span>
 				</a>
 			</div>
 			<div class="tab_btn add">
-				<a href="5_studio_01.html">
+				<a href="studio">
 					<span class="blind">스튜디오</span>
 				</a>
 			</div>

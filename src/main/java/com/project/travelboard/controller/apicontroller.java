@@ -494,6 +494,7 @@ public class apicontroller {
 
     }
 
+
     @PostMapping("/sendUserPick")
     public ResponseEntity sendUserPick(@RequestBody()UserPickDTO pickDTO){
 
@@ -533,19 +534,19 @@ public class apicontroller {
 
     }
     @PostMapping("/checkPick")
-    public UserPickDTO checkPick(@RequestBody()UserPickDTO pickDTO){
+    public ResponseEntity checkPick(@RequestBody()UserPickDTO pickDTO){
 
 
-        UserPickDTO pickResult= (UserPickDTO) travelBoardService.checkPick(pickDTO);
-        System.out.println(pickResult.getPick_spot_id());
+        UserPickDTO pickResult= travelBoardService.checkPick(pickDTO);
 
-        return pickResult;
+//        if(pickResult ==null){
+//            pickResult.setUser_id("0");
+//        }
 
-
+        return ResponseEntity.ok().body(pickResult);
 
 
     }
-
 
 
 

@@ -640,9 +640,9 @@
                   success: function(data) {
                         console.log("data",data)
                         alert("로그인이 완료되었습니다.")
-                        alert(data.id);
+
                         location.href = "home";
-                      setCookie("id", data.id,'1')
+                        setCookie("id", data.id,'1')
 
 
                     },

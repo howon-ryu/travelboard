@@ -164,7 +164,7 @@
 				</a>
 			</div>
 			<div class="tab_btn pack">
-				<a href="3_list_01.html">
+				<a href="boardList">
 					<span class="blind">my pack</span>
 				</a>
 			</div>
@@ -183,16 +183,19 @@
 <script type="text/javascript" src="${path}/assets/js/getPackList.js"></script>
 
 <script>
-	getPopularPack()
 	getNewPack()
+	getPopularPack()
+
 	$(document).ready(function(){
 		const getCookieValue = (name) => (
 				document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
 		)
 		var cookieValue = getCookieValue("id");
 		console.log("내가 만든 쿠키~", cookieValue);
+
 		// getPopularPack()
 		// getNewPack()
+
 
 	});
 

@@ -55,6 +55,7 @@
   <div class="cu10_a_wrap">
     <div class="mb_title sg_app">
       <h2>TravelBoard</h2>
+
       <h3>여행을 즐기는 새로운 방법</h3>
     </div>
     <div class="mb_title chst_app">

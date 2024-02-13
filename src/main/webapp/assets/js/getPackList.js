@@ -163,7 +163,18 @@ function newPackList(data){
 				</div>
 			</div>`
 			$(".swiper-wrapper").append(pack);
+
+
+
 		}
+	loadSwiper();
+	setTimeout(() => console.log("after"), 3000);
+}
+function loadSwiper() {
+	var script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = '/assets/js/lib/swiper-bundle.min.js';
+	document.head.appendChild(script);
 }
 function myPackList(data){
 

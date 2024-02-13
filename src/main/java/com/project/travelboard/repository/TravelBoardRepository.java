@@ -73,7 +73,7 @@ public class TravelBoardRepository {
         sql.delete("TravelBoard.deletePick",pickDTO);
     }
     public UserPickDTO checkPick(UserPickDTO pickDTO) {
-        System.out.println("chekpickrepo"+pickDTO.getPick_spot_id()+" "+pickDTO.getUser_id());
+
 
         return sql.selectOne("TravelBoard.checkPick",pickDTO);
 

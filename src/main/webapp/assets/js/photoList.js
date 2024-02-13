@@ -60,8 +60,12 @@ function getSpotPhotolist(pack_id){
         success: function(obj){
 
 
-            console.log(obj);
+            console.log("photoList",obj);
 
+            document.getElementById("pack_title_h2").innerText = obj[0].spot_name
+
+            document.getElementById("total_num").innerText = obj.length
+            document.getElementById("end_num").innerText = obj.length
             setPhotoGal(obj)
 
 

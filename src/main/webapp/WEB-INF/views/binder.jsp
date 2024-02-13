@@ -53,7 +53,7 @@
             <!-- 버튼 -->
             <div class="btn_area">
                 <div class="btn_head btn_chat">
-                    <a class="btn_full_pop" open-pop="talk_pop">
+                    <a class="btn_full_pop not_hover" open-pop="talk_pop">
                         <span class="blind">채팅</span>
                     </a>
                 </div>
@@ -69,7 +69,7 @@
             <div class="binder_wrap">
                 <!-- 팩 타이틀 -->
                 <div class="pack_title">
-                    <h2>졸업생이 알려주는   고양이 주요 출몰 지역 찾아보면 다나옴 </h2>
+                    <h2 id="pack_title_h2">졸업생이 알려주는   고양이 주요 출몰 지역 찾아보면 다나옴 </h2>
                 </div>
                 <!--// 팩 타이틀 -->
 
@@ -88,8 +88,8 @@
                             <div class="tot_line">
                                 <span class="start" id = "start_num">0</span>
                                 <span class="end" id = "end_num">18</span>
-                                <div class="current_line">
-                                    <span class="crt_card" id = "crt_num">6</span>
+                                <div class="current_line" hidden>
+                                    <span class="crt_card" id = "crt_num">0</span>
                                 </div>
                             </div>
                         </div>
@@ -324,7 +324,7 @@
                 </a>
             </div>
             <div class="tab_btn ar">
-                <a href="">
+                <a onclick="goToBack()">
                     <span class="blind">AR</span>
                 </a>
             </div>

@@ -166,7 +166,17 @@
 
 
     <select id = "getPhotoList" resultType="photo" parameterType="Integer">
-        select * from photo where spot_id = #{spot_id}
+        select
+            photo.id,
+            photo.spot_id,
+            photo.latitude,
+            photo.longitude,
+            photo.img_name,
+            photo_name,
+            photo.photo_comment,
+            travel_spot.spot_name
+
+        from photo left join travel_spot on photo.spot_id = travel_spot.id where spot_id = #{id}
 
 
     </select>
