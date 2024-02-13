@@ -641,7 +641,7 @@
                         console.log("data",data)
                         alert("로그인이 완료되었습니다.")
 
-                        location.href = "home";
+                        window.location.href = "home";
                         setCookie("id", data.id,'1')
 
 

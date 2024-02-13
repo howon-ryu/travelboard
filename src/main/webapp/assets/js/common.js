@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('.tot_line').length && card_cnt(); //팩 프로그래스바
-	$('.pack_slide_wrap').length && packSlide(); //메인팩 슬라이드
+
 	$('.spot').length && spotTarget(); //spot 활성화
 	$('.btn_star').length && starBtn(); //헤더 대표 spot설정 토글 버튼
 	$('.btn_del').length && pwDel() //input 텍스트 삭제
@@ -37,7 +37,7 @@ $(document).ready(function(){
 // 	$('body').css('overflow','');
 // });
 function goToBack(){
-	history.back();
+	window.history.back();
 }
 
 const getCookieValue = (name) => (
@@ -63,12 +63,7 @@ function card_cnt() { //팩 프로그래스바
 	});
 }
 
-function packSlide(){ //메인팩 슬라이드
-	var packSlide = new Swiper('.pack_slide_wrap .swiper', {
-		slidesPerView:'auto',
-		spaceBetween: 8,
-	});
-}
+
 
 function spotTarget(){ //spot 활성화
 	$('.spot').on('click', function(){

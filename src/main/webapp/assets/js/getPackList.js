@@ -157,7 +157,7 @@ function newPackList(data){
 						<p class="tit">${data[key].spot_name}</p>
 					</div>
 					<!--// 텍스트영역 -->
-					<a href="pack.php?pack_id=${data[key].id}" class="go_view">
+					<a href="spotInfo?pack_id=${data[key].id}" class="go_view">
 						<span class="blind">상세이동</span>
 					</a>
 				</div>
@@ -167,15 +167,14 @@ function newPackList(data){
 
 
 		}
-	loadSwiper();
-	setTimeout(() => console.log("after"), 3000);
+	var packSlide = new Swiper('.pack_slide_wrap .swiper', {
+		slidesPerView:'auto',
+		spaceBetween: 8,
+	});
+	packSlide.update()
+
 }
-function loadSwiper() {
-	var script = document.createElement('script');
-	script.type = 'text/javascript';
-	script.src = '/assets/js/lib/swiper-bundle.min.js';
-	document.head.appendChild(script);
-}
+
 function myPackList(data){
 
 	for(key in data){

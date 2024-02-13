@@ -26,7 +26,7 @@
 	<script type="text/javascript" src="${path}/assets/js/lib/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="${path}/assets/js/lib/jquery-ui.min.js"></script>
 
-	<script type="text/javascript" src="${path}/assets/js/common.js"></script>
+
 
 	<!-- 임시로 howon asset main.css로 변경 -->
 	<link href="${path}/assets/assets_howon/css/main.css" rel="stylesheet"/>
@@ -177,11 +177,9 @@
 	</aside>
 	<!--// 메인탭바 -->
 </div>
-<!--// #WRAP -->
-</body>
-
 <script type="text/javascript" src="${path}/assets/js/getPackList.js"></script>
-
+<script type="text/javascript" src="${path}/assets/js/lib/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="${path}/assets/js/common.js"></script>
 <script>
 	getNewPack()
 	getPopularPack()
@@ -193,10 +191,7 @@
 		var cookieValue = getCookieValue("id");
 		console.log("내가 만든 쿠키~", cookieValue);
 
-		// getPopularPack()
-		// getNewPack()
-
-
+		
 	});
 
 
@@ -204,8 +199,15 @@
 
 
 
+
+
 </script>
-<script type="text/javascript" src="${path}/assets/js/lib/swiper-bundle.min.js"></script>
+
+<!--// #WRAP -->
+</body>
+
+
+
 
 
 </html>
