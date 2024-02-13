@@ -22,6 +22,9 @@ public class TravelBoardRepository {
         return sql.selectList("TravelBoard.popularSpotFindAll");
 
     }
+    public List<MapDTO> getSpotLocation() {
+        return sql.selectList("TravelBoard.getSpotLocation");
+    }
     public List<SpotDTO> mySpotFindAll(Integer id) {
         return sql.selectList("TravelBoard.mySpotFindAll",id);
 

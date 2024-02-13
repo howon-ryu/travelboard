@@ -154,6 +154,21 @@ public class apicontroller {
 
     }
 
+
+    @PostMapping("/getSpotLocation")
+    @ResponseBody
+    public List<MapDTO> getSpotLocation(){
+
+
+
+        List<MapDTO> spotLocationList =  travelBoardService.getSpotLocation();
+
+        return spotLocationList;
+
+
+    }
+
+
     @PostMapping("/getCommentList")
     @ResponseBody
     public List<CommentDTO> getCommentList(@RequestBody() CommentDTO commentDTO){

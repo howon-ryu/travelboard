@@ -158,13 +158,14 @@
     <!--// 메인탭바 -->
 </div>
 <!--// #WRAP -->
+<script type="text/javascript" src="${path}/assets/js/mapList.js"></script>
 <script>
 
 
     let pack_location_list = ""
 
     $(document).ready(function(){
-        get_pack_location()
+        pack_location_list = getPackLocation()
         getCurrentPosition().then(point=>createMap(point))
         //setting_location()
         // make_poca_section(pack_poca_data)

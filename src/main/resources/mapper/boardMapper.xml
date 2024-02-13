@@ -27,6 +27,22 @@
         order by
             travel_spot.like_cnt desc
     </select>
+
+    <select id="getSpotLocation" resultType="map">
+        SELECT
+            travel_spot.spot_name,
+            travel_spot.spot_comment,
+            map.longitude
+            travel_spot.img_name,
+            map.latitude
+            map.road_name
+        FROM
+            travel_spot
+
+                LEFT JOIN map ON travel_spot.map_id = map.id
+
+    </select>
+
     <select id="newSpotFindAll" resultType="spot">
         SELECT
             travel_spot.id,

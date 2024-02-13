@@ -21,6 +21,9 @@ public class TravelBoardService {
     public List<SpotDTO> newSpotFindAll() {
         return travelBoardRepository.newSpotFindAll();
     }
+    public List<MapDTO> getSpotLocation() {
+        return travelBoardRepository.getSpotLocation();
+    }
 
     public List<SpotDTO> searchSpot(String spotName) {
         return travelBoardRepository.searchSpot(spotName);

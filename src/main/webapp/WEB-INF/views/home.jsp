@@ -86,7 +86,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="2_mylocal.html">
+						<a href="mylocal">
 							<img src="${path}/assets/image/common/icon_quick_02.svg" alt="내 주변 찾기">
 							<span>내 주변 찾기</span>
 						</a>

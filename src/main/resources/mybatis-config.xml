@@ -11,5 +11,6 @@
         <typeAlias type="com.project.travelboard.dto.ChangePasswordDTO" alias="changepassword"></typeAlias>
         <typeAlias type="com.project.travelboard.dto.PhotoDTO" alias="photo"></typeAlias>
         <typeAlias type="com.project.travelboard.dto.CommentDTO" alias="comment"></typeAlias>
+        <typeAlias type="com.project.travelboard.dto.MapDTO" alias="map"></typeAlias>
     </typeAliases>
 </configuration>
