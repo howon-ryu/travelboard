@@ -210,6 +210,7 @@ function bmtPopup(){ //바닥팝업
 
 function fullPopup(){ //전체팝업
 	$('.btn_full_pop').on('click', function(e){ /* 팝업열기 */
+		console.log("click")
 		e.preventDefault();
 		var target = $(this).attr('open-pop') || e;
 		$('.full_pop' + '.' + target).addClass('on');

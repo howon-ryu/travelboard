@@ -46,6 +46,9 @@ public class TravelBoardRepository {
         sql.insert("TravelBoard.joinUser",joinuserDTO);
 
     }
+    public void insertMap(MapDTO mapDTO) {
+        sql.insert("TravelBoard.insertMap",mapDTO);
+    }
     public void createSpot(SpotDTO spotDTO) {
         sql.insert("TravelBoard.createSpot",spotDTO);
     }
@@ -84,6 +87,12 @@ public class TravelBoardRepository {
 
 
     }
+    public MapDTO getMapInfo(Integer mapId) {
+        System.out.println("mapIdre"+mapId);
+        MapDTO result =sql.selectOne("TravelBoard.getMapInfo",mapId);
+        System.out.println(result.toString());
+        return result;
+    }
     public List<SpotDTO> getOnePack(Integer packId) {
         return sql.selectList("TravelBoard.getOnePack",packId);
     }
@@ -104,6 +113,15 @@ public class TravelBoardRepository {
 
         sql.update("TravelBoard.changeNickname",userDTO);
 
+    }
+    public void updatePhoto(PhotoDTO photoDTO) {
+        sql.update("TravelBoard.updatePhoto",photoDTO);
+    }
+    public void updateSpot(SpotDTO spotDTO) {
+        sql.update("TravelBoard.updateSpot",spotDTO);
+    }
+    public void updateMap(MapDTO mapDTO) {
+        sql.update("TravelBoard.updateMap",mapDTO);
     }
 
 
@@ -126,6 +144,11 @@ public class TravelBoardRepository {
 
     public PhotoDTO lastInputPhoto() {
         return sql.selectOne("TravelBoard.lastInputPhoto");
+    }
+
+
+    public MapDTO lastInputMap() {
+        return sql.selectOne("TravelBoard.lastInputMap");
     }
 
 

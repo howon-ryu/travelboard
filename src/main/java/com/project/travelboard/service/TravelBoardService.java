@@ -50,6 +50,9 @@ public class TravelBoardService {
 
 
     }
+    public void insertMap(MapDTO mapDTO) {
+        travelBoardRepository.insertMap(mapDTO);
+    }
     public SpotDTO createSpot(SpotDTO spotDTO) {
 
         travelBoardRepository.createSpot(spotDTO);
@@ -96,6 +99,12 @@ public class TravelBoardService {
 
 
     }
+    public MapDTO getMapInfo(Integer mapId) {
+        System.out.println("mapId"+mapId);
+        MapDTO result = travelBoardRepository.getMapInfo(mapId);
+        System.out.println("asdf"+result.toString());
+        return result;
+    }
 
     public PhotoDTO getPhotoInfo(Integer id) {
         PhotoDTO result = travelBoardRepository.getPhotoInfo(id);
@@ -116,7 +125,15 @@ public class TravelBoardService {
         travelBoardRepository.changeNickname(userDTO);
     }
 
-
+    public void updatePhoto(PhotoDTO photoDTO) {
+        travelBoardRepository.updatePhoto(photoDTO);
+    }
+    public void updateSpot(SpotDTO spotDTO) {
+        travelBoardRepository.updateSpot(spotDTO);
+    }
+    public void updateMap(MapDTO mapDTO) {
+        travelBoardRepository.updateMap(mapDTO);
+    }
     public SpotDTO getSpotInfo(Integer packId) {
 
         SpotDTO result = travelBoardRepository.getSpotInfo(packId);
@@ -138,6 +155,12 @@ public class TravelBoardService {
 
     public PhotoDTO lastInputPhoto() {
         PhotoDTO result = travelBoardRepository.lastInputPhoto();
+        return result;
+    }
+
+
+    public MapDTO lastInputMap() {
+        MapDTO result = travelBoardRepository.lastInputMap();
         return result;
     }
 

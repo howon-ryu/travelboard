@@ -36,7 +36,7 @@
         <div class="header_wrap">
             <!-- 뒤로가기 -->
             <div class="tit_ctrl">
-                <a  id = "goToSpotDetail" class="back">
+                <a   class="back" onclick="goToBack()">
                     <span class="blind">뒤로가기</span>
                 </a>
             </div>
@@ -69,19 +69,22 @@
                 <!-- 주소입력 -->
                 <div class="addr_area">
                     <input type="text" placeholder="위치를 설정하세요" disabled>
+                    <input type="text" id = "latitude" hidden>
+                    <input type="text" id = "longitude" hidden>
                 </div>
                 <!--// 주소입력 -->
 
                 <!-- 지도영역 -->
                 <div class="map_area">
-                    <div id="map" style="width:100%;height:100%;"></div>
+                    <div id="map_mini" style="width:100%;height:100%;"></div>
                     <!-- 지도 -->
 
                     <!--// 선택된위치 -->
                 </div>
                 <!--// 지도영역 -->
 
-                <a id="goToSelectPosition" class="go_view">
+                <a  class="go_view btn_full_pop" open-pop="pick_pop" >
+
                     <span class="blind">위치찾기</span>
                 </a>
             </div>
@@ -101,7 +104,7 @@
                     <div class="apply_area">
                         <p class="spot_txt">여행지에서 보여주고 싶은 사진 이미지</p>
                         <div class="info_btn">
-                            <a href="#n" class="btn pt_gr btn_pop" open-pop="cover_pop">
+                            <a  class="btn pt_gr btn_pop" open-pop="cover_pop">
                                 <input id = "img_name" type="text" style = "display: none">
                                 <span>사진 올리기</span>
                             </a>
@@ -146,7 +149,6 @@
 </div>
 <!--// #WRAP -->
 
-<!-- 팩 커버 만들기 팝업 -->
 <section class="popup cover_pop"><!-- 팝업 활성화시 style="display:block" -->
     <div class="cotn">
         <p class="tit">팩 커버 만들기</p>
@@ -185,6 +187,63 @@
     </a>
 </section>
 
+<section class="full_pop pick_pop"><!-- 전체팝업 활성화 class="on"추가 -->
+    <!-- #header -->
+    <header id="head">
+        <div class="header_wrap">
+            <!-- 뒤로가기 -->
+            <div class="tit_ctrl">
+                <a id = "closePosition" class="close">
+                    <span class="blind">닫기</span>
+                </a>
+            </div>
+            <!--// 뒤로가기 -->
+
+            <!-- 타이틀 -->
+            <h1>
+                위치 등록
+            </h1>
+            <!--// 타이틀 -->
+        </div>
+    </header>
+    <!--// #header -->
+
+    <!-- #CONTENTS -->
+    <div id="content">
+        <div class="sub">
+            <!-- 위치찾기 -->
+            <div class="pick_wrap">
+                <!-- 검색영역 -->
+                <div class="srch_wrap">
+                    <div class="inpt_wrap">
+                        <input id = "road_name" type="text" placeholder="주소 입력">
+                        <input id = "packId" type="text" style = "display: none">
+                    </div>
+                </div>
+                <!--// 검색영역 -->
+
+                <div class="pick_map">
+                    <!-- 지도영역 -->
+                    <div class="map_area">
+                        <!-- 지도 -->
+                        <div id="map" style="width:100%;height:100vh;"></div>
+                        <!--// 선택된위치 -->
+                    </div>
+                    <!--// 지도영역 -->
+
+                    <!-- 내위치버튼 -->
+                    <a href="#none" class="local_btn on"><!-- 활성화시 class="on"추가 -->
+                        <i class="i_loc"></i>
+                    </a>
+                    <!--// 내위치버튼 -->
+                </div>
+            </div>
+            <!--// 위치찾기 -->
+        </div>
+    </div>
+    <!--// #CONTENTS -->
+</section>
+
 
 <!--// AI로 만들기 전체팝업 -->
 </body>
@@ -220,45 +279,59 @@
     let temp_name = ""
     let temp_comment = ""
 
+    const isPhotoId = getParameterByName('photo_id', currentUrl);
+    const isPackId = getParameterByName('pack_id', currentUrl);
     $(document).ready(function(){
-        var lng_t = getCookieValue("lng");
-        var lat_t = getCookieValue("lat");
-        var temp_name_t = getCookieValue("temp_name");
-        var temp_comment_t = getCookieValue("temp_comment");
-
-        packId = getParameterByName('pack_id', currentUrl);
-        photoId = getParameterByName('photo_id', currentUrl);
-
-        let tempImgName_t = getCookieValue("tempImgName");
-        //
-        console.log(temp_name_t,temp_comment_t,getCookieValue("lat"),getCookieValue("lng"),tempImgName_t)
-        //
-        if(temp_name_t!=""){
-            $('#photo_name').attr('value', temp_name_t);
-        }
-        if(temp_comment_t!=""){
-            $('#photo_comment').attr('value', temp_comment_t);
-            $('#photo_comment').text(temp_comment_t);
-        }
-        if(lng_t!=""){
-            lng = lng_t
-        }
-        if(lat_t!=""){
-            $('#photo_comment').attr('value', temp_comment_t);
-            lat = lat_t
-        }
-        if(packId!=""){
-
-            $('#packId').attr('value', packId);
-
-        }
 
 
-        if(tempImgName_t!=""){
-            var cookieValue = getCookieValue("id");
-            $('#img_name').attr('value', tempImgName_t);
-            document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+tempImgName_t+"?a="+Math.random();
+
+
+        if(isPhotoId!=null){
+
+            let dataValue = {
+                "photo_id" : isPhotoId,
+
+
+            }
+            console.log("dataValue",dataValue)
+            $.ajax({
+                type : "POST",
+
+                url : "http://localhost:8080/travelboard/getPhotoInfo",
+                data : JSON.stringify(dataValue),
+                contentType:"application/json",
+                dataType: "json",
+                success: function(data) {
+                    console.log("data",data)
+
+                    $('#photo_name').attr('value', data.photo_name);
+
+                    $('#photo_comment').attr('value', data.photo_comment);
+                    $('#photo_comment').text(data.photo_comment);
+                    $('#latitude').attr('value', data.latitude);
+                    $('#longitude').attr('value', data.longitude);
+                    var cookieValue = getCookieValue("id");
+
+                    $('#img_name').attr('value', data.img_name);
+                    tempImgName = data.img_name
+
+                    document.getElementById("selected_img").src = "http://localhost:8080/assets/spot/"+isPackId+"/Photo/"+isPhotoId+"/"+tempImgName+"?a="+Math.random();
+
+                },
+
+
+                error: function(xhr, textStatus, errorThrown) {
+                    alert("여행지 불러오기에 실패하였습니다.")
+                    console.log("XHR status: " + xhr.status);
+                    console.log("Text status: " + textStatus);
+                    console.log("Error thrown: " + errorThrown);
+                    console.log("Response text: " + xhr.responseText);
+                }
+            });
+
         }
+
+
 
 
     });
@@ -317,55 +390,41 @@
 
     }
 
-    $('#goToSelectPosition').on("click",function(){
-
-        let photo_name = $("#photo_name").val()
-        let photo_comment = $("#photo_comment").val()
 
 
-
-
-
-
-        if(photo_name != null){
-
-
-            setCookie("temp_name", photo_name,'1')
-        }
-        if(photo_comment != null){
-
-            setCookie("temp_comment", photo_comment,'1')
-        }
-        if(tempImgName != null){
-
-            setCookie("tempImgName", tempImgName,'1')
-        }
-
-        location.href='selectPosition?origin=photo&pack_id='+packId;
-
-
-
-
-    })
-
-    $('#goToSpotDetail').on("click",function(){
-        deleteCookie("temp_name");
-        deleteCookie("temp_comment");
-        deleteCookie("tempImgName");
-
-        location.href='spotDetail?pack_id=' + packId;
-    });
+    // $('#goToSpotDetail').on("click",function(){
+    //
+    //
+    //     location.href='spotDetail?pack_id=' + packId;
+    // });
 
 
     $("#createPhoto").on("click", function(){
+
+
+
+
+
         var cookieValue = getCookieValue("id");
         console.log("btn click")
         const photo_name = $("#photo_name").val()
         const photo_comment = $("#photo_comment").val()
         const img_name =$("#img_name").val()
-        const packId =$("#packId").val()
+        const packId =isPackId
         console.log("!!",packId)
-            let dataValue = {
+
+
+        let dataValueUpdate = {
+            "photo_name" : photo_name,
+            "photo_comment" : photo_comment,
+            "img_name":img_name,
+            "spot_id" : packId,
+            "latitude" : $('#latitude').val(),
+            "longitude" :$('#longitude').val(),
+            "id": isPhotoId
+
+        }
+        let dataValueInsert={
             "photo_name" : photo_name,
             "photo_comment" : photo_comment,
             "img_name":img_name,
@@ -373,43 +432,72 @@
             "latitude" : lat,
             "longitude" : lng,
 
+        }
+        if(isPhotoId){
+
+            $.ajax({
+                type : "POST",
+
+                url : "http://localhost:8080/travelboard/updatePhoto",
+                data : JSON.stringify(dataValueUpdate),
+                contentType:"application/json",
+                dataType: "json",
+                success: function(data) {
+                    console.log("data",data)
+                    alert("사진 업데이트가 완료되었습니다.")
+
+
+                    location.href = "studio";
+
+
+
+                },
+
+
+                error: function(xhr, textStatus, errorThrown) {
+                    alert("사진 업데이트에 실패하였습니다.")
+                    console.log("XHR status: " + xhr.status);
+                    console.log("Text status: " + textStatus);
+                    console.log("Error thrown: " + errorThrown);
+                    console.log("Response text: " + xhr.responseText);
+                }
+            });
+
+        }else{
+
+            $.ajax({
+                type : "POST",
+
+                url : "http://localhost:8080/travelboard/createPhoto",
+                data : JSON.stringify(dataValueInsert),
+                contentType:"application/json",
+                dataType: "json",
+                success: function(data) {
+                    console.log("data",data)
+                    alert("사진 생성이 완료되었습니다.")
+
+
+                    location.href = "studio";
+
+
+
+                },
+
+
+                error: function(xhr, textStatus, errorThrown) {
+                    alert("사진 생성에 실패하였습니다.")
+                    console.log("XHR status: " + xhr.status);
+                    console.log("Text status: " + textStatus);
+                    console.log("Error thrown: " + errorThrown);
+                    console.log("Response text: " + xhr.responseText);
+                }
+            });
 
         }
-        console.log(dataValue)
-
-        $.ajax({
-            type : "POST",
-
-            url : "http://localhost:8080/travelboard/createPhoto",
-            data : JSON.stringify(dataValue),
-            contentType:"application/json",
-            dataType: "json",
-            success: function(data) {
-                console.log("data",data)
-                alert("사진 생성이 완료되었습니다.")
-                deleteCookie("lat");
-                deleteCookie("lng");
-
-
-                deleteCookie("temp_name")
-                deleteCookie("temp_comment")
-                deleteCookie("tempImgName")
-
-                location.href = "studio";
 
 
 
-            },
 
-
-            error: function(xhr, textStatus, errorThrown) {
-                alert("로그인에 실패하였습니다.")
-                console.log("XHR status: " + xhr.status);
-                console.log("Text status: " + textStatus);
-                console.log("Error thrown: " + errorThrown);
-                console.log("Response text: " + xhr.responseText);
-            }
-        });
 
 
 
@@ -424,9 +512,9 @@
     var lng = ""
     var markers = []
 
-    function createMap(geolocationPosition){
+    function createMiniMap(geolocationPosition){
         console.log("geolocationPosition",geolocationPosition.coords)
-        var map = new naver.maps.Map('map', {
+        var map = new naver.maps.Map('map_mini', {
             center: new naver.maps.LatLng(geolocationPosition.coords.latitude, geolocationPosition.coords.longitude),
             // center: new naver.maps.LatLng(37.6009, 126.8644),
             zoom: 15
@@ -458,24 +546,7 @@
             origin: new naver.maps.Point(2*29, 0),
         }
 
-        naver.maps.Event.addListener(map, 'click', function(e){
-            // 지도를 클릭하면 아래 내용이 실행됩니다.
-            lat = e.coord.lat()
-            lng =  e.coord.lng()
 
-            alert('클릭한 위치로 설정되었습니다')
-            let cli_loc = new naver.maps.LatLng(lat, lng);
-
-
-
-            markers.push(new naver.maps.Marker({
-                map: map,
-                position: cli_loc,
-                icon:i2,
-            }));
-
-
-        });
 
 
 
@@ -512,11 +583,131 @@
         })
     }
 
-    getCurrentPosition().then(point=>createMap(point))
+    getCurrentPosition().then(point=>createMiniMap(point))
 
 
 
 </script>
 
+<script>
+
+    var currentUrl = window.location.href;
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+
+    // pack_id 값을 추출합니다.
+
+    var origin = getParameterByName('origin', currentUrl);
+
+    if(packId!=""){
+        $('#packId').attr('value', packId);
+
+    }
+    var lat = "";
+    var lng = "";
+    var markers = [];
+
+    function createMap(geolocationPosition) {
+        console.log("geolocationPosition", geolocationPosition.coords);
+        var map = new naver.maps.Map('map', {
+            center: new naver.maps.LatLng(geolocationPosition.coords.latitude, geolocationPosition.coords.longitude),
+            zoom: 15,
+
+        });
+
+        var cur_loc = new naver.maps.LatLng(geolocationPosition.coords.latitude, geolocationPosition.coords.longitude);
+
+        var i1 = {
+            content: "<span class='my_loc on' style='left:50%; top:20%;'></span>",
+            size: new naver.maps.Size(55, 72),
+            anchor: new naver.maps.Point(0, 0),
+            origin: new naver.maps.Point(55 / 2, 72),
+        };
+
+        markers.push(new naver.maps.Marker({
+            map: map,
+            position: cur_loc,
+            icon: i1,
+        }));
+
+        var i2 = {
+            content: "<div class='pick' id = 'selectPositon' name = 'selectPositon'> <span>위치 선택</span> <img src='../assets/image/common/icon_map_03.svg'></div>",
+            size: new naver.maps.Size(55, 72),
+            anchor: new naver.maps.Point(0, 0),
+            origin: new naver.maps.Point(55 / 2, 72),
+        };
+
+        naver.maps.Event.addListener(map, 'click', function (e) {
+            // 지도를 클릭하면 아래 내용이 실행됩니다.
+            lat = e.coord.lat();
+            lng = e.coord.lng();
+
+            alert('클릭한 위치로 설정되었습니다');
+            $('#latitude').val(lat)
+            $('#longitude').val(lng)
+
+            let cli_loc = new naver.maps.LatLng(lat, lng);
+            console.log("cli_loc", cli_loc);
+
+            // 이전의 모든 마커 삭제 (첫 번째 마커는 남김)
+            for (var i = 1; i < markers.length; i++) {
+                markers[i].setMap(null);
+            }
+
+            // 새로운 마커 추가
+            markers = [markers[0]]; // 기존 첫 번째 마커를 유지하고 나머지는 초기화
+            markers.push(new naver.maps.Marker({
+                map: map,
+                position: cli_loc,
+                icon: i2,
+            }));
+
+
+            // let input_position = $('#selectPositon').val()
+            //
+            // $('input[name=selectPositon]').attr('value', input_position, lat," ",lng);
+            // setCookie("lat", lat,'1')
+            // setCookie("lng", lng,'1')
+
+
+
+
+        });
+    }
+
+    var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    };
+
+    function success(pos) {
+        var crd = pos.coords;
+        console.log('Your current position is:');
+        console.log('Latitude : ' + crd.latitude);
+        console.log('Longitude: ' + crd.longitude);
+        console.log('More or less ' + crd.accuracy + ' meters.');
+    }
+
+    function error(err) {
+        console.warn('ERROR(' + err.code + '): ' + err.message);
+    }
+
+    function getCurrentPosition() {
+        return new Promise(function (resolve, reject) {
+            navigator.geolocation.getCurrentPosition(resolve, reject);
+        });
+    }
+
+    getCurrentPosition().then(point => createMap(point));
+</script>
 
 </html>

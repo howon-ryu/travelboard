@@ -192,6 +192,13 @@
 
     </insert>
 
+    <insert id = "insertMap" parameterType="mapList">
+        insert into map(longitude, latitude, road_name)
+        values(#{longitude}, #{latitude}, #{road_name})
+
+
+    </insert>
+
     <insert id = "createSpot" parameterType="spot" >
         insert into travel_spot(spot_name, spotComment,img_name,user_id)
         values(#{spot_name}, #{spotComment},#{img_name},#{user_id})
@@ -265,11 +272,24 @@
         SELECT * FROM photo ORDER BY id DESC LIMIT 1;
 
     </select>
+    <select id = "lastInputMap" resultType="mapList">
+        SELECT * FROM map ORDER BY id DESC LIMIT 1;
+
+    </select>
+
+
 
     <select id = "getSpotInfo" parameterType="Integer" resultType="spot">
         select * from travel_spot where id = #{pack_id}
 
     </select>
+
+    <select id = "getMapInfo" parameterType="Integer" resultType="mapList">
+        select * from map where id = #{mapId}
+
+    </select>
+
+
 
 
     <update id = "changePassword" parameterType="changePassword">
@@ -281,6 +301,23 @@
         update user set nickname=#{nickname}where id=#{id}
 
     </update>
+    <update id = "updatePhoto" parameterType="photo">
+        update photo set photo_name=#{photo_name},photo_comment=#{photo_comment},img_name=#{img_name},latitude=#{latitude},longitude=#{longitude} where id=#{id}
+
+
+
+    </update>
+
+    <update id = "updateSpot" parameterType="spot">
+        update travel_spot set spot_name=#{spot_name},spotComment=#{spotComment},img_name=#{img_name},map_id=#{map_id} where id=#{id}
+
+    </update>
+
+    <update id = "updateMap" parameterType="map">
+        update map set latitude=#{latitude},longitude=#{longitude},road_name=#{road_name} where id=#{id}
+
+    </update>
+
 
 
 

@@ -97,7 +97,7 @@
                                 <span id = "commentCount">1,045</span>
                             </div>
                         </div>
-                        <a href="5_studio_05.html" class="go_view">
+                        <a class="go_view" onclick = "goToPack()">
                             <span class="blind">상세이동</span>
                         </a>
                     </div>
@@ -214,6 +214,13 @@ function setSpotInfo(data){
 
 
     })
+    function goToPack(){
+        location.href = "createSpotDetail?pack_id="+packId
+
+    }
+
+
+
 
 
 </script>

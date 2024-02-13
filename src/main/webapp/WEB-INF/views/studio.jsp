@@ -75,7 +75,7 @@
                     <figure class="img">
                         <img src="../assets/image/common/chip_13.png" alt="">
                     </figure>
-                    <a href="createNewSpot" class="btn btn_100p btn_more color_type2"><span>신규 여행지 만들기</span></a>
+                    <a href="createSpotDetail" class="btn btn_100p btn_more color_type2"><span>신규 여행지 만들기</span></a>
                 </div>
             </div>
             <!--// 스튜디오 메인 -->
@@ -87,17 +87,17 @@
     <aside class="tab_bar main">
         <div class="cotn">
             <div class="tab_btn home"><!-- 활성화시 class="on" 추가 -->
-                <a href="1_home.html">
+                <a href="home">
                     <span class="blind">홈</span>
                 </a>
             </div>
             <div class="tab_btn pack">
-                <a href="3_list_01.html">
+                <a href="boardList">
                     <span class="blind">my pack</span>
                 </a>
             </div>
             <div class="tab_btn add on">
-                <a href="5_studio_01.html">
+                <a href="studio">
                     <span class="blind">스튜디오</span>
                 </a>
             </div>

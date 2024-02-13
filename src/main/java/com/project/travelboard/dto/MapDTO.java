@@ -2,7 +2,7 @@ package com.project.travelboard.dto;
 
 public class MapDTO {
 
-
+    private String id;
     private String spot_name;
 
     private String spot_id ;
@@ -13,6 +13,14 @@ public class MapDTO {
 
     public void setSpot_id(String spot_id) {
         this.spot_id = spot_id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     private String spotComment;

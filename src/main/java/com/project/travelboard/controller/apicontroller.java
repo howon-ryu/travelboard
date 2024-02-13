@@ -74,9 +74,9 @@ public class apicontroller {
         return "studio"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
     }
 
-    @GetMapping("/createNewSpot") // HTTP GET 요청에 대한 처리를 위한 매핑
-    public String createNewSpot() {
-        return "createNewSpot"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
+    @GetMapping("/createSpotDetail") // HTTP GET 요청에 대한 처리를 위한 매핑
+    public String createSpotDetail() {
+        return "createSpotDetail"; // "save" 뷰 이름을 반환하여 해당 JSP 파일을 표시
     }
     @GetMapping("/createPhotoDetail") // HTTP GET 요청에 대한 처리를 위한 매핑
     public String createPhotoDetail() {
@@ -421,6 +421,19 @@ public class apicontroller {
 
 
     }
+    @PostMapping("/getMapInfo")
+    @ResponseBody
+    public MapDTO getMapInfo(@RequestBody() Map<String, String> data){
+
+        String map_id = data.get("map_id");
+
+        System.out.println("map_id"+map_id);
+        MapDTO mapDTO =  travelBoardService.getMapInfo(Integer.valueOf(map_id));
+
+        return mapDTO;
+
+
+    }
 
 
     @PostMapping("/changePassword")
@@ -442,6 +455,41 @@ public class apicontroller {
 
 
     }
+
+    @PostMapping("/updatePhoto")
+
+    public ResponseEntity updatePhoto(@RequestBody() PhotoDTO photoDTO){
+
+
+        travelBoardService.updatePhoto(photoDTO);
+
+        return ResponseEntity.ok().body(photoDTO);
+
+
+    }
+    @PostMapping("/updateSpot")
+
+    public ResponseEntity updateSpot(@RequestBody() SpotDTO spotDTO){
+
+
+        travelBoardService.updateSpot(spotDTO);
+
+        return ResponseEntity.ok().body(spotDTO);
+
+
+    }
+    @PostMapping("/updateMap")
+
+    public ResponseEntity updateMap(@RequestBody() MapDTO mapDTO){
+
+
+        travelBoardService.updateMap(mapDTO);
+
+        return ResponseEntity.ok().body(mapDTO);
+
+
+    }
+
 
 
 
@@ -495,6 +543,10 @@ public class apicontroller {
     }
 
 
+
+
+
+
     @PostMapping("/sendUserPick")
     public ResponseEntity sendUserPick(@RequestBody()UserPickDTO pickDTO){
 
@@ -544,6 +596,20 @@ public class apicontroller {
 //        }
 
         return ResponseEntity.ok().body(pickResult);
+
+
+    }
+    @PostMapping("/insertMap")
+    public ResponseEntity insertMap(@RequestBody()MapDTO mapDTO){
+
+
+
+        travelBoardService.insertMap(mapDTO);
+        MapDTO lastMap=travelBoardService.lastInputMap();
+
+        return ResponseEntity.ok().body(lastMap);
+
+
 
 
     }

@@ -191,7 +191,7 @@
 		var cookieValue = getCookieValue("id");
 		console.log("내가 만든 쿠키~", cookieValue);
 
-		
+
 	});
 
 
