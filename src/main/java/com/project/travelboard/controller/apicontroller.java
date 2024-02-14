@@ -7,6 +7,8 @@ package com.project.travelboard.controller;
 //import com.project.travelboard.service.BoardService;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.project.travelboard.dto.*;
 import com.project.travelboard.service.TravelBoardService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -262,14 +264,11 @@ public class apicontroller {
         return ResponseEntity.ok().body("{\"result\": \"" + tempInput + "\"}");
     }
     @PostMapping("/createSpot")
-//    @RequestBody
-    public ResponseEntity createSpot(@RequestBody()SpotDTO spotDTO,HttpServletRequest request){
+    public ResponseEntity createSpot(@RequestBody()SpotDTO spotDTO, HttpServletRequest request){
         String tempInput = spotDTO.getSpotComment();
-        //System.out.println("nick"+ tempInput);
-
         travelBoardService.createSpot(spotDTO);
-        SpotDTO lastSpot=travelBoardService.lastInputSpot();
-        System.out.println("lastSpot"+lastSpot.getId());
+        SpotDTO lastSpot = travelBoardService.lastInputSpot();
+        System.out.println("lastSpot" + lastSpot.getId());
         String basePath = request.getServletContext().getRealPath("/");
         String beforeFolderPath = basePath + "assets" + File.separator + "image" + File.separator + "userUploads" ;
         String folderPath = basePath + "assets" + File.separator + "spot" + File.separator + lastSpot.getId();
@@ -300,21 +299,20 @@ public class apicontroller {
             Path destination = Paths.get(folderPath, fileName);
             Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
 
+            // spotComment를 제외한 필드들만 JSON으로 반환
+            ObjectMapper mapper = new ObjectMapper();
+            ObjectNode resultNode = mapper.createObjectNode();
+            resultNode.put("id", lastSpot.getId());
+            resultNode.put("spot_name", lastSpot.getSpot_name());
+            resultNode.put("map_id", lastSpot.getMap_id());
+            // 이하 필드들 추가...
 
-            return ResponseEntity.ok().body("{\"result\": \"" + lastSpot + "\"}");
+            return ResponseEntity.ok().body(resultNode.toString());
         } catch (IOException e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Failed to copy file: " + e.getMessage());
         }
-
-
-
-
-
-
-
-
     }
     @PostMapping("/createPhoto")
 

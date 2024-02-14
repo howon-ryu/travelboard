@@ -630,7 +630,7 @@
 
 			let map_id = createMapInfo()
 			console.log("map_id",map_id)
-			alert(map_id)
+
 			let dataValueInsert = {
 				"spot_name" : spot_name,
 				"spotComment" : spotComment,
