@@ -60,12 +60,7 @@
 				<!-- 프로필정보 -->
 				<div class="pro_info">
 					<div class="group">
-						<div class="item">
-							<p class="label">이름</p>
-							<div class="cotn">
-								<p class="txt">칩칩스스</p>
-							</div>
-						</div>
+
 						<div class="item">
 							<p class="label">ID</p>
 							<div class="cotn">
@@ -79,32 +74,20 @@
 							<p class="label">닉네임</p>
 							<div class="cotn">
 								<div class="nick_wrap">
-									<input type="text" name = "nickname" id = "nickname" value="헤이칩스">
+									<input type="text" name = "nickname" id = "nickname" value="">
 									<button type="button" id = "changeNickname"></button>
 								</div>
 							</div>
 						</div>
-						<div class="item">
-							<p class="label">휴대폰</p>
-							<div class="cotn">
-								<p class="txt">01011223344</p>
-							</div>
-						</div>
-						<div class="item">
-							<p class="label">wallet</p>
-							<div class="cotn">
-								<div class="btn_wrap">
-									<a href="#n" class="btn color_type4 not_hover">Wallet으로 연결하기</a>
-								</div>
-							</div>
-						</div>
+
+
 					</div>
 					<div class="group link_grp">
 						<p class="tit">고객센터</p>
-						<div class="item">
+						<div class="item not_hover">
 							<a href="#n" class="my_link">1 : 1 문의</a>
 						</div>
-						<div class="item">
+						<div class="item not_hover" >
 							<a href="6_mypage_04.html" class="my_link">서비스 약관</a>
 						</div>
 					</div>
@@ -119,7 +102,7 @@
 								<p class="txt ver">1.1.3</p>
 							</div>
 						</div>
-						<div class="item">
+						<div class="item not_hover">
 							<a href="#n" class="my_link btn_pop" open-pop="my_pop_02">회원 탈퇴</a>
 						</div>
 					</div>
@@ -142,10 +125,10 @@
 		</div>
 		<p class="txt">로그아웃 하시겠습니까?</p>
 		<div class="btn_wrap db">
-			<a href="#n" class="btn color_type4">
+			<a  class="btn color_type4" onclick = "logout()">
 				<span>확인</span>
 			</a>
-			<a href="#n" class="btn color_type3 close">
+			<a  class="btn color_type3 close" >
 				<span>취소</span>
 			</a>
 		</div>
@@ -182,6 +165,7 @@
 
 		var cookieValue = getCookieValue("id");
 		console.log("내가 만든 쿠키~", cookieValue);
+
 		getUserInfo()
 
 
@@ -189,9 +173,15 @@
 
 	});
 
-	const getCookieValue = (name) => (
-			document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
-	)
+	function logout(){
+
+
+		deleteCookie("id")
+		location.href = "init"
+
+
+
+	}
 
 	function getUserInfo(){
 		let userTableId = getCookieValue("id")

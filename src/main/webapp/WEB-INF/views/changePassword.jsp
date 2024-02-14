@@ -105,9 +105,9 @@
         }
 
     }
-    const getCookieValue = (name) => (
-        document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
-    )
+    // const getCookieValue = (name) => (
+    //     document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+    // )
     $("#changePassword").on("click", function(){
         console.log("changebtn click")
 

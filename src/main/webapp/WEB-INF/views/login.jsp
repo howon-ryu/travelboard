@@ -35,8 +35,8 @@
      </div>
   <div class="mb_title">
     <h2 class="sg_app">회원 로그인</h2>
-    <h2 class="chst_app">여행지 문 열기</h2>
-    <h4 class="sg_app">사운드그램 계정으로 로그인해 주세요.</h4>
+    <h2 class="chst_app">여행지 로그인</h2>
+    <h4 class="sg_app" hidden>사운드그램 계정으로 로그인해 주세요.</h4>
     <!--<h4 class="chst_app">칩칩이 포탈문 열기 암호를 대시오~</h4>-->
   </div>
   <div class="mb_content">

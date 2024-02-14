@@ -63,6 +63,7 @@ function getSpotPhotolist(pack_id){
             console.log("photoList",obj);
 
             document.getElementById("pack_title_h2").innerText = obj[0].spot_name
+            document.getElementById("photo_title_h2").innerText = obj[0].photo_name
 
             document.getElementById("total_num").innerText = obj.length
             document.getElementById("end_num").innerText = obj.length

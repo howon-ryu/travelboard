@@ -53,10 +53,10 @@
             <div class="pack_box">
                 <div class="card pack_group"><!-- ★★ allca인경우 class="allca" -->
                     <div class="box_tit">
-                        <p class="nickname">Chipster Original</p>
+                        <p class="nickname" id = "box_nickname">Chipster Original</p>
                         <p id = "spot_name" class="tit"></p>
                     </div>
-                    <div class="box_info">
+                    <div class="box_info" style = "display : none">
                         <div class="addr">
                             <p class="txt">총<span class="cnt">18</span>스팟</p>
                         </div>
@@ -80,7 +80,7 @@
                                 </figure>
                             </div>
                             <div class="txt_wrap">
-                                <div class="txt_top">
+                                <div class="txt_top" style = "display : none">
                                     <!-- ALLCA아닌경우 삭제 -->
                                     <div class="txt_des">
                                         <figure class="img"><img src="../assets/image/common/allca.svg"></figure>
@@ -590,11 +590,14 @@
         var packId = getParameterByName("pack_id",currentUrl)
         let spotNameTag = document.getElementById('spot_name');
         let spotCommentTag = document.getElementById('spotComment');
+        let spotNickNameTag = document.getElementById('box_nickname');
 
 
 
         spotNameTag.innerText = data.spot_name;
         spotCommentTag.innerText =data.spotComment;
+        console.log("data",data)
+        spotNickNameTag.innerText = data.nickname;
         // document.getElementById("imgTag").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+tempImgName_t+"?a="+Math.random();
         document.getElementById("imgTag").src = "${path}/assets/spot/"+packId+"/"+data.img_name+"?a="+Math.random();
     }

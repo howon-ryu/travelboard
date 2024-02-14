@@ -68,7 +68,7 @@
             <div class="spot_loc">
                 <!-- 주소입력 -->
                 <div class="addr_area">
-                    <input type="text" placeholder="위치를 설정하세요" disabled>
+                    <input type="text" id = "road_name_disabled" placeholder="위치를 설정하세요" disabled>
                     <input type="text" id = "latitude" hidden>
                     <input type="text" id = "longitude" hidden>
                 </div>
@@ -141,7 +141,7 @@
             <!--// 정보입력폼 -->
 
             <div class="btn_wrap btn_fixed" id = "createPhoto">
-                <a  class="btn color_type4 inactv"><span>스팟 저장하기</span></a><!-- 비활성일경우 class="inactv"추가 -->
+                <a  class="btn color_type4 "><span>스팟 저장하기</span></a><!-- 비활성일경우 class="inactv"추가 -->
             </div>
         </div>
     </div>
@@ -193,7 +193,7 @@
         <div class="header_wrap">
             <!-- 뒤로가기 -->
             <div class="tit_ctrl">
-                <a id = "closePosition" class="close">
+                <a id = "closePosition" class="close" onclick="setRoadName()">
                     <span class="blind">닫기</span>
                 </a>
             </div>
@@ -344,6 +344,10 @@
     // 		document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
     // )
     var tempImgName=""
+    function setRoadName(){
+        $('#road_name_disabled').attr('value', $("#road_name").val());
+
+    }
     function changePhotoValue() {
         console.log("!!!");
 

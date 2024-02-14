@@ -100,213 +100,7 @@
                 <div class="bd_list">
                     <!-- 목록:리스트형 -->
                     <ul class="pack_gall" id = "poca_gallary">
-                        <li>
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_02.png" >
-                                    </figure>
-                                </div>
-                                <!--// 이미지영역 -->
 
-                                <a class="go_view btn_full_pop" open-pop="spot_pop">
-                                    <span class="blind">상세이동</span>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_01.png" >
-                                    </figure>
-                                </div>
-                                <!--// 이미지영역 -->
-
-                                <a  class="go_view">
-                                    <span class="blind">상세이동</span>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_03.png" >
-                                    </figure>
-                                </div>
-                                <!--// 이미지영역 -->
-
-                                <a  class="go_view">
-                                    <span class="blind">상세이동</span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="none"><!-- 데이터없음 class="none"추가 -->
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <span class="blind">데이터없음</span>
-                                </div>
-                                <!--// 이미지영역 -->
-                            </div>
-                        </li>
-                        <li class="none"><!-- 데이터없음 class="none"추가 -->
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <span class="blind">데이터없음</span>
-                                </div>
-                                <!--// 이미지영역 -->
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_03.png" >
-                                    </figure>
-                                </div>
-                                <!--// 이미지영역 -->
-
-                                <a   class="go_view">
-                                    <span class="blind">상세이동</span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="none"><!-- 데이터없음 class="none"추가 -->
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <span class="blind">데이터없음</span>
-                                </div>
-                                <!--// 이미지영역 -->
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_01.png" >
-                                    </figure>
-                                </div>
-                                <!--// 이미지영역 -->
-
-                                <a   class="go_view">
-                                    <span class="blind">상세이동</span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="none"><!-- 데이터없음 class="none"추가 -->
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <span class="blind">데이터없음</span>
-                                </div>
-                                <!--// 이미지영역 -->
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_02.png" >
-                                    </figure>
-                                </div>
-                                <!--// 이미지영역 -->
-
-                                <a   class="go_view">
-                                    <span class="blind">상세이동</span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="none"><!-- 데이터없음 class="none"추가 -->
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <span class="blind">데이터없음</span>
-                                </div>
-                                <!--// 이미지영역 -->
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_03.png" >
-                                    </figure>
-                                </div>
-                                <!--// 이미지영역 -->
-
-                                <a   class="go_view">
-                                    <span class="blind">상세이동</span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="none"><!-- 데이터없음 class="none"추가 -->
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <span class="blind">데이터없음</span>
-                                </div>
-                                <!--// 이미지영역 -->
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_01.png" >
-                                    </figure>
-                                </div>
-                                <!--// 이미지영역 -->
-
-                                <a   class="go_view">
-                                    <span class="blind">상세이동</span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="none"><!-- 데이터없음 class="none"추가 -->
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <span class="blind">데이터없음</span>
-                                </div>
-                                <!--// 이미지영역 -->
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <figure class="img">
-                                        <img src="../assets/image/temp/pack_02.png" >
-                                    </figure>
-                                </div>
-                                <!--// 이미지영역 -->
-
-                                <a   class="go_view">
-                                    <span class="blind">상세이동</span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="none"><!-- 데이터없음 class="none"추가 -->
-                            <div class="pack_item">
-                                <!-- 이미지영역 -->
-                                <div class="img_area">
-                                    <span class="blind">데이터없음</span>
-                                </div>
-                                <!--// 이미지영역 -->
-                            </div>
-                        </li>
                     </ul>
                     <!--// 목록:리스트형 -->
                 </div>
@@ -318,7 +112,7 @@
     <!-- 팩탭바 -->
     <aside class="tab_bar pack">
         <div class="cotn">
-            <div class="tab_btn map"><!-- 활성화시 class="on" 추가 -->
+            <div class="tab_btn map not_hover"><!-- 활성화시 class="on" 추가 -->
                 <a href="pack_local.php">
                     <span class="blind">내 위치</span>
                 </a>
@@ -457,7 +251,7 @@
             <div class="talk_inner">
                 <!-- 팩 타이틀 -->
                 <div class="pack_title">
-                    <h2>졸업생이 알려주는 고양이 주요 출몰 지역 찾아보면 다나옴 </h2>
+                    <h2 id="photo_title_h2">졸업생이 알려주는 고양이 주요 출몰 지역 찾아보면 다나옴 </h2>
                 </div>
                 <!--// 팩 타이틀 -->
 
@@ -472,8 +266,8 @@
                             </div>
                             <div class="txt_area">
                                 <p class="chat_info">
-                                    <span class="user">언제나스마일</span>
-                                    <span class="date">2023.03.29 18:45</span>
+                                    <span class="user" hidden>언제나스마일</span>
+                                    <span class="date" hidden>2023.03.29 18:45</span>
                                 </p>
                                 <div class="txt_des">
                                     <span class="txt">튼튼이가 요즘에 안보여서 엄청 걱정했는데 덕분에 만날수 있었어요</span>
@@ -493,7 +287,7 @@
                             </div>
                             <div class="txt_area">
                                 <p class="chat_info">
-                                    <span class="user">언제나스마일</span>
+                                    <span class="user" hidden>언제나스마일</span>
                                     <span class="date">2023.03.29 18:45</span>
                                 </p>
                                 <div class="txt_des">
@@ -700,7 +494,7 @@
         // poca_pop(pack_poca_data[0].id)
     })
 
-    let delete_num_key = ""
+
     function btn_pop_click(commentKey, user_id){
         console.log(user_id, getCookieValue("id"))
         if(user_id == getCookieValue("id")){
@@ -833,7 +627,7 @@
                         <div class="txt_area">
                             <p class="chat_info">
                                 <span class="user">`+commentData.user_nickname+`</span>
-                                <span class="date">`+commentData.create_timestamp+`</span>
+                                <span class="date" hidden>`+commentData.create_timestamp+`</span>
                             </p>
                             <div class="txt_des">
                                 <span class="txt">`+commentData.content+`</span>
@@ -1013,9 +807,11 @@
 <script>
     let delete_num_key = ""
     $(".btn_submit").on("click", function(){
+        console.log("smg")
         send_msg();
     })
     function send_msg(){
+
         var send_text = document.getElementById('send_text').value;
         var pack_id = getParameterByName('pack_id', currentUrl);
         let send_text_data =

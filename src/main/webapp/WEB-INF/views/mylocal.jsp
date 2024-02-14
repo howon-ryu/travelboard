@@ -368,7 +368,7 @@
             }
             // if(distance<1) {
             console.log("pack_location_list[_l]",pack_location_list[_l])
-            latlngs.push(new naver.maps.LatLng(pack_location_list[_l].latitude, pack_location_list[_l].longitude));
+            latlngs.push(new naver.maps.LatLng(pack_location_list[_l].longitude, pack_location_list[_l].latitude));
             // 221005 pack_id별 pin 이미지로 셋팅
             iconList.push("<a href = '#none' class = 'spot' onclick = getOnePack("+pack_id+")> <img style= ' position: absolute; display: block; width: 50px; height: 50px; background-size: contain; background-repeat: no-repeat;' src='${path}/assets/assets_howon/image/logo_remove_icon.png' alt=''> </a>");
             // }

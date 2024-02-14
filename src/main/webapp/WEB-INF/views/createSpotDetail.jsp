@@ -100,7 +100,7 @@
 				<div class="spot_loc">
 					<!-- 주소입력 -->
 						<div class="addr_area">
-							<input type="text"  placeholder="위치를 설정하세요"  disabled >
+							<input type="text" id = "road_name_disabled"  placeholder="위치를 설정하세요"  disabled >
 							<input type="text" id = "latitude" hidden>
 							<input type="text" id = "longitude" hidden>
 							<input type="text" id = "map_id" hidden>
@@ -181,7 +181,7 @@
 
 			<div class="btn_wrap btn_fixed" id = "createSpot">
 <%--				<a href="studio" class="btn color_type6 inactv"><span>저장하기</span></a><!-- 비활성일경우 class="inactv"추가 -->--%>
-				<a  class="btn color_type6 inactv"><span>저장하기</span></a><!-- 비활성일경우 class="inactv"추가 -->
+				<a  class="btn color_type6 "><span>저장하기</span></a><!-- 비활성일경우 class="inactv"추가 -->
 			</div>
 		</div>
 	</div>
@@ -254,7 +254,7 @@
 		<div class="header_wrap">
 			<!-- 뒤로가기 -->
 			<div class="tit_ctrl">
-				<a id = "closePosition" class="close">
+				<a id = "closePosition" class="close" onclick="setRoadName()">
 					<span class="blind">닫기</span>
 				</a>
 			</div>
@@ -378,7 +378,7 @@
 
 					$('#img_name').attr('value', data.img_name);
 					tempImgName = data.img_name
-					document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+tempImgName+"?a="+Math.random();
+					document.getElementById("selected_img").src = "http://localhost:8080/assets/spot/"+isPackId+"/"+tempImgName+"?a="+Math.random();
 
 				},
 
@@ -446,8 +446,12 @@
 	function select_img(imgName){
 		console.log("selectimg")
 		var cookieValue = getCookieValue("id");
-		document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+imgName+"?a="+Math.random();
+		document.getElementById("selected_img").src = "http://localhost:8080/assets/image/userUploads/"+imgName+"?a="+Math.random();
 
+
+	}
+	function setRoadName(){
+		$('#road_name_disabled').attr('value', $("#road_name").val());
 
 	}
 
@@ -626,6 +630,7 @@
 
 			let map_id = createMapInfo()
 			console.log("map_id",map_id)
+			alert(map_id)
 			let dataValueInsert = {
 				"spot_name" : spot_name,
 				"spotComment" : spotComment,
@@ -635,8 +640,8 @@
 
 
 			}
-			console.log(dataValue)
-			alert("before")
+			console.log(dataValueInsert)
+
 			$.ajax({
 				type : "POST",
 

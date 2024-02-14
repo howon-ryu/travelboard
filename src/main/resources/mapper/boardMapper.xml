@@ -200,8 +200,8 @@
     </insert>
 
     <insert id = "createSpot" parameterType="spot" >
-        insert into travel_spot(spot_name, spotComment,img_name,user_id)
-        values(#{spot_name}, #{spotComment},#{img_name},#{user_id})
+        insert into travel_spot(spot_name, spotComment,img_name,user_id,map_id)
+        values(#{spot_name}, #{spotComment},#{img_name},#{user_id},#{map_id})
 
 
     </insert>
@@ -280,7 +280,8 @@
 
 
     <select id = "getSpotInfo" parameterType="Integer" resultType="spot">
-        select * from travel_spot where id = #{pack_id}
+
+        select * from travel_spot left join user on travel_spot.user_id =user.id  where travel_spot.id  = #{pack_id};
 
     </select>
 

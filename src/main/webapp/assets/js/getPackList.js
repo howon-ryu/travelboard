@@ -187,7 +187,7 @@ function myPackList(data){
 		let imgPath = `http://localhost:8080/assets/spot/`+data[key].id+'/'+data[key].img_name;
 		let road_name = data[key]['road_name']
 		//let totalPocaSize = data[key]['totalPocaSize']
-		let totalPocaSize = 100
+		let totalPocaSize =0
 		let pack = `<li>
 						<div class="pack_group release">
 							<div class="cotn">
@@ -207,7 +207,7 @@ function myPackList(data){
 									<p class="date">`+start_time+`</p>
 									<p class="tit">`+title+`</p>
 									<div class="addr">
-										<span class="cnt">12</span>
+										<span class="cnt">0</span>
 										<p class="txt">/ ${road_name}</p>
 									</div>
 									<div class="pack_info">
@@ -260,7 +260,7 @@ function popularPackList(data) {
 									<p class="nickname">${nickName}</p>
 									<p class="tit">${data[key].spot_name}</p>
 									<div class="addr">
-										<span class="cnt">12</span>
+										<span class="cnt">0</span>
 										<p class="txt">/${data[key].road_name} </p>
 									</div>
 									<div class="pack_info">
@@ -314,7 +314,7 @@ function popularPackList(data) {
 									<p class="nickname">${nickName}</p>
 									<p class="tit">${data[key].spot_name}</p>
 									<div class="addr">
-										<span class="cnt">12</span>
+										<span class="cnt">0</span>
 										<p class="txt">/${data[key].road_name} </p>
 									</div>
 									<div class="pack_info">
@@ -383,7 +383,7 @@ function make_searchedlist(pack_list_data){
                                         <p class="tit">${pack.spot_name}</p>
                                         <p class="tit" id = "pack_${pack.id}" hidden></p>
                                         <div class="addr">
-                                            <span class="cnt">12</span>
+                                            <span class="cnt">0</span>
                                             <p class="txt">/ ${pack.road_name}</p>
                                         </div>
                                         <div class="pack_info">
@@ -455,7 +455,7 @@ function myPickPackList(pack_list_data){
 							<p class="tit">${pack.spot_name}</p>
 							<p class="tit" id = "pack_${pack.id}" hidden></p>
 							<div class="addr">
-								<span class="cnt">12</span>
+								<span class="cnt">0</span>
 								<p class="txt">/ ${pack.road_name}</p>
 							</div>
 							<div class="pack_info">

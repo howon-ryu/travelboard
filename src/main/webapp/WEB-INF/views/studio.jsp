@@ -35,7 +35,7 @@
         <div class="header_wrap">
             <!-- 뒤로가기 -->
             <div class="tit_ctrl">
-                <a  class="back" onclick="goToBack()">
+                <a  class="back" href = "home">
                     <span class="blind">뒤로가기</span>
                 </a>
             </div>
