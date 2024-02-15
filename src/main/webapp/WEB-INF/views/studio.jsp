@@ -50,7 +50,7 @@
             <!-- 버튼 -->
             <div class="btn_area">
                 <div class="btn_head btn_my">
-                    <a href="6_mypage_01.html">
+                    <a href="mypage">
                         <span class="blind">마이페이지</span>
                     </a>
                 </div>

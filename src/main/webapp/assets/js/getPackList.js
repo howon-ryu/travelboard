@@ -276,7 +276,7 @@ function popularPackList(data) {
 								</div>
 								<!--// 텍스트영역 -->
 							</div>
-							<a href="pack.php?pack_id=${data[key].id}" class="go_view">
+							<a href="spotInfo?pack_id=${data[key].id}" class="go_view">
 								<span class="blind">상세이동</span>
 							</a>
 						</div>
@@ -330,7 +330,7 @@ function popularPackList(data) {
 								</div>
 								<!--// 텍스트영역 -->
 							</div>
-							<a href="pack.php?pack_id=${data[key].id}" class="go_view">
+							<a href="spotInfo?pack_id=${data[key].id}" class="go_view">
 								<span class="blind">상세이동</span>
 							</a>
 						</div>
