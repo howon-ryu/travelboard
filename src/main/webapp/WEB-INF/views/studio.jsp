@@ -73,7 +73,7 @@
                 <!--// 목록:리스트형 -->
                 <div class="btn_wrap btn_fixed">
                     <figure class="img">
-                        <img src="../assets/image/common/chip_13.png" alt="">
+                        <img src="${path}/assets/assets_howon/image/logo_remove_icon.png" alt="">
                     </figure>
                     <a href="createSpotDetail" class="btn btn_100p btn_more color_type2"><span>신규 여행지 만들기</span></a>
                 </div>

@@ -211,7 +211,7 @@ function myPackList(data){
 										<p class="txt">/ ${road_name}</p>
 									</div>
 									<div class="pack_info">
-										<div class="count">
+										<div class="count" style="display: none">
 											<p>
 												<em class="current">`+totalPocaSize+`</em>  <em class="tot" hidden>999</em> 
 											</p>
@@ -264,7 +264,7 @@ function popularPackList(data) {
 										<p class="txt">/${data[key].road_name} </p>
 									</div>
 									<div class="pack_info">
-										<div class="count">
+										<div class="count" style="display: none">
 											<p>
 												<em class="current">28</em> / <em class="tot">999</em>
 											</p>
@@ -318,7 +318,7 @@ function popularPackList(data) {
 										<p class="txt">/${data[key].road_name} </p>
 									</div>
 									<div class="pack_info">
-										<div class="count">
+										<div class="count"  style="display: none">
 											<p>
 												<em class="current">28</em> / <em class="tot">999</em>
 											</p>

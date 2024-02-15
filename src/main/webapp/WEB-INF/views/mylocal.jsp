@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="pack_info">
                                         <div class="chat">
-                                            <span>1,045</span>
+                                            <span id = "commentCount">1,045</span>
                                         </div>
                                         <div class="count">
                                             <p>
@@ -210,8 +210,9 @@
         document.getElementById("pack_img").src = imgPath
         document.getElementById("tit").innerText = spotData[0].spot_name;
         document.getElementById("nickname").innerText = spotData[0].nickname;
-        document.getElementById("chat").innerText = spotData[0].commentCount;
+        document.getElementById("commentCount").innerText = spotData[0].commentCount;
         document.getElementById("txt").innerText = "/ "+spotData[0].road_name;
+
         //document.getElementById("current").innerText = spotData[0].packInfo.totalPocaSize;
     }
 

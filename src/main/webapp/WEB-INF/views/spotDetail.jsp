@@ -94,7 +94,7 @@
                                 <span><em>1</em> 명</span>
                             </div>
                             <div class="chat">
-                                <span id = "commentCount">1,045</span>
+                                <span id = "commentCount"></span>
                             </div>
                         </div>
                         <a class="go_view" onclick = "goToPack()">
@@ -185,11 +185,13 @@ function setSpotInfo(data){
 
         let spotNameTag = document.getElementById('spot_name');
         let spotCommentTag = document.getElementById('spotComment');
+        let commentCountTag = document.getElementById('commentCount');
+
         document.getElementById("spot_img").src = "http://localhost:8080/assets/spot/"+data.id+"/"+data.img_name;
 
         spotNameTag.innerText = data.spot_name;
         spotCommentTag.innerText =data.spotComment;
-
+        commentCountTag.innerText = data.commentCount;
 
 
     }

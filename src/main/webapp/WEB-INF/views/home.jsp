@@ -45,7 +45,7 @@
 		<div class="header_wrap">
 			<!-- 타이틀 -->
 			<h1 class="logo">
-				<a href="home.html">
+				<a href="home">
 				<link href="${path}/assets/assets_howon/css/main.css" rel="stylesheet"/>
 				    <img src="${path}/assets/assets_howon/image/logo_remove_title_svg.svg" alt="title" style="width:150%">
 

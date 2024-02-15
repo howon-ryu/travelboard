@@ -39,7 +39,7 @@
 
             <!-- 타이틀 -->
             <h1>
-                <figure class="img"><img src="../assets/image/common/chip_03.png"></figure>
+                <figure class="img"><img src="${path}/assets/assets_howon/image/logo_remove_icon.png"></figure>
             </h1>
             <!--// 타이틀 -->
         </div>
@@ -109,7 +109,7 @@
                         <p>COMMENT</p>
                     </div>
                     <div class="talk_cnt">
-                        <span>175</span>
+                        <span id = "commentCount">175</span>
                     </div>
                     <a   class="go_view btn_full_pop" open-pop="talk_pop">
                         <span class="blind">댓글영역보기</span>
@@ -591,11 +591,13 @@
         let spotNameTag = document.getElementById('spot_name');
         let spotCommentTag = document.getElementById('spotComment');
         let spotNickNameTag = document.getElementById('box_nickname');
+        let commentCountTag = document.getElementById('commentCount');
 
 
 
         spotNameTag.innerText = data.spot_name;
         spotCommentTag.innerText =data.spotComment;
+        commentCountTag.innerText = data.commentCount;
         console.log("data",data)
         spotNickNameTag.innerText = data.nickname;
         // document.getElementById("imgTag").src = "http://localhost:8080/assets/image/userUploads/"+cookieValue+"/"+tempImgName_t+"?a="+Math.random();

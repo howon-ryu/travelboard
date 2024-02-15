@@ -281,7 +281,14 @@
 
     <select id = "getSpotInfo" parameterType="Integer" resultType="spot">
 
-        select * from travel_spot left join user on travel_spot.user_id =user.id  where travel_spot.id  = #{pack_id};
+        select travel_spot.*,COUNT(comment.id) AS commentCount
+        from travel_spot
+            left join user on travel_spot.user_id =user.id
+            left join comment on travel_spot.id = comment.spot_id
+        where travel_spot.id  = #{pack_id}
+        group by travel_spot.id
+        ;
+
 
     </select>
 
