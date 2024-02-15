@@ -31,7 +31,7 @@
         <div class="header_wrap">
             <!-- 뒤로가기 -->
             <div class="tit_ctrl">
-                <a href="#n" class="close">
+                <a  class="close" onclick="goToBack()">
                     <span class="blind">닫기</span>
                 </a>
             </div>

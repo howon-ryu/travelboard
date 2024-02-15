@@ -110,7 +110,7 @@
 <aside class="tab_bar main">
     <div class="cotn">
         <div class="tab_btn home"><!-- 활성화시 class="on" 추가 -->
-            <a href="home_rhw.php">
+            <a href="home.php">
                 <span class="blind">홈</span>
             </a>
         </div>
